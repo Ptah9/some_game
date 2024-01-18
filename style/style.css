@@ -16,7 +16,41 @@
     padding: 20px;
     position: relative;
 }
+.desc {
+    margin: 10px;
+    text-align: center;
+
+    
+}
 
 .name {
     color:rgb(255, 0, 0);
+    margin: 10px;
+    text-align: center;
+}
+
+.click_button {
+    
+    height: 100px;
+    width: 200px;
+    color: black;
+    background-color: rgb(171, 80, 80);
+    border: 5px solid rgb(71, 19, 19);
+    border-radius: 5px;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+.click_button:active {
+    background-color:brown;
+    border-color:rgb(40, 11, 11);
+}
+
+hr {
+    margin: 5px;
+    color:red
+}
+.btn {
+    text-align: center;
 }

@@ -1,0 +1,22 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+*{
+    font-family: calibri;
+}
+
+.page {
+    max-width: 1400px;
+    min-height: 100vh;
+    background: rgb(91, 91, 91);
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+.name {
+    color:rgb(255, 0, 0);
+}

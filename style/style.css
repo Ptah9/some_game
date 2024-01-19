@@ -2,55 +2,69 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: 0.3s;
 }
 *{
     font-family: calibri;
 }
 
 .page {
-    max-width: 1400px;
     min-height: 100vh;
-    background: rgb(91, 91, 91);
+    background: rgb(0, 0, 0);
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
     position: relative;
-}
-.desc {
-    margin: 10px;
-    text-align: center;
+} 
 
+.title {
     
-}
-
-.name {
-    color:rgb(255, 0, 0);
-    margin: 10px;
+    color: rgb(140, 0, 255);
     text-align: center;
 }
 
-.click_button {
-    
-    height: 100px;
-    width: 200px;
-    color: black;
-    background-color: rgb(171, 80, 80);
-    border: 5px solid rgb(71, 19, 19);
+.main_button {
+    margin: 10px;
+    height: 50px;
+    width: 50px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(110, 0, 201);
+    border: 3px solid rgb(57, 0, 104);
     border-radius: 5px;
     font-weight: 700;
     text-align: center;
 
 }
 
-.click_button:active {
-    background-color:brown;
-    border-color:rgb(40, 11, 11);
+.main_button:active {
+    background-color:rgb(88, 0, 161);
+    border-color:rgb(57, 0, 104);
+    transition: 0.1s;
 }
 
-hr {
-    margin: 5px;
-    color:red
-}
 .btn {
     text-align: center;
+}   
+
+.menu_up_btns {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
 }
+/* ----------------------------------- */
+/* .leaderboard_btn {
+}
+
+.map_btn {
+    
+} */
+/* -------------------------------- */
+.menu_down_btns {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+/* .artifacts_btn {
+}
+
+.weapon_btn {
+} */

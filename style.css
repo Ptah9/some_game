@@ -15,16 +15,20 @@
     url("minecraft_font/1_Minecraft-Regular.svg#Minecraft-Regular") 
     format("svg");
     font-weight:normal;
-    font-style:normal;}
+    font-style:normal;
+}
 
+/* ---------------------------------------------------------------- */
 
 .page {
     min-height: 100vh;
-    background: rgb(0, 0, 0);
+    background: linear-gradient(black 25vh, rgb(123, 123, 123) 50vh, black 80vh);
     margin: 0 auto;
     padding: 10px;
     position: relative;
 } 
+
+/* ---------------------------------------------------------------- */
 
 .title {
     
@@ -33,32 +37,32 @@
     font-family: Minecraft Regular;
 }
 
+/* ---------------------------------------------------------------- */
+
 .main-button {
-    margin: 10px;
-    height: 50px;
-    width: 50px;
-    background-color: rgb(0, 0, 0);
-    border: 3px solid rgb(0, 0, 0);
+    margin: 5px;
+    height: 70px;
+    width: 70px;
+    background-color: rgba(240, 248, 255, 0);
+    border: none;
     font-weight: 700;
     background-size: cover;
 
 }
-
 .main-button:active {
-    background-color:rgb(88, 88, 88);
-    border-color:rgb(255, 255, 255);
+    background-color:rgba(88, 88, 88, 0.5);
+    border: 2px solid rgb(255, 255, 255);
     transition: 0.1s;   
 }
 
-.btn {
-    text-align: center;
-}   
+/* ---------------------------------------------------------------- */
 
 .menu-up-btns {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
 }
+
 #leaderboard-btn {
     background-image: url('imgs/pedestal.png');
 }
@@ -66,6 +70,9 @@
 #map-btn {
     background-image: url('imgs/map.png');
 }
+
+/* ---------------------------------------------------------------- */
+
 .menu-down-btns {
     display: flex;
     justify-content: space-between;
@@ -80,23 +87,28 @@
     background-image: url('imgs/pedestal.png');
 }
 
+/* ---------------------------------------------------------------- */
+
 .scale-box {
     height: 30px;
     background: linear-gradient( to right, rgb(151, 0, 0), rgb(255, 30, 30));
-
+    
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-
-    margin: 10px;
 }
-
 .health-scale {
     height: 30px;
     background-color: black;
-
 }   
 
+.health-scale-border {
+    border: 2px solid rgb(195, 195, 195);
+    margin: 5px;
+
+}
+
+/* ---------------------------------------------------------------- */
 
 .main-area {
 

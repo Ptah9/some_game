@@ -1,15 +1,18 @@
 const healthScale = document.querySelector('.health-scale'),
-    artifactsBtn = document.querySelector('.artifacts-btn');
+    artifactsBtn = document.querySelector('#artifacts-btn');
 
 
 let max_health = 1000,
     health = 1000;
 
-addEventListener("click", function(){
-    if (health >= 0) {
+artifactsBtn.addEventListener("click", function(){
+    if (health > 0) {
         health -= 100
     }
-    healthScale.style.width = health / max_health * 100 + "%"
+    else {
+        health = max_health;
+    }
+    healthScale.style.width = (100 - (health / max_health * 100)) + "%"
 })
 
 // healthScale.style.width = max_health / health + "%"

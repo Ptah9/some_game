@@ -33,53 +33,62 @@
     font-family: Minecraft Regular;
 }
 
-.main_button {
+.main-button {
     margin: 10px;
     height: 50px;
     width: 50px;
     color: rgb(0, 0, 0);
-    background-color: rgb(110, 0, 201);
-    border: 3px solid rgb(57, 0, 104);
-    border-radius: 5px;
-    font-weight: 700;
+    border: 3px solid rgb(0, 0, 0);
+    font-weight: 700;rgb(0, 0, 0)
     text-align: center;
 
 }
 
-.main_button:active {
-    background-color:rgb(88, 0, 161);
-    border-color:rgb(57, 0, 104);
-    transition: 0.1s;
+.main-button:active {
+    background-color:rgb(88, 88, 88);
+    border-color:rgb(255, 255, 255);
+    transition: 0.1s;   
 }
 
 .btn {
     text-align: center;
 }   
 
-.menu_up_btns {
+.menu-up-btns {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
 }
 /* ----------------------------------- */
-/* .leaderboard_btn {
+/* .leaderboard-btn {
 }
 
-.map_btn {
+.map-btn {
     
 } */
 /* -------------------------------- */
-.menu_down_btns {
+.menu-down-btns {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
 }
 
-/* .artifacts_btn {
+/* .artifacts-btn {
 }
 
-.weapon_btn {
+.weapon-btn {
 } */
 
+/* ---------------------- */
 
+.scale-box {
+    height: 30px;
+    background: linear-gradient( to right, rgb(151, 0, 0), rgb(255, 30, 30));
+}
+
+.scale-box {
+    height: 30px;
+    background-color: aliceblue;
+
+}
 

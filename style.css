@@ -122,3 +122,14 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.room {
+    height: 95%;
+    width: 95%;
+    background-color: gray;
+    border: 5px solid black;
+
+    top:2.5%;
+    left:2.5%;
+    position:relative;
+}

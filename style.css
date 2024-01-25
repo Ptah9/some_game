@@ -133,3 +133,42 @@
     left:2.5%;
     position:relative;
 }
+
+
+
+#up-gate{
+    background-color: gray;
+    height: 5px;
+    width: 50%;
+    position: absolute;
+    top: -5px;
+    right: 25%;
+    display: none;
+}
+#right-gate{
+    background-color: gray;
+    height: 50%;
+    width: 5px;
+    position: absolute;
+    right: -5px;
+    bottom: 25%;
+    display: none;
+}
+#bottom-gate{
+    background-color: gray;
+    height: 5px;
+    width: 50%;
+    position: absolute;
+    bottom: -5px;
+    left: 25%;
+    display: none;
+}
+#left-gate{
+    background-color: gray;
+    height: 50%;
+    width: 5px;
+    position: absolute;
+    left: -5px;
+    top: 25%;
+    display: none;
+}

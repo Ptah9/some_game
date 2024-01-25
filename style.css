@@ -130,48 +130,88 @@ body {
     height: 95%;
     width: 95%;
     background-color: gray;
-    border: 5px solid black;
+    border: 1vh solid black;
 
     top:2.5%;
     left:2.5%;
     position:relative;
 }
 
-
+/* ------------------------------------------ */
 
 #up-gate{
     background-color: gray;
-    height: 5px;
+    height: 1vh;
     width: 50%;
     position: absolute;
-    top: -5px;
+    top: -1vh;
     right: 25%;
     display: none;
 }
+#up-button {
+    background-color: rgba(0, 0, 0, 0);
+    height: 27%;
+    width: 50%;
+    position: absolute;
+    top: -1vh;
+    right: 25%;
+}
+
+
 #right-gate{
     background-color: gray;
     height: 50%;
-    width: 5px;
+    width: 1vh;
     position: absolute;
-    right: -5px;
+    right: -1vh;
     bottom: 25%;
     display: none;
 }
+#right-button {
+    background-color: rgba(0, 0, 0, 0);
+    height: 50%;
+    width: 27%;
+    position: absolute;
+    right: -1vh;
+    bottom: 25%;
+}
+
+
 #bottom-gate{
     background-color: gray;
-    height: 5px;
+    height: 1vh;
     width: 50%;
     position: absolute;
-    bottom: -5px;
+    bottom: -1vh;
     left: 25%;
     display: none;
 }
+#bottom-button {
+    background-color: rgba(0, 0, 0, 0);
+    height: 27%;
+    width: 50%;
+    position: absolute;
+    bottom: -1vh;
+    left: 25%;
+}
+
+
 #left-gate{
     background-color: gray;
     height: 50%;
-    width: 5px;
+    width: 1vh;
     position: absolute;
-    left: -5px;
+    left: -1vh;
     top: 25%;
     display: none;
 }
+#left-button {
+    background-color: rgba(0, 0, 0, 0);
+    height: 50%;
+    width: 27%;
+    position: absolute;
+    left: -1vh;
+    top: 25%;
+}
+
+

@@ -138,7 +138,10 @@ body {
 }
 
 /* ------------------------------------------ */
-
+.control-buttons:active {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
 #up-gate{
     background-color: gray;
     height: 1vh;
@@ -214,4 +217,72 @@ body {
     top: 25%;
 }
 
+/* ----------------------------------- */
 
+.map-area {
+    background-color: rgb(78, 78, 78);
+    width: 95vw;
+    height: 90vh;
+    position: absolute;
+    bottom: 1px;
+    left: 2.5vw;
+    border: 1vw solid rgb(51, 51, 51);
+    border-width: 1vw 1vw 0 1vw;
+    border-radius: 4vh 4vh 0% 0;
+    display:  none  ;
+
+    /* display: none;
+     */
+
+}
+
+.map {
+    background-color: rgb(238, 223, 166);
+    height: 80vh;
+    max-height: 80vw;
+    width: 80vh;
+    max-width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    
+
+}
+
+.map-place {
+    height: 90%;
+    width: 90%;
+    border: 1px solid black;
+    position: relative;
+    top: 5%;
+    left: 5%;
+    line-height: 0px;
+}
+.map-room {
+    height: 10%;
+    width: 10%;
+    border: 1px solid black;
+    display:inline-block;
+    margin: 0;
+
+}
+
+.exit-map-btn {
+    margin: 10px;
+    margin-bottom: 0px;
+    width: 15vw;
+    height: 8vh;
+    border: 2px solid grey;
+    border-radius: 2vh;
+    color: rgb(140, 0, 255);
+    text-align: center;
+    font-family: Minecraft Regular;
+    font-size: 5vw;
+    background-color: black;
+
+}
+
+.exit-map-btn:active {
+    background-color: grey;
+    border-color:black;
+}

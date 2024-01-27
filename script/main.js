@@ -17,6 +17,8 @@ const healthScale = document.querySelector('.health-scale'),
 let max_health = 1000,
 health = 1000;
 
+let mapClosed = true;
+
 // function matrix() {
 //     let matrix = new Array(10);
 //     for (let i = 0; i < 10; i++) {
@@ -169,26 +171,26 @@ body.addEventListener("keydown", function (event) {
         event.code != "ArrowUp" && event.code != "ArrowDown") return;
 
     if (event.code == "ArrowUp") {
-        if (nowY !=0 && levelNow.level[nowY-1][nowX]) {
+        if (nowY !=0 && levelNow.level[nowY-1][nowX] && mapClosed) {
             nowY-=1;
             levelNow.nowMap();
         }
         
     }
     if (event.code == "ArrowRight") {
-        if (nowX != 9 && levelNow.level[nowY][nowX+1]) {
+        if (nowX != 9 && levelNow.level[nowY][nowX+1] && mapClosed) {
             nowX+=1;
             levelNow.nowMap();
         }
     }
     if (event.code == "ArrowDown") {
-        if (nowY !=9 && levelNow.level[nowY+1][nowX]) {
+        if (nowY !=9 && levelNow.level[nowY+1][nowX] && mapClosed) {
             nowY+=1;
             levelNow.nowMap();
         }
     }
     if (event.code == "ArrowLeft") {
-        if (nowX != 0 && levelNow.level[nowY][nowX-1]) {
+        if (nowX != 0 && levelNow.level[nowY][nowX-1] && mapClosed) {
             nowX-=1;
             levelNow.nowMap();
         }
@@ -198,28 +200,28 @@ body.addEventListener("keydown", function (event) {
 });
 
 upButton.addEventListener("click", function() {
-    if (nowY !=0 && levelNow.level[nowY-1][nowX]) {
+    if (nowY !=0 && levelNow.level[nowY-1][nowX] && mapClosed) {
         nowY-=1;
         levelNow.nowMap();
     }
     levelNow.adaptatedLevel[nowY][nowX].showRoom()
 })
 rightButton.addEventListener("click", function() {
-    if (nowX != 9 && levelNow.level[nowY][nowX+1]) {
+    if (nowX != 9 && levelNow.level[nowY][nowX+1] && mapClosed) {
         nowX+=1;
         levelNow.nowMap();
     }
     levelNow.adaptatedLevel[nowY][nowX].showRoom()
 })
 bottomButton.addEventListener("click", function() {
-    if (nowY !=9 && levelNow.level[nowY+1][nowX]) {
+    if (nowY !=9 && levelNow.level[nowY+1][nowX] && mapClosed) {
         nowY+=1;
         levelNow.nowMap();
     }
     levelNow.adaptatedLevel[nowY][nowX].showRoom()
 })
 leftButton.addEventListener("click", function() {
-    if (nowX != 0 && levelNow.level[nowY][nowX-1]) {
+    if (nowX != 0 && levelNow.level[nowY][nowX-1] && mapClosed) {
         nowX-=1;
         levelNow.nowMap();
     }
@@ -248,6 +250,13 @@ artifactsBtn.addEventListener("click", function(){
     }
     healthScale.style.width = (100 - (health / max_health * 100)) + "%"
 })
-exitMapBtn.addEventListener("click", function(){mapArea.style.display = "none"})
+exitMapBtn.addEventListener("click", function(){
+    mapArea.style.display = "none";
+    mapClosed = true;
 
-mapBtn.addEventListener("click", function(){mapArea.style.display = "block"})
+})
+
+mapBtn.addEventListener("click", function(){
+    mapArea.style.display = "block"
+    mapClosed = false;
+})

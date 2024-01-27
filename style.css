@@ -270,14 +270,14 @@ body {
 .exit-map-btn {
     margin: 10px;
     margin-bottom: 0px;
-    width: 15vw;
+    width: 16vw;
     height: 8vh;
     border: 2px solid grey;
     border-radius: 2vh;
     color: rgb(140, 0, 255);
     text-align: center;
     font-family: Minecraft Regular;
-    font-size: 5vw;
+    font-size: 5vh;
     background-color: black;
 
 }

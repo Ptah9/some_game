@@ -12,12 +12,16 @@ const healthScale = document.querySelector('.health-scale'),
     leftButton = document.querySelector('#left-button'),
     body = document.querySelector('#body'),
     mapArea = document.querySelector('.map-area'),
-    exitMapBtn = document.querySelector('.exit-map-btn');
+    exitMapBtn = document.querySelector('.exit-map-btn'),
+    exitWeaponBtn = document.querySelector('.exit-weapon-btn'),
+    weaponArea = document.querySelector('.weapon-area');
+ 
 
 let max_health = 1000,
 health = 1000;
 
 let mapClosed = true;
+let weaponClosed = true;
 
 // function matrix() {
 //     let matrix = new Array(10);
@@ -260,3 +264,17 @@ mapBtn.addEventListener("click", function(){
     mapArea.style.display = "block"
     mapClosed = false;
 })
+
+
+exitWeaponBtn.addEventListener("click", function(){
+    weaponArea.style.display = "none";
+    weaponClosed = true;
+})
+
+weaponBtn.addEventListener("click", function(){
+    weaponArea.style.display = "block"
+    weaponClosed = false;
+})
+
+// background-color:rgba(88, 88, 88, 0.5);
+// border: 2px solid rgb(255, 255, 255);

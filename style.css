@@ -50,6 +50,7 @@ body {
     border: none;
     font-weight: 700;
     background-size: cover;
+    transition: 0.1s;   
 
 }
 .main-button:active {
@@ -221,18 +222,15 @@ body {
 
 .map-area {
     background-color: rgb(78, 78, 78);
-    width: 95vw;
+    width: 96vw;
     height: 90vh;
     position: absolute;
     bottom: 1px;
     left: 2.5vw;
     border: 1vw solid rgb(51, 51, 51);
     border-width: 1vw 1vw 0 1vw;
-    border-radius: 4vh 4vh 0% 0;
-    display:  none  ;
-
-    /* display: none;
-     */
+    /* border-radius: 4vh 4vh 0% 0; */
+    display: none;
 
 }
 
@@ -270,14 +268,14 @@ body {
 .exit-map-btn {
     margin: 10px;
     margin-bottom: 0px;
-    width: 16vw;
+    width: 20vw;
     height: 8vh;
     border: 2px solid grey;
-    border-radius: 2vh;
+    /* border-radius: 2vh; */
     color: rgb(140, 0, 255);
     text-align: center;
     font-family: Minecraft Regular;
-    font-size: 5vh;
+    font-size: 8vw;
     background-color: black;
 
 }
@@ -285,4 +283,60 @@ body {
 .exit-map-btn:active {
     background-color: grey;
     border-color:black;
+}
+
+
+
+
+
+
+.weapon-area{
+    background-color: rgb(36, 36, 36);
+    width: 96vw;
+    height: 90vh;
+    position: absolute;
+    bottom: 1px;
+    left: 2.5vw;
+    border: 1vw solid rgb(51, 51, 51);
+    border-width: 1vw 1vw 0 1vw;
+    /* border-radius: 4vh 4vh 0% 0; */
+    /* display: none;   */
+}
+
+.exit-weapon-btn {
+    margin: 10px;
+    margin-bottom: 0px;
+    width: 20vw;
+    height: 8vh;
+    border: 2px solid grey;
+    /* border-radius: 2vh; */
+    color: rgb(140, 0, 255);
+    text-align: center;
+    font-family: Minecraft Regular;
+    font-size: 8vw;
+    background-color: black;
+
+}
+
+.exit-weapon-btn:active {
+    background-color: grey;
+    border-color:black;
+}
+
+#sword, #magic, #shield, #ring {
+    background-image: url('imgs/sword.png');
+}
+
+.weapon-buttons {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    
+}
+
+.weapon-text {
+    color: rgb(184, 96, 255);
+    font-family: Minecraft Regular;
+    height:75%;
+    overflow: auto;
 }

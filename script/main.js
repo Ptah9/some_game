@@ -54,7 +54,7 @@ class Room {
 
 class Level {
     constructor(level) {
-        this.adaptatedLevel  = [
+        this.adaptedLevel  = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -93,7 +93,7 @@ class Level {
                     this.contains = "nothing";   //chest/enemy (later)
 
 
-                    this.adaptatedLevel[y][x] = new Room(
+                    this.adaptedLevel[y][x] = new Room(
                         (y-1 != -1 && this.level[y-1][x] != 0) ? true : false,
                         (x+1 != 10 && this.level[y][x+1] != 0) ? true : false,
                         (y+1 != 10 && this.level[y+1][x] != 0) ? true : false,
@@ -163,7 +163,7 @@ let levelExample = [
 levelNow = new Level(levelExample);
 let nowY = levelNow.startY
 let nowX = levelNow.startX
-levelNow.adaptatedLevel[nowY][nowX].showRoom()
+levelNow.adaptedLevel[nowY][nowX].showRoom()
 // ------------------------------------------------------------------
 
 body.addEventListener("keydown", function (event) {
@@ -196,7 +196,7 @@ body.addEventListener("keydown", function (event) {
         }
     }
 
-    levelNow.adaptatedLevel[nowY][nowX].showRoom()
+    levelNow.adaptedLevel[nowY][nowX].showRoom()
 });
 
 upButton.addEventListener("click", function() {
@@ -204,28 +204,28 @@ upButton.addEventListener("click", function() {
         nowY-=1;
         levelNow.nowMap();
     }
-    levelNow.adaptatedLevel[nowY][nowX].showRoom()
+    levelNow.adaptedLevel[nowY][nowX].showRoom()
 })
 rightButton.addEventListener("click", function() {
     if (nowX != 9 && levelNow.level[nowY][nowX+1] && mapClosed) {
         nowX+=1;
         levelNow.nowMap();
     }
-    levelNow.adaptatedLevel[nowY][nowX].showRoom()
+    levelNow.adaptedLevel[nowY][nowX].showRoom()
 })
 bottomButton.addEventListener("click", function() {
     if (nowY !=9 && levelNow.level[nowY+1][nowX] && mapClosed) {
         nowY+=1;
         levelNow.nowMap();
     }
-    levelNow.adaptatedLevel[nowY][nowX].showRoom()
+    levelNow.adaptedLevel[nowY][nowX].showRoom()
 })
 leftButton.addEventListener("click", function() {
     if (nowX != 0 && levelNow.level[nowY][nowX-1] && mapClosed) {
         nowX-=1;
         levelNow.nowMap();
     }
-    levelNow.adaptatedLevel[nowY][nowX].showRoom()
+    levelNow.adaptedLevel[nowY][nowX].showRoom()
 })
 
 

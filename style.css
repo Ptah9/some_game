@@ -9,6 +9,12 @@
     
 }
 
+:root {
+    --main-purple: rgb(140, 0, 255);
+}
+
+
+
 @font-face {
     font-family:"Minecraft Regular";
     src:url("minecraft_font/1_Minecraft-Regular.eot?") format("eot"),
@@ -36,8 +42,7 @@ body {
 /* ---------------------------------------------------------------- */
 
 .title {
-    
-    color: rgb(140, 0, 255);
+    color: var(--main-purple);
     text-align: center;
     font-family: Minecraft Regular;
 }
@@ -97,7 +102,7 @@ body {
 
 .scale-box {
     height: 30px;
-    background: linear-gradient( to right, rgb(151, 0, 0), rgb(255, 30, 30));
+    background:rgb(255, 0, 0);
     
     display: flex;
     justify-content: space-between;
@@ -274,7 +279,7 @@ body {
     height: 8vh;
     border: 2px solid grey;
     /* border-radius: 2vh; */
-    color: rgb(140, 0, 255);
+    color: var(--main-purple);
     text-align: center;
     font-family: Minecraft Regular;
     font-size: 8vw;
@@ -310,7 +315,7 @@ body {
     height: 8vh;
     border: 2px solid grey;
     /* border-radius: 2vh; */
-    color: rgb(140, 0, 255);
+    color: var(--main-purple);
     text-align: center;
     font-family: Minecraft Regular;
     font-size:2rem;
@@ -376,7 +381,7 @@ body {
     height: 8vh;
     border: 2px solid grey;
     /* border-radius: 2vh; */
-    color: rgb(140, 0, 255);
+    color: var(--main-purple);
     text-align: center;
     font-family: Minecraft Regular;
     font-size: 4vw;

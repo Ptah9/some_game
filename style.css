@@ -2,9 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 *{
     font-family: calibri;
+    
 }
 
 @font-face {
@@ -116,7 +118,7 @@ body {
 
 .main-area {
 
-    background-color: gray;
+    background-color: #5c5c5c;
     height: 50vh;
     max-height: 71.43vw;
     width: 50vh;
@@ -130,7 +132,8 @@ body {
 .room {
     height: 95%;
     width: 95%;
-    background-color: gray;
+    background: url('imgs/floor1.png') no-repeat;
+    background-size:contain;
     border: 1vh solid black;
 
     top:2.5%;
@@ -144,7 +147,7 @@ body {
     border: none;
 }
 #up-gate{
-    background-color: gray;
+    background-color: #5c5c5c;
     height: 1vh;
     width: 50%;
     position: absolute;
@@ -163,7 +166,7 @@ body {
 
 
 #right-gate{
-    background-color: gray;
+    background-color: #5c5c5c;
     height: 50%;
     width: 1vh;
     position: absolute;
@@ -182,7 +185,7 @@ body {
 
 
 #bottom-gate{
-    background-color: gray;
+    background-color: #5c5c5c;
     height: 1vh;
     width: 50%;
     position: absolute;
@@ -201,7 +204,7 @@ body {
 
 
 #left-gate{
-    background-color: gray;
+    background-color: #5c5c5c;
     height: 50%;
     width: 1vh;
     position: absolute;
@@ -222,11 +225,10 @@ body {
 
 .map-area {
     background-color: rgb(78, 78, 78);
-    width: 96vw;
+    width: 100vw;
     height: 90vh;
     position: absolute;
     bottom: 1px;
-    left: 2.5vw;
     border: 1vw solid rgb(51, 51, 51);
     border-width: 1vw 1vw 0 1vw;
     /* border-radius: 4vh 4vh 0% 0; */
@@ -292,11 +294,10 @@ body {
 
 .weapon-area{
     background-color: rgb(36, 36, 36);
-    width: 96vw;
+    width: 100vw;
     height: 90vh;
     position: absolute;
     bottom: 1px;
-    left: 2.5vw;
     border: 1vw solid rgb(51, 51, 51);
     border-width: 1vw 1vw 0 1vw;
     /* border-radius: 4vh 4vh 0% 0; */

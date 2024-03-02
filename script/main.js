@@ -291,14 +291,14 @@ weaponBtn.addEventListener("click", function(){
 let sword = {
     name: "Purple Sword",
     shortDisc: "It's your first sword",
-    description: "An ordinary, cool sword that you get at the beginning of the game and use for a very short time, so I don’t see the point in writing a long and beautiful description for this sword, since you probably won’t read it",
+    description: "An ordinary, cool sword that you get at the beginning of the game and use for a very short time, so I don’t see the point in writing a long and beautiful description for this sword, since you probably won’t read it.",
     power: 30
 };
 
 let magic = {
     name: "Purple Magic",
     shortDisc: "Magic doesn't exist",
-    description: "Many people say that magic does not exist, this is of course not true, magic still exists, but using this spell you are unlikely to feel it (yes, it is so weak), but what did you want, this is the initial spell",
+    description: "Many people say that magic does not exist, this is of course not true, magic still exists, but using this spell you are unlikely to feel it (yes, it is so weak), but what did you want, this is the initial spell.",
     power: 30
 }
 
@@ -312,7 +312,7 @@ let shield = {
 let ring = {
     name: "Purple Ring",
     shortDisc: "No, not a wedding",
-    description: "Yes, it got stuck on my finger. The ring is thin, without a stone, and only adds mood and a little style. It’s better not to hit it with your hands; it will simply crumble or crack (what it consists of is not clear). This kind of jewelry is not for me, I need to find something new.",
+    description: "Yes, it got stuck on my finger. The ring is thin, without a stone, and only adds mood and a little style. It’s better not to hit it with your hands, it will simply crumble or crack (what it consists of is not clear). This kind of jewelry is not for me, I need to find something new.",
     power: 3
 }
 

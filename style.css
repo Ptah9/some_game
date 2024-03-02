@@ -300,10 +300,75 @@ body {
     border: 1vw solid rgb(51, 51, 51);
     border-width: 1vw 1vw 0 1vw;
     /* border-radius: 4vh 4vh 0% 0; */
-    /* display: none;   */
+    display: none;  
 }
 
 .exit-weapon-btn {
+    margin: 1.5vh;
+    width: 20vw;
+    height: 8vh;
+    border: 2px solid grey;
+    /* border-radius: 2vh; */
+    color: rgb(140, 0, 255);
+    text-align: center;
+    font-family: Minecraft Regular;
+    font-size:2rem;
+    background-color: black;
+
+}
+
+.exit-weapon-btn:active, .exit-weapon-btn-active {
+    background-color: grey;
+    border-color:black;
+    border: 3px solid white;
+}
+
+
+#sword {
+    background-image: url('imgs/purple-sword.png');
+}
+
+#magic {
+    background-image: url('imgs/purple-magic.png');
+}
+
+#shield {
+    background-image: url('imgs/purple-shield.png');
+}
+
+#ring {
+    background-image: url('imgs/purple-ring.png');
+}
+
+
+.weapon-buttons {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin: 1.5vh;
+    
+}
+
+.weapon-buttons div button{
+    height: 12vh;
+    width: 12vh;
+    margin: 0;
+}
+
+.weapon-text {
+    color: rgb(184, 96, 255);
+    font-family: Minecraft Regular;
+    margin: 1.5vh;
+}
+.weapon-description {
+    color: rgb(184, 96, 255);
+    font-family: Minecraft Regular;
+    height:38svh;
+    overflow: auto;
+    margin: 1.5vh;
+}
+
+.control-btns button{
     margin: 10px;
     margin-bottom: 0px;
     width: 20vw;
@@ -313,30 +378,7 @@ body {
     color: rgb(140, 0, 255);
     text-align: center;
     font-family: Minecraft Regular;
-    font-size: 8vw;
+    font-size: 4vw;
     background-color: black;
-
-}
-
-.exit-weapon-btn:active {
-    background-color: grey;
-    border-color:black;
-}
-
-#sword, #magic, #shield, #ring {
-    background-image: url('imgs/sword.png');
-}
-
-.weapon-buttons {
-    display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
-    
-}
-
-.weapon-text {
-    color: rgb(184, 96, 255);
-    font-family: Minecraft Regular;
-    height:75%;
-    overflow: auto;
+    margin: 1.5vh;
 }

@@ -356,5 +356,3 @@ ringBtn.addEventListener("click", function(){
     ringBtn.classList.add('weapon-btn-active');
     weaponSelected = ringBtn;
 })
-
-

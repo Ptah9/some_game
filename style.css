@@ -11,9 +11,8 @@
 
 :root {
     --main-purple: rgb(140, 0, 255);
+    --text-purple: rgb(184, 96, 255);
 }
-
-
 
 @font-face {
     font-family:"Minecraft Regular";
@@ -31,12 +30,13 @@ body {
 }
 /* ---------------------------------------------------------------- */
 
-.page {
+.main {
     min-height: 100vh;
     background: linear-gradient(black 25vh, rgb(123, 123, 123) 50vh, black 80vh);
     margin: 0 auto;
     padding: 10px;
     position: relative;
+
 } 
 
 /* ---------------------------------------------------------------- */
@@ -68,7 +68,7 @@ body {
 
 /* ---------------------------------------------------------------- */
 
-.menu-up-btns {
+.menu-up-btns, .menu-down-btns {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
@@ -80,14 +80,6 @@ body {
 
 #map-btn {
     background-image: url('imgs/map.png');
-}
-
-/* ---------------------------------------------------------------- */
-
-.menu-down-btns {
-    display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
 }
 
 #artifacts-btn {
@@ -116,19 +108,16 @@ body {
 .health-scale-border {
     border: 2px solid rgb(195, 195, 195);
     margin: 5px;
-
 }
 
 /* ---------------------------------------------------------------- */
 
 .main-area {
-
     background-color: #5c5c5c;
     height: 50vh;
     max-height: 71.43vw;
     width: 50vh;
     max-width: 71.43vw;
-    
     
     margin-left: auto;
     margin-right: auto;
@@ -141,95 +130,83 @@ body {
     background-size:contain;
     border: 1vh solid black;
 
+    position:relative;
     top:2.5%;
     left:2.5%;
-    position:relative;
 }
 
 /* ------------------------------------------ */
+.control-buttons{
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+}
 .control-buttons:active {
     background-color: rgba(0, 0, 0, 0);
     border: none;
+    color:  rgba(0, 0, 0, 0);
 }
-#up-gate{
+.gate {
     background-color: #5c5c5c;
+    position: absolute;
+    display: none;
+}
+
+#up-gate{
     height: 1vh;
     width: 50%;
-    position: absolute;
     top: -1vh;
     right: 25%;
-    display: none;
 }
 #up-button {
-    background-color: rgba(0, 0, 0, 0);
     height: 27%;
     width: 50%;
-    position: absolute;
-    top: -1vh;
+    top: -2vh;
     right: 25%;
 }
 
-
 #right-gate{
-    background-color: #5c5c5c;
     height: 50%;
     width: 1vh;
-    position: absolute;
     right: -1vh;
     bottom: 25%;
-    display: none;
 }
 #right-button {
-    background-color: rgba(0, 0, 0, 0);
     height: 50%;
     width: 27%;
-    position: absolute;
-    right: -1vh;
+    right: -2vh;
     bottom: 25%;
 }
 
-
 #bottom-gate{
-    background-color: #5c5c5c;
     height: 1vh;
     width: 50%;
-    position: absolute;
     bottom: -1vh;
     left: 25%;
-    display: none;
 }
 #bottom-button {
-    background-color: rgba(0, 0, 0, 0);
     height: 27%;
     width: 50%;
-    position: absolute;
-    bottom: -1vh;
+    bottom: -2vh;
     left: 25%;
 }
 
-
 #left-gate{
-    background-color: #5c5c5c;
     height: 50%;
     width: 1vh;
-    position: absolute;
     left: -1vh;
     top: 25%;
-    display: none;
 }
 #left-button {
-    background-color: rgba(0, 0, 0, 0);
     height: 50%;
     width: 27%;
-    position: absolute;
-    left: -1vh;
+    left: -2vh;
     top: 25%;
 }
 
 /* ----------------------------------- */
 
-.map-area {
-    background-color: rgb(78, 78, 78);
+.additional-area{
+    background-color: rgb(36, 36, 36);
     width: 100vw;
     height: 90vh;
     position: absolute;
@@ -238,7 +215,30 @@ body {
     border-width: 1vw 1vw 0 1vw;
     /* border-radius: 4vh 4vh 0% 0; */
     display: none;
+}
 
+.exit-additional-btn, .additional-btn {
+    margin: 2.5vw;
+    width: 20vw;
+    height: 8vh;
+    border: 2px solid grey;
+    /* border-radius: 2vh; */
+    color: var(--main-purple);
+    text-align: center;
+    font-family: Minecraft Regular;
+    font-size:2rem;
+    background-color: black;
+
+}
+.exit-additional-btn:active, .additional-btn:active {
+    background-color: grey;
+    border-color:black;
+}
+
+/* ---------------------------------------- */
+
+.map-area {
+    display: none;
 }
 
 .map {
@@ -250,8 +250,6 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
-    
-
 }
 
 .map-place {
@@ -269,122 +267,47 @@ body {
     border: 1px solid black;
     display:inline-block;
     margin: 0;
-
 }
 
-.exit-map-btn {
-    margin: 10px;
-    margin-bottom: 0px;
-    width: 20vw;
-    height: 8vh;
-    border: 2px solid grey;
-    /* border-radius: 2vh; */
-    color: var(--main-purple);
-    text-align: center;
-    font-family: Minecraft Regular;
-    font-size: 8vw;
-    background-color: black;
+/* ----------------------------------------------------- */
 
-}
-
-.exit-map-btn:active {
-    background-color: grey;
-    border-color:black;
-}
-
-
-
-
-
-
-.weapon-area{
-    background-color: rgb(36, 36, 36);
-    width: 100vw;
-    height: 90vh;
-    position: absolute;
-    bottom: 1px;
-    border: 1vw solid rgb(51, 51, 51);
-    border-width: 1vw 1vw 0 1vw;
-    /* border-radius: 4vh 4vh 0% 0; */
-    display: none;  
-}
-
-.exit-weapon-btn {
-    margin: 1.5vh;
-    width: 20vw;
-    height: 8vh;
-    border: 2px solid grey;
-    /* border-radius: 2vh; */
-    color: var(--main-purple);
-    text-align: center;
-    font-family: Minecraft Regular;
-    font-size:2rem;
-    background-color: black;
-
-}
-
-.exit-weapon-btn:active, .exit-weapon-btn-active {
+.weapon-btn-active {
     background-color: grey;
     border-color:black;
     border: 3px solid white;
 }
 
-
-#sword {
-    background-image: url('imgs/purple-sword.png');
-}
-
-#magic {
-    background-image: url('imgs/purple-magic.png');
-}
-
-#shield {
-    background-image: url('imgs/purple-shield.png');
-}
-
-#ring {
-    background-image: url('imgs/purple-ring.png');
-}
-
-
 .weapon-buttons {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    margin: 1.5vh;
-    
+    width: 93vw;
+    margin: 2.5vw;
 }
+#sword {background-image: url('imgs/purple-sword.png');}
+#magic {background-image: url('imgs/purple-magic.png');}
+#shield {background-image: url('imgs/purple-shield.png');}
+#ring {background-image: url('imgs/purple-ring.png');}
 
 .weapon-buttons div button{
-    height: 12vh;
-    width: 12vh;
+    height: 18vw;
+    width: 18vw;
     margin: 0;
 }
 
 .weapon-text {
-    color: rgb(184, 96, 255);
+    color: var(--text-purple);
     font-family: Minecraft Regular;
-    margin: 1.5vh;
+    margin: 2.5vw;
 }
 .weapon-description {
-    color: rgb(184, 96, 255);
+    color: var(--text-purple);
     font-family: Minecraft Regular;
     height:38svh;
     overflow: auto;
-    margin: 1.5vh;
+    margin: 2.5vw;
 }
 
 .control-btns button{
-    margin: 10px;
-    margin-bottom: 0px;
-    width: 20vw;
-    height: 8vh;
-    border: 2px solid grey;
-    /* border-radius: 2vh; */
-    color: var(--main-purple);
-    text-align: center;
-    font-family: Minecraft Regular;
     font-size: 4vw;
-    background-color: black;
-    margin: 1.5vh;
 }

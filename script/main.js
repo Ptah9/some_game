@@ -1,3 +1,6 @@
+import Generation from './generation.js';
+
+
 const healthScale = document.querySelector('.health-scale'),
     mapBtn = document.querySelector('#map-btn'),
     artifactsBtn = document.querySelector('#artifacts-btn'),
@@ -160,20 +163,22 @@ class Level {
         catch{}
     }
 }
-let levelExample = [
-    [0, 0, 0, 0, 0, 0, 0, 3, 0, 0],
-    [3, 1, 1, 1, 0, 0, 1, 1, 1, 0],
-    [0, 0, 0, 1, 0, 0, 0, 0, 1, 0],
-    [0, 1, 0, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 0, 1, 0, 0, 1, 0],
-    [0, 1, 0, 1, 0, 0, 0, 0, 1, 0],
-    [0, 0, 0, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 0, 1, 0, 1, 0, 0, 1, 2],
-    [0, 1, 1, 1, 0, 1, 1, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
 
-levelNow = new Level(levelExample);
+let levelExample = Generation(1);
+// let levelExample = [
+//     [0, 0, 0, 0, 0, 0, 0, 3, 0, 0],
+//     [3, 1, 1, 1, 0, 0, 1, 1, 1, 0],
+//     [0, 0, 0, 1, 0, 0, 0, 0, 1, 0],
+//     [0, 1, 0, 1, 1, 1, 1, 1, 1, 0],
+//     [0, 1, 1, 1, 0, 1, 0, 0, 1, 0],
+//     [0, 1, 0, 1, 0, 0, 0, 0, 1, 0],
+//     [0, 0, 0, 1, 1, 1, 1, 1, 1, 0],
+//     [0, 1, 0, 1, 0, 1, 0, 0, 1, 2],
+//     [0, 1, 1, 1, 0, 1, 1, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+// ];
+
+let levelNow = new Level(levelExample);
 let nowY = levelNow.startY
 let nowX = levelNow.startX
 levelNow.adaptedLevel[nowY][nowX].showRoom()

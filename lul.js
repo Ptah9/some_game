@@ -155,7 +155,7 @@
 //     floorplanCount = 0;
 //     cellQueue = [];
 //     endrooms = [];
-//     // Our grid is one row lower than isaacs as referencing negative indices isn't a good idea in JS
+// // Our grid is one row lower than isaacs as referencing negative indices isn't a good idea in JS
 //     visit(this, 45);
 // }
 
@@ -194,3 +194,82 @@
 // getRandomArbitrary(1,9)
 
 // console.log(getRandomArbitrary(1,9))
+
+
+
+
+
+// function matrix() {
+//     let matrix = new Array(10);
+//     for (let i = 0; i < 10; i++) {
+//         matrix[i] = new Array(10);
+// }
+// }
+// let matrix = new Array(10);
+// for (let i = 0; i < 10; i++) {
+// matrix[i] = new Array(10);
+// }
+
+
+
+
+
+// switch(entranceSide){
+    //     case 1:     //left
+    //         let entranceX = getRandomArbitrary(1,9)
+    //         let entranceY = 9
+    //         level[getRandomArbitrary(1,9)][9] = 2; //entrance
+            
+    //         level[getRandomArbitrary(1,9)][0] = getRandomInt(2)*3; //exit
+    //         level[9][getRandomArbitrary(1,9)] = getRandomInt(2)*3; //exit
+    //         level[0][getRandomArbitrary(1,9)] = getRandomInt(2)*3; //exit
+
+    //         lol = 1;
+    //         for (let y = 0; y < 10; y++) for (let x = 0; x < 10; x++) if (level[y][x] == 3) lol = 0;
+    //         level[getRandomArbitrary(1,9)][0] = lol*3; //exit
+    //     break;
+
+    //     case 2:     //right
+    //         level[getRandomArbitrary(1,9)][0] = 2; //entrance
+
+    //         level[getRandomArbitrary(1,9)][9] = getRandomInt(2)*3; //exit
+    //         level[9][getRandomArbitrary(1,9)] = getRandomInt(2)*3; //exit
+    //         level[0][getRandomArbitrary(1,9)] = getRandomInt(2)*3; //exit
+
+    //         lol = 1;
+    //         for (let y = 0; y < 10; y++) for (let x = 0; x < 10; x++) if (level[y][x] == 3) lol = 0;
+    //         level[getRandomArbitrary(1,9)][9] = lol*3; //exit
+    //     break;
+
+    //     case 3:     //top
+    //         level[9][getRandomArbitrary(1,9)] = 2; //entrance
+
+    //         level[getRandomArbitrary(1,9)][9] = getRandomInt(2)*3; //exit
+    //         level[getRandomArbitrary(1,9)][0] = getRandomInt(2)*3; //exit
+    //         level[0][getRandomArbitrary(1,9)] = getRandomInt(2)*3; //exit
+
+    //         lol = 1;
+    //         for (let y = 0; y < 10; y++) for (let x = 0; x < 10; x++) if (level[y][x] == 3) lol = 0;
+    //         level[0][getRandomArbitrary(1,9)] = lol*3; //exit
+    //     break;
+
+    //     case 4:     //bottom
+    //         level[0][getRandomArbitrary(1,9)] = 2; //entrance
+
+    //         level[getRandomArbitrary(1,9)][9] = getRandomInt(2)*3; //exit
+    //         level[getRandomArbitrary(1,9)][0] = getRandomInt(2)*3; //exit
+    //         level[9][getRandomArbitrary(1,9)] = getRandomInt(2)*3; //exit
+
+    //         lol = 1;
+    //         for (let y = 0; y < 10; y++) for (let x = 0; x < 10; x++) if (level[y][x] == 3) lol = 0;
+    //         level[9][getRandomArbitrary(1,9)] = lol*3; //exit
+
+    //     break;
+
+    function getRandomArbitrary(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min); 
+    }
+    let now = getRandomArbitrary(0,4);
+    console.log(now);

@@ -186,23 +186,23 @@ function Generation(entranceSide) {
 
 
 
-function showLevel(level) {
-    let map = "-----------------------\n"
-    for (let y = 0; y < 10; y++) {
-        map += "| "
-        for (let x = 0; x < 10; x++) map += String(level[y][x]) + " "; 
-        map+="|\n"
+// function showLevel(level) {
+//     let map = "-----------------------\n"
+//     for (let y = 0; y < 10; y++) {
+//         map += "| "
+//         for (let x = 0; x < 10; x++) map += String(level[y][x]) + " "; 
+//         map+="|\n"
         
-    } 
-    map+="-----------------------"
-    return map;
-}
+//     } 
+//     map+="-----------------------"
+//     return map;
+// }
 
 
-console.log(
-    showLevel(
-        Generation(entranceSide)
-    )
-)
+// console.log(
+//     showLevel(
+//         Generation(entranceSide)
+//     )
+// )
 
 export default Generation;

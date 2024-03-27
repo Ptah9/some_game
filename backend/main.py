@@ -28,9 +28,21 @@ try:
             '''
 
         with connection.cursor() as cursor:
-            cursor.execute(f'INSERT INTO users_info VALUES ("{user_name}");')
-            cursor.execute(f'INSERT INTO users_this_life (tg_user_name, HP, weapon, magic, ring, shield, score, kills) VALUES ("{user_name}", 100, 0, 0, 0, 0, 0, 0);')
-            cursor.execute(f'INSERT INTO users_this_level (tg_user_name, now_level, now_x, now_y) VALUES ("{user_name}", "{now_level}", {now_x}, {now_y});')
+            cursor.execute(f'''
+                            INSERT INTO users_info
+                            VALUES ("{user_name}");
+                            ''')
+            
+            cursor.execute(f'''
+                           INSERT INTO users_this_life (tg_user_name, HP, weapon, magic, ring, shield, score, kills) 
+                           VALUES ("{user_name}", 100, 0, 0, 0, 0, 0, 0);
+                           ''')
+            
+            cursor.execute(f'''
+                           INSERT INTO users_this_level (tg_user_name, now_level, now_x, now_y) 
+                           VALUES ("{user_name}", "{now_level}", {now_x}, {now_y});
+                           ''')
+            
             connection.commit()
             
 

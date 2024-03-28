@@ -7,6 +7,40 @@ now_x = 9
 now_y = 7
 
 
+def init_user(connection):
+    with connection.cursor() as cursor:
+        cursor.execute(f'''
+                        INSERT INTO users_info
+                        VALUES ("{user_name}");
+                        ''')
+        
+        cursor.execute(f'''
+                        INSERT INTO users_this_life (tg_user_name, HP, weapon, magic, ring, shield, score, kills) 
+                        VALUES ("{user_name}", 100, 0, 0, 0, 0, 0, 0);
+                        ''')
+        
+        cursor.execute(f'''
+                        INSERT INTO users_this_level (tg_user_name, now_level, now_x, now_y) 
+                        VALUES ("{user_name}", "{now_level}", {now_x}, {now_y});
+                        ''')
+        
+        connection.commit()
+            
+def update(connection, table, obj, value):
+    with connection.cursor() as cursor:
+        cursor.execute(f'''
+                        UPDATE
+                            {table}
+                        SET
+                            {obj} = "{value}"
+                        WHERE
+                            tg_user_name = "{user_name}"
+                        ''')
+        connection.commit()
+        
+
+
+
 
 
 try:
@@ -18,33 +52,8 @@ try:
         # user=input("Имя пользователя: "),
         # password=getpass("Пароль: "),
     ) as connection:
-        user_init = f'''
-                INSERT INTO users_info
-                VALUES ("{user_name}");
-                
-                INSERT INTO users_this_life (tg_user_name, HP, weapon, magic, ring, shield, score, kills) VALUES ("{user_name}", 100, 0, 0, 0, 0, 0, 0);
-
-                INSERT INTO users_this_level (tg_user_name, now_level, now_x, now_y) VALUES ("{user_name}", "{now_level}", {now_x}, {now_y});
-            '''
-
-        with connection.cursor() as cursor:
-            cursor.execute(f'''
-                            INSERT INTO users_info
-                            VALUES ("{user_name}");
-                            ''')
-            
-            cursor.execute(f'''
-                           INSERT INTO users_this_life (tg_user_name, HP, weapon, magic, ring, shield, score, kills) 
-                           VALUES ("{user_name}", 100, 0, 0, 0, 0, 0, 0);
-                           ''')
-            
-            cursor.execute(f'''
-                           INSERT INTO users_this_level (tg_user_name, now_level, now_x, now_y) 
-                           VALUES ("{user_name}", "{now_level}", {now_x}, {now_y});
-                           ''')
-            
-            connection.commit()
-            
+        init_user(connection)
+        update(connection, "users_this_life", "HP", 100)
 
 except Error as e:
     print(e)

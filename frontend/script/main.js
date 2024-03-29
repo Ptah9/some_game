@@ -24,7 +24,8 @@ const healthScale = document.querySelector('.health-scale'),
     ringBtn = document.querySelector('#ring'),
     weaponName = document.querySelector('.weapon-text h2'),
     weaponShortDesc = document.querySelector('.weapon-text h4'),
-    weaponDesc = document.querySelector('.weapon-description p');
+    weaponDesc = document.querySelector('.weapon-description p'),
+    scoreSpan = document.querySelector('.score')
  
 
 let max_health = 1000,
@@ -178,10 +179,44 @@ let levelExample = Generation(1);
 //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 // ];
 
-let levelNow = new Level(levelExample);
-let nowY = levelNow.startY
-let nowX = levelNow.startX
-levelNow.adaptedLevel[nowY][nowX].showRoom()
+// -------------------------------------
+
+//db connect
+
+
+let url = "http://127.0.0.1:5000/users"
+let endpoint = "/users_this_level"
+let levelNow        
+let nowY
+let nowX
+async function main(endp){
+    try{
+      let response = await fetch(url+endp);
+      if (response.status !== 200) {  
+        console.log('Looks like there was a problem. Status Code: ' +  
+          response.status);  
+        return;  
+      }
+        
+        let resp = await response.json();
+        return resp
+        
+    }
+    catch(e){
+      console.log('Fetch Error :-S', e);  
+    }
+  }
+main(endpoint).then(function(response) {
+    let resp = response[1]
+    let level = JSON.parse(resp);
+    levelNow = new Level(level);         
+    nowY = levelNow.startY
+    nowX = levelNow.startX
+    console.log(levelNow)
+    levelNow.adaptedLevel[nowY][nowX].showRoom()
+})
+
+
 // ------------------------------------------------------------------
 
 body.addEventListener("keydown", function (event) {
@@ -361,3 +396,24 @@ ringBtn.addEventListener("click", function(){
     ringBtn.classList.add('weapon-btn-active');
     weaponSelected = ringBtn;
 })
+
+
+
+
+endpoint = "/users_this_life"
+
+main(endpoint).then(function(response) {
+    let resp = response
+    scoreSpan.textContent = resp[6];         
+})
+
+
+
+
+
+// let score;
+
+// console.log(data)
+
+
+// scoreSpan.textContent = score;

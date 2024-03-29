@@ -38,22 +38,30 @@ def update(connection, table, obj, value):
                         ''')
         connection.commit()
         
+def geting(connection, table, user):
+    with connection.cursor() as cursor:
+        cursor.execute(f'''
+                        SELECT * FROM {table} WHERE tg_user_name = '{user}';
+                        ''')
+        result = cursor.fetchall()
+        # connection.commit()
+        return result[0]
+        
+# def connecting(host, user, password, database,):
 
+def connecting(table):
+    try:
+        with connect(
+            host="localhost",
+            user="root",
+            password="password",
+            database="labsdb", 
+            # user=input("Имя пользователя: "),
+            # password=getpass("Пароль: "),
+        ) as connection:
+            # init_user(connection)
+            # update(connection, "users_this_life", "HP", 100)
+            return geting(connection, table, user_name)
 
-
-
-
-try:
-    with connect(
-        host="localhost",
-        user="root",
-        password="password",
-        database="labsdb", 
-        # user=input("Имя пользователя: "),
-        # password=getpass("Пароль: "),
-    ) as connection:
-        init_user(connection)
-        update(connection, "users_this_life", "HP", 100)
-
-except Error as e:
-    print(e)
+    except Error as e:
+        return e

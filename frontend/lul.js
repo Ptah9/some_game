@@ -275,18 +275,98 @@
     // console.log(now);
 
 
-    const level =[
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    ]
-;
-const result = JSON.stringify(numbers);
-console.log(result); // => [1,2,3,4,5]
+//     const level =[
+//         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+//     ]
+// ;
+// const result = JSON.stringify(numbers);
+// console.log(result); // => [1,2,3,4,5]
+
+
+
+
+
+
+
+
+
+
+
+url = "http://127.0.0.1:5000/users"
+// let response = fetch(url);
+// // console.log(promise.ok)
+
+// if (response.ok) { // если HTTP-статус в диапазоне 200-299
+//     // получаем тело ответа (см. про этот метод ниже)
+//     let json = response.json();
+//   } else {
+//     console.log("Ошибка HTTP: " + response.status);
+//     console.log(response);
+//   }
+
+// fetch(url)
+//   .then((response) => {
+//     return response.json();
+//   })
+//   .then((data) => {
+//     console.log(data);
+//   });
+
+// try {
+//   await fetch(url);
+// } catch(err) {
+//   alert(err); // Failed to fetch
+// }
+
+
+// fetch(url)  
+//   .then(  
+//     function(response) {  
+
+
+//       // Examine the text in the response  
+
+      
+//     }  
+//   )  
+//   .catch(function(err) {  
+    
+//   });
+
+
+
+
+async function main(){
+  try{
+    let response = await fetch(url, "GET");
+    if (response.status !== 200) {  
+      console.log('Looks like there was a problem. Status Code: ' +  
+        response.status);  
+      return;  
+    }
+    response.json().then(function(data) {  
+      console.log(data);  
+    });  
+  }
+  catch(e){
+    console.log('Fetch Error :-S', err);  
+  }
+
+
+
+}
+
+main().catch((e) => {
+  console.log(
+    "There has been a problem with your fetch operation: " + e.message,
+  );
+});

@@ -28,30 +28,39 @@
 	
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
+import json
 
-from main import geting, connecting
+from main import connecting_get, connecting_update
 from getpass import getpass
 from mysql.connector import connect, Error
-user_name = "ptah_9"
+# user_name = "ptah_9"
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/users": {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
  
-data = {
-    "users": [
-        {"id": 1, "name": "John"},
-        {"id": 2, "name": "Jane"},
-    ]
-}
  
-@app.route('/users/<table>', methods=['GET'])
+@app.route('/users/<table>/<user_name>', methods=['GET'])
 @cross_origin(origin='*',headers=['Content-Type','Authorization'])
-def get_users(table):
-    return jsonify(connecting(table))
+def get_table(table, user_name):
+    return jsonify(connecting_get(table, user_name))
 
 
 
+# @app.route('/users/new_user/<user_name>', methods=['POST'])
+# @cross_origin(origin='*',headers=['Content-Type','Authorization'])
+# def create_user(user_name):
+    
+
+@app.route('/users/new_level/<user_name>', methods=['POST'])
+@cross_origin(origin='*',headers=['Content-Type','Authorization'])
+def create_user(user_name):
+    print("lol")
+    print(request.get_json())
+    print(connecting_update(user_name, "users_this_level", "now_level",json.dumps(request.get_json()).replace(" ", "")))
+    return "ok"
+    
+    
 
 
 
@@ -66,11 +75,7 @@ def get_users(table):
 #         return "User not found", 404
 #     return jsonify(user)
  
-# @app.route('/users', methods=['POST'])
-# def create_user():
-#     user = request.get_json()
-#     data["users"].append(user)
-#     return jsonify(user), 201
+
  
 # @app.route('/users/&lt;int:user_id&gt;', methods=['DELETE'])
 # def delete_user(user_id):

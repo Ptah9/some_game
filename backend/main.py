@@ -1,13 +1,13 @@
 from getpass import getpass
 from mysql.connector import connect, Error
 
-user_name = "ptah_9"
+user = "ptah_9"
 now_level = "[[0,0,0,0,0,0,0,3,0,0],[3,1,1,1,0,0,1,1,1,0],[0,0,0,1,0,0,0,0,1,0],[0,1,0,1,1,1,1,1,1,0],[0,1,1,1,0,1,0,0,1,0],[0,1,0,1,0,0,0,0,1,0],[0,0,0,1,1,1,1,1,1,0],[0,1,0,1,0,1,0,0,1,2],[0,1,1,1,0,1,1,0,0,0],[0,0,0,0,0,0,0,0,0,0]]"
 now_x = 9
 now_y = 7
 
 
-def init_user(connection):
+def init_user(connection, user_name):
     with connection.cursor() as cursor:
         cursor.execute(f'''
                         INSERT INTO users_info
@@ -26,7 +26,7 @@ def init_user(connection):
         
         connection.commit()
             
-def update(connection, table, obj, value):
+def update(connection, user_name, table, obj, value):
     with connection.cursor() as cursor:
         cursor.execute(f'''
                         UPDATE
@@ -38,10 +38,10 @@ def update(connection, table, obj, value):
                         ''')
         connection.commit()
         
-def geting(connection, table, user):
+def geting(connection, table, user_name):
     with connection.cursor() as cursor:
         cursor.execute(f'''
-                        SELECT * FROM {table} WHERE tg_user_name = '{user}';
+                        SELECT * FROM {table} WHERE tg_user_name = '{user_name}';
                         ''')
         result = cursor.fetchall()
         # connection.commit()
@@ -49,7 +49,7 @@ def geting(connection, table, user):
         
 # def connecting(host, user, password, database,):
 
-def connecting(table):
+def connecting_get(table, user_name):
     try:
         with connect(
             host="localhost",
@@ -62,6 +62,42 @@ def connecting(table):
             # init_user(connection)
             # update(connection, "users_this_life", "HP", 100)
             return geting(connection, table, user_name)
+
+    except Error as e:
+        return e
+
+def connecting_new(user_name):
+    try:
+        with connect(
+            host="localhost",
+            user="root",
+            password="password",
+            database="labsdb", 
+            # user=input("Имя пользователя: "),
+            # password=getpass("Пароль: "),
+        ) as connection:
+            # init_user(connection)
+            # update(connection, "users_this_life", "HP", 100)
+            init_user(connection)
+
+    except Error as e:
+        return e
+    
+
+def connecting_update(user_name, table, obj, value):
+    try:
+        with connect(
+            host="localhost",
+            user="root",
+            password="password",
+            database="labsdb", 
+            # user=input("Имя пользователя: "),
+            # password=getpass("Пароль: "),
+        ) as connection:
+            # init_user(connection)
+            # update(connection, "users_this_life", "HP", 100)
+            update(connection, user_name, table, obj, value)
+            return
 
     except Error as e:
         return e

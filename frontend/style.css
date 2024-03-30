@@ -146,9 +146,9 @@ body {
     color:  rgba(0, 0, 0, 0);
 }
 .gate {
-    background-color: #5c5c5c;
+    background-color: black;
     position: absolute;
-    display: none;
+    display: inline;
 }
 
 #up-gate{

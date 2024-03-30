@@ -1,5 +1,5 @@
 import Generation from './generation.js';
-
+import Connect from './fetches.js';
 
 const healthScale = document.querySelector('.health-scale'),
     mapBtn = document.querySelector('#map-btn'),
@@ -27,28 +27,13 @@ const healthScale = document.querySelector('.health-scale'),
     weaponDesc = document.querySelector('.weapon-description p'),
     scoreSpan = document.querySelector('.score')
  
+    // ---------------------------------------------------------
 
 let max_health = 1000,
     health = 1000;
 
 let mapClosed = true,
     weaponClosed = true;
-
-
-
-// function matrix() {
-//     let matrix = new Array(10);
-//     for (let i = 0; i < 10; i++) {
-//         matrix[i] = new Array(10);
-// }
-// }
-// let matrix = new Array(10);
-// for (let i = 0; i < 10; i++) {
-// matrix[i] = new Array(10);
-// }
-
-
-
 
 
 class Room {
@@ -62,10 +47,72 @@ class Room {
     }
 
     showRoom() {
-        upGate.style.display =  this.upGate ? "inline" : "none"
-        rightGate.style.display =  this.rightGate ? "inline" : "none"
-        bottomGate.style.display =  this.bottomGate ? "inline" : "none"
-        leftGate.style.display =  this.leftGate ? "inline" : "none"
+        if (this.upGate){
+            if(this.upGate=="next"){
+                upGate.style.backgroundColor = "rgb(140, 0, 255)";
+            }
+            else if(this.upGate=="back"){
+                upGate.style.backgroundColor = "#2d2d2d";
+            }
+            else{
+                upGate.style.backgroundColor = "#5c5c5c";
+            }
+        }
+        else {
+            upGate.style.backgroundColor = "rgba(0, 0, 0, 0)"
+        }
+
+
+        if (this.rightGate){
+            if(this.rightGate=="next"){
+                rightGate.style.backgroundColor = "rgb(140, 0, 255)";
+            }
+            else if(this.rightGate=="back"){
+                rightGate.style.backgroundColor = "#2d2d2d";
+            }
+            else{
+                rightGate.style.backgroundColor = "#5c5c5c";
+            }
+        }
+        else {
+            rightGate.style.backgroundColor = "rgba(0, 0, 0, 0)"
+        }
+
+
+        if (this.bottomGate){
+            if(this.bottomGate=="next"){
+                bottomGate.style.backgroundColor = "rgb(140, 0, 255)";
+            }
+            else if(this.bottomGate=="back"){
+                bottomGate.style.backgroundColor = "#2d2d2d";
+            }
+            else{
+                bottomGate.style.backgroundColor = "#5c5c5c";
+            }
+        }
+        else {
+            bottomGate.style.backgroundColor = "rgba(0, 0, 0, 0)"
+        }
+
+
+        if (this.leftGate){
+            if(this.leftGate=="next"){
+                leftGate.style.backgroundColor = "rgb(140, 0, 255)";
+            }
+            else if(this.leftGate=="back"){
+                leftGate.style.backgroundColor = "#2d2d2d";
+            }
+            else{
+                leftGate.style.backgroundColor = "#5c5c5c";
+            }
+        }
+        else {
+            leftGate.style.backgroundColor = "rgba(0, 0, 0, 0)"
+        }
+
+
+        
+        
         }
 }
 
@@ -109,17 +156,33 @@ class Level {
 
                     this.contains = "nothing";   //chest/enemy (later)
 
+                    this.up = (y != 0 && this.level[y-1][x] != 0) ? true : false
+                    this.right = (x != 9 && this.level[y][x+1] != 0) ? true : false
+                    this.down = (y != 9 && this.level[y+1][x] != 0) ? true : false
+                    this.left = (x != 0 && this.level[y][x-1] != 0) ? true : false
+                    if (this.level[y][x] == 3){
+                        this.type = "exit";
+                        if (y == 0) this.up = "next"
+                        else if(x == 9) this.right = "next"
+                        else if(y == 9) this.down = "next"
+                        else if(x == 0) this.left = "next"
+                    }
+                    else if(this.level[y][x] == 2){
+                        this.type = "entrance";
+                        if (y == 0) this.up = "back"
+                        else if(x == 9) this.right = "back"
+                        else if(y == 9) this.down = "back"
+                        else if(x == 0) this.left = "back"
+                    }
+                    else if(this.level[y][x] == 1){
+                        this.type = "ordinary";
+                    }
+                    else {
+                        this.type = "error";
+                    }
 
-                    this.adaptedLevel[y][x] = new Room(
-                        (y-1 != -1 && this.level[y-1][x] != 0) ? true : false,
-                        (x+1 != 10 && this.level[y][x+1] != 0) ? true : false,
-                        (y+1 != 10 && this.level[y+1][x] != 0) ? true : false,
-                        (x-1 != -1 && this.level[y][x-1] != 0) ? true : false,
-                        this.contains,
-                        (this.level[y][x] == 1) ? "ordinary" : 
-                        (this.level[y][x] == 2) ? "entrance" : 
-                        (this.level[y][x] == 3) ? "exit" : "error"
-                    );
+                    this.adaptedLevel[y][x] = new Room(this.up,this.right,this.down,this.left,
+                        this.contains, this.type);
                 }
 
                 if (level[y][x] == 2) {
@@ -131,7 +194,11 @@ class Level {
         }
         for (let y = 0; y < 10; y++){
             for (let x = 0; x < 10; x++){
+                this.MapMatrix[y][x].style.border = "1px solid black";
                 switch(this.level[y][x]){
+                    case 0:
+                        this.MapMatrix[y][x].style.backgroundColor = "rgb(238, 223, 166)";
+                        break;
                     case 1:
                         this.MapMatrix[y][x].style.backgroundColor = "gray";
                         break;
@@ -165,55 +232,76 @@ class Level {
     }
 }
 
-let levelExample = Generation(1);
-// let levelExample = [
-//     [0, 0, 0, 0, 0, 0, 0, 3, 0, 0],
-//     [3, 1, 1, 1, 0, 0, 1, 1, 1, 0],
-//     [0, 0, 0, 1, 0, 0, 0, 0, 1, 0],
-//     [0, 1, 0, 1, 1, 1, 1, 1, 1, 0],
-//     [0, 1, 1, 1, 0, 1, 0, 0, 1, 0],
-//     [0, 1, 0, 1, 0, 0, 0, 0, 1, 0],
-//     [0, 0, 0, 1, 1, 1, 1, 1, 1, 0],
-//     [0, 1, 0, 1, 0, 1, 0, 0, 1, 2],
-//     [0, 1, 1, 1, 0, 1, 1, 0, 0, 0],
-//     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-// ];
+// -------------------------------------
+let url = "http://127.0.0.1:5000/users"
+
+
+async function Post(endpoint, data){
+try{
+    let response = await fetch(url + endpoint, {
+        method:"POST",
+        body:JSON.stringify(data),
+        headers:{
+            "Content-Type": "application/json"  
+          }
+    });
+    if (response.status !== 200) {  
+      console.log('Looks like there was a problem. Status Code: ' +  
+        response.status);  
+    }
+      return;
+  }
+  catch(e){
+    console.log(e)
+  }
+}
+
+
+
+function NewLevel(entranceSide){
+
+    let newLevel = Generation(entranceSide);
+
+    endpoint = "/new_level" + "/" + user_name
+    Post(endpoint, newLevel)
+    levelNow = new Level(newLevel);         
+    nowY = levelNow.startY
+    nowX = levelNow.startX
+    levelNow.adaptedLevel[nowY][nowX].showRoom()
+    levelNow.nowMap();
+}
+
 
 // -------------------------------------
 
 //db connect
 
 
-let url = "http://127.0.0.1:5000/users"
-let endpoint = "/users_this_level"
-let levelNow        
-let nowY
-let nowX
-async function main(endp){
-    try{
-      let response = await fetch(url+endp);
-      if (response.status !== 200) {  
-        console.log('Looks like there was a problem. Status Code: ' +  
-          response.status);  
-        return;  
-      }
-        
-        let resp = await response.json();
-        return resp
-        
-    }
-    catch(e){
-      console.log('Fetch Error :-S', e);  
-    }
-  }
-main(endpoint).then(function(response) {
-    let resp = response[1]
+
+url = "http://127.0.0.1:5000/users"
+let endpoint;
+let user_name = "ptah_9"
+
+let levelNow;
+let nowY;
+let nowX;
+
+
+endpoint = "/users_this_life" + "/" + user_name
+Connect(endpoint).then(function(response) {
+    let resp = response
+    scoreSpan.textContent = resp[6];         
+})
+
+endpoint = "/users_this_level" + "/" + user_name
+Connect(endpoint).then(function(response) {
+    let resp = response[1]  
     let level = JSON.parse(resp);
     levelNow = new Level(level);         
     nowY = levelNow.startY
     nowX = levelNow.startX
-    console.log(levelNow)
     levelNow.adaptedLevel[nowY][nowX].showRoom()
+
 })
 
 
@@ -224,60 +312,103 @@ body.addEventListener("keydown", function (event) {
         event.code != "ArrowUp" && event.code != "ArrowDown") return;
 
     if (event.code == "ArrowUp") {
-        if (nowY !=0 && levelNow.level[nowY-1][nowX] && mapClosed) {
-            nowY-=1;
-            levelNow.nowMap();
+        if(levelNow.level[nowY][nowX] != 3 || nowY != 0){
+            if (nowY !=0 && levelNow.level[nowY-1][nowX] && mapClosed) {
+                nowY-=1;
+             }
         }
+        else {
+            NewLevel(3)
+        }
+
         
     }
     if (event.code == "ArrowRight") {
-        if (nowX != 9 && levelNow.level[nowY][nowX+1] && mapClosed) {
-            nowX+=1;
-            levelNow.nowMap();
+        if(levelNow.level[nowY][nowX] != 3 || nowX != 9){
+            if (nowX != 9 && levelNow.level[nowY][nowX+1] && mapClosed) {
+                nowX+=1;
+                levelNow.nowMap();
+            }
         }
+        else if(nowX==9) {
+            NewLevel(2)
+        }
+
     }
     if (event.code == "ArrowDown") {
-        if (nowY !=9 && levelNow.level[nowY+1][nowX] && mapClosed) {
-            nowY+=1;
-            levelNow.nowMap();
+        if(levelNow.level[nowY][nowX] != 3 || nowY != 9){
+            if (nowY !=9 && levelNow.level[nowY+1][nowX] && mapClosed) {
+                nowY+=1;
+                levelNow.nowMap();
+            }
         }
+        else if(nowY==9) {
+            NewLevel(4)
+        }
+
     }
     if (event.code == "ArrowLeft") {
-        if (nowX != 0 && levelNow.level[nowY][nowX-1] && mapClosed) {
-            nowX-=1;
-            levelNow.nowMap();
+        if(levelNow.level[nowY][nowX] != 3 || nowX != 0){
+            if (nowX != 0 && levelNow.level[nowY][nowX-1] && mapClosed) {
+                nowX-=1;
+                levelNow.nowMap();
+            }
         }
+        else if(nowX==0) {
+            NewLevel(1)
+        }
+
     }
 
     levelNow.adaptedLevel[nowY][nowX].showRoom()
 });
 
 upButton.addEventListener("click", function() {
+    if(levelNow.level[nowY][nowX] != 3){
     if (nowY !=0 && levelNow.level[nowY-1][nowX] && mapClosed) {
         nowY-=1;
         levelNow.nowMap();
+    }}
+    else {
+        NewLevel(3)
     }
+
     levelNow.adaptedLevel[nowY][nowX].showRoom()
 })
 rightButton.addEventListener("click", function() {
+    if(levelNow.level[nowY][nowX] != 3){
     if (nowX != 9 && levelNow.level[nowY][nowX+1] && mapClosed) {
         nowX+=1;
         levelNow.nowMap();
+    }}
+    else {
+        NewLevel(2)
     }
+
     levelNow.adaptedLevel[nowY][nowX].showRoom()
 })
 bottomButton.addEventListener("click", function() {
+    if(levelNow.level[nowY][nowX] != 3){
     if (nowY !=9 && levelNow.level[nowY+1][nowX] && mapClosed) {
         nowY+=1;
         levelNow.nowMap();
+    }}
+    else {
+        NewLevel(4)
     }
+
     levelNow.adaptedLevel[nowY][nowX].showRoom()
 })
 leftButton.addEventListener("click", function() {
-    if (nowX != 0 && levelNow.level[nowY][nowX-1] && mapClosed) {
-        nowX-=1;
-        levelNow.nowMap();
+    if(levelNow.level[nowY][nowX] != 3){
+        if (nowX != 0 && levelNow.level[nowY][nowX-1] && mapClosed) {
+            nowX-=1;
+            levelNow.nowMap();
+        }}
+    else {
+        NewLevel(1)
     }
+    
     levelNow.adaptedLevel[nowY][nowX].showRoom()
 })
 
@@ -400,12 +531,6 @@ ringBtn.addEventListener("click", function(){
 
 
 
-endpoint = "/users_this_life"
-
-main(endpoint).then(function(response) {
-    let resp = response
-    scoreSpan.textContent = resp[6];         
-})
 
 
 

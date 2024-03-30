@@ -343,6 +343,13 @@ url = "http://127.0.0.1:5000/users"
 //   });
 
 
+    // btn_click.addEventListener('click',() => {
+    //     let x = Math.floor(Math.random()*(256));
+    //     let y = Math.floor(Math.random()*(256));
+    //     let z = Math.floor(Math.random()*(256));
+    //     title.style.color = `rgba(${x},${y},${z}, .7)`;
+    // })
+
 
 
 async function main(){

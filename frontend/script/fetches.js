@@ -1,31 +1,23 @@
-
 let url = "http://127.0.0.1:5000/users"
-async function main(){
-    try{
-      let response = await fetch(url);
-      if (response.status !== 200) {  
-        console.log('Looks like there was a problem. Status Code: ' +  
-          response.status);  
-        return;  
-      }
-        
-        let resp = await response.json();
-        return resp
+
+
+async function Connect(endpoint){
+  try{
+    let response = await fetch(url + endpoint, );
+    if (response.status !== 200) {  
+      console.log('Looks like there was a problem. Status Code: ' +  
+        response.status);  
+      return;  
     }
-    catch(e){
-      console.log('Fetch Error :-S', e);  
-    }
+      
+      let resp = await response.json();
+      return resp
+      
   }
-  
-async function unjson(response){
-    let resp = response
-    console.log(resp)
-    let score = resp[6]
-    scoreSpan.textContent = score;
+  catch(e){
+    console.log('Fetch Error :-S', e);  
+  }
 }
 
 
-main().then(function(response) {
-
-    
-})
+export default Connect;

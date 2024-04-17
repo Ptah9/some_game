@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "lol",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node server.js",
+    "run": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mysql2": "^3.9.3"
+  }
+}

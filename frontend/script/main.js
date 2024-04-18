@@ -232,75 +232,31 @@ class Level {
     }
 }
 
-// // -------------------------------------
-let url = "http://127.0.0.1:5000/users"
+//------------------------------------
 
+function NewLevel(entranceSide){
 
-// async function Post(endpoint, data){
-// try{
-//     let response = await fetch(url + endpoint, {
-//         method:"POST",
-//         body:JSON.stringify(data),
-//         headers: { "Accept": "application/json", "Content-Type": "application/json", }
-//     });
-//     if (response.status !== 200) {  
-//       console.log('Looks like there was a problem. Status Code: ' +  
-//         response.status);  
-//     }
-//       return;
-//   }
-//   catch(e){
-//     console.log(e)
-//   }
-// }
-
-
-
-
-// function NewLevel(entranceSide){
-
-//     let newLevel = Generation(entranceSide);
-
-//     endpoint = "/new_level" + "/" + user_name
-//     Post(endpoint, newLevel);
-//     levelNow = new Level(newLevel);         
-//     nowY = levelNow.startY
-//     nowX = levelNow.startX
-//     levelNow.adaptedLevel[nowY][nowX].showRoom()
-//     levelNow.nowMap();
-// }
+    let newLevel = Generation(entranceSide);
+    endpoint = "/new_level" + "/" + user_name
+    levelNow = new Level(newLevel);         
+    nowY = levelNow.startY
+    nowX = levelNow.startX
+    levelNow.adaptedLevel[nowY][nowX].showRoom()
+    levelNow.nowMap();
+}
 
 
 // -------------------------------------
-
-//db connect
-
-
-
-let endpoint;
-let user_name = "ptah_9"
 
 let levelNow;
 let nowY;
 let nowX;
 
 
-endpoint = "/users_this_life" + "/" + user_name
-Connect(endpoint, "GET").then(function(response) {
-    let resp = response
-    scoreSpan.textContent = resp[0]["score"];         
-})
-
-endpoint = "/users_this_level" + "/" + user_name
-Connect(endpoint, "GET").then(function(response) {
-    let resp = response[0]
-    let level = JSON.parse(resp["now_level"]);
-    levelNow = new Level(level);         
-    nowY = levelNow.startY
-    nowX = levelNow.startX
-    levelNow.adaptedLevel[nowY][nowX].showRoom()
-
-})
+levelNow = new Level(Generation(3));         
+nowY = levelNow.startY
+nowX = levelNow.startX
+levelNow.adaptedLevel[nowY][nowX].showRoom()
 
 
 // ------------------------------------------------------------------
@@ -664,16 +620,3 @@ ringBtn.addEventListener("click", function(){
 //       }
 //     }
     
-
-function NewLevel(entranceSide){
-
-    // let newLevel = Generation(entranceSide);
-    let newLevel = 100;
-
-    endpoint = "/lol"
-    Connec(endpoint);
-}
-
-Connect("/lol", "POST", {"lol":"lul"}).then( function(l) {
-    console.log(l)
-})

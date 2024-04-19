@@ -214,7 +214,7 @@ body {
     border: 1vw solid rgb(51, 51, 51);
     border-width: 1vw 1vw 0 1vw;
     /* border-radius: 4vh 4vh 0% 0; */
-    display: none;
+    /* display: none; */
 }
 
 .exit-additional-btn, .additional-btn {
@@ -311,3 +311,44 @@ body {
 .control-btns button{
     font-size: 4vw;
 }
+/* ------------------------------------ */
+
+.leaders-area{
+    
+}
+
+.avatarka{
+    border-radius: 100%;
+    width: auto;
+}
+
+.img-and-pic{
+    display: flex;
+    width: 22vw;
+    
+}
+
+.place{
+    
+    margin-right: 1vw;
+}
+
+.card{
+    height: 60px;
+    width: 90vw;
+    background-color: rgb(51, 51, 51);
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid var(--main-purple);     
+    padding: 4px 8px;
+    
+}
+
+.card p{
+    font-size: 30px;
+    font-family: Minecraft Regular;
+    color: var(--main-purple);
+    margin-top: 2px;
+} 

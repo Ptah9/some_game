@@ -343,6 +343,8 @@ body {
     justify-content: space-between;
     border: 2px solid var(--main-purple);     
     padding: 4px 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     
 }
 

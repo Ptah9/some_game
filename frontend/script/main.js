@@ -25,7 +25,9 @@ const healthScale = document.querySelector('.health-scale'),
     weaponName = document.querySelector('.weapon-text h2'),
     weaponShortDesc = document.querySelector('.weapon-text h4'),
     weaponDesc = document.querySelector('.weapon-description p'),
-    scoreSpan = document.querySelector('.score')
+    scoreSpan = document.querySelector('.score'),
+    nickname = document.querySelector('.name');
+
  
     // ---------------------------------------------------------
 
@@ -481,3 +483,14 @@ ringBtn.addEventListener("click", function(){
     ringBtn.classList.add('weapon-btn-active');
     weaponSelected = ringBtn;
 })
+
+
+
+
+
+import analyze from './node_modules/rgbaster/dist/rgbaster.mjs'
+
+const result = await analyze('https://i.ibb.co/0jH5ZRb/image.jpg') // also supports base64 encoded image strings
+
+nickname.style.color = result[0].color
+

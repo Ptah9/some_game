@@ -1,17 +1,14 @@
-import Generation from './generation.js';
-import Connect from './fetches.js';
+import Map from "./classes/Map.js";
+import showRoom from './functions/showRoom.js';
+import NewLevel from "./functions/newLevel.js";
 
 const healthScale = document.querySelector('.health-scale'),
     mapBtn = document.querySelector('#map-btn'),
     artifactsBtn = document.querySelector('#artifacts-btn'),
     weaponBtn = document.querySelector('#weapon-btn'),
-    upGate =    document.querySelector('#up-gate'),
     upButton = document.querySelector('#up-button'),
-    rightGate = document.querySelector('#right-gate'),
     rightButton = document.querySelector('#right-button'),
-    bottomGate = document.querySelector('#bottom-gate'),
     bottomButton = document.querySelector('#bottom-button'),
-    leftGate = document.querySelector('#left-gate'),
     leftButton = document.querySelector('#left-button'),
     body = document.querySelector('#body'),
     mapArea = document.querySelector('.map-area'),
@@ -28,361 +25,70 @@ const healthScale = document.querySelector('.health-scale'),
     scoreSpan = document.querySelector('.score'),
     nickname = document.querySelector('.name');
 
- 
-    // ---------------------------------------------------------
+// ---------------------------------------------------------
 
 let max_health = 1000,
     health = 1000;
-
-let mapClosed = true,
-    weaponClosed = true;
-
-
-class Room {
-    constructor(up, right, bottom, left, contains, type) {
-        this.upGate = up;
-        this.rightGate = right;
-        this.bottomGate = bottom;
-        this.leftGate = left;
-        this.contains = contains;     //chest/enemy/nothing
-        this.type = type;     //entrance/exit/ordinary
-    }
-
-    showRoom() {
-        if (this.upGate){
-            if(this.upGate=="next"){
-                upGate.style.backgroundColor = "rgb(140, 0, 255)";
-            }
-            else if(this.upGate=="back"){
-                upGate.style.backgroundColor = "#2d2d2d";
-            }
-            else{
-                upGate.style.backgroundColor = "#5c5c5c";
-            }
-        }
-        else {
-            upGate.style.backgroundColor = "rgba(0, 0, 0, 0)"
-        }
-
-
-        if (this.rightGate){
-            if(this.rightGate=="next"){
-                rightGate.style.backgroundColor = "rgb(140, 0, 255)";
-            }
-            else if(this.rightGate=="back"){
-                rightGate.style.backgroundColor = "#2d2d2d";
-            }
-            else{
-                rightGate.style.backgroundColor = "#5c5c5c";
-            }
-        }
-        else {
-            rightGate.style.backgroundColor = "rgba(0, 0, 0, 0)"
-        }
-
-
-        if (this.bottomGate){
-            if(this.bottomGate=="next"){
-                bottomGate.style.backgroundColor = "rgb(140, 0, 255)";
-            }
-            else if(this.bottomGate=="back"){
-                bottomGate.style.backgroundColor = "#2d2d2d";
-            }
-            else{
-                bottomGate.style.backgroundColor = "#5c5c5c";
-            }
-        }
-        else {
-            bottomGate.style.backgroundColor = "rgba(0, 0, 0, 0)"
-        }
-
-
-        if (this.leftGate){
-            if(this.leftGate=="next"){
-                leftGate.style.backgroundColor = "rgb(140, 0, 255)";
-            }
-            else if(this.leftGate=="back"){
-                leftGate.style.backgroundColor = "#2d2d2d";
-            }
-            else{
-                leftGate.style.backgroundColor = "#5c5c5c";
-            }
-        }
-        else {
-            leftGate.style.backgroundColor = "rgba(0, 0, 0, 0)"
-        }
-
-
-        
-        
-        }
-}
-
-class Level {
-    constructor(level) {
-        this.adaptedLevel  = [
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        ]; 
-        this.MapMatrix = [
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        ]; 
-        this.level = level;
-        this.startX;
-        this.startY;
-
-        this.i = 1;
-        for (let y = 0; y < 10; y++){
-            for (let x = 0; x < 10; x++){
-                this.MapMatrix[y][x] = document.querySelector(".map-room:nth-child("+this.i+")");
-                this.i++
-                if (this.level[y][x] != 0){
-
-
-                    this.contains = "nothing";   //chest/enemy (later)
-
-                    this.up = (y != 0 && this.level[y-1][x] != 0) ? true : false
-                    this.right = (x != 9 && this.level[y][x+1] != 0) ? true : false
-                    this.down = (y != 9 && this.level[y+1][x] != 0) ? true : false
-                    this.left = (x != 0 && this.level[y][x-1] != 0) ? true : false
-                    if (this.level[y][x] == 3){
-                        this.type = "exit";
-                        if (y == 0) this.up = "next"
-                        else if(x == 9) this.right = "next"
-                        else if(y == 9) this.down = "next"
-                        else if(x == 0) this.left = "next"
-                    }
-                    else if(this.level[y][x] == 2){
-                        this.type = "entrance";
-                        if (y == 0) this.up = "back"
-                        else if(x == 9) this.right = "back"
-                        else if(y == 9) this.down = "back"
-                        else if(x == 0) this.left = "back"
-                    }
-                    else if(this.level[y][x] == 1){
-                        this.type = "ordinary";
-                    }
-                    else {
-                        this.type = "error";
-                    }
-
-                    this.adaptedLevel[y][x] = new Room(this.up,this.right,this.down,this.left,
-                        this.contains, this.type);
-                }
-
-                if (level[y][x] == 2) {
-                this.startX = x
-                this.startY = y
-                }
-                
-            }
-        }
-        for (let y = 0; y < 10; y++){
-            for (let x = 0; x < 10; x++){
-                this.MapMatrix[y][x].style.border = "1px solid black";
-                switch(this.level[y][x]){
-                    case 0:
-                        this.MapMatrix[y][x].style.backgroundColor = "rgb(238, 223, 166)";
-                        break;
-                    case 1:
-                        this.MapMatrix[y][x].style.backgroundColor = "gray";
-                        break;
-                    case 2:
-                        this.MapMatrix[y][x].style.backgroundColor = "green";
-                        this.MapMatrix[y][x].style.border = "5px solid red";
-                        break;
-                    case 3:
-                        this.MapMatrix[y][x].style.backgroundColor = "rgb(140, 0, 255)";
-                        break;
-                
-                }
-            }
-        }
-
-
-
-    }
-    nowMap(){
-        this.MapMatrix[nowY][nowX].style.borderColor = "red";
-        this.MapMatrix[nowY][nowX].style.border = "5px solid red";
-
-        try {this.MapMatrix[nowY-1][nowX].style.border = "1px solid black";}
-        catch{}
-        try {this.MapMatrix[nowY+1][nowX].style.border = "1px solid black";}
-        catch{}
-        try {this.MapMatrix[nowY][nowX-1].style.border = "1px solid black";}
-        catch{}
-        try {this.MapMatrix[nowY][nowX+1].style.border = "1px solid black";}
-        catch{}
-    }
-}
+localStorage.mapClosed = true;
 
 //------------------------------------
 
-function NewLevel(entranceSide){
-
-    let newLevel = Generation(entranceSide);
-    endpoint = "/new_level" + "/" + user_name
-    levelNow = new Level(newLevel);         
-    nowY = levelNow.startY
-    nowX = levelNow.startX
-    levelNow.adaptedLevel[nowY][nowX].showRoom()
-    levelNow.nowMap();
-}
-
-
-// -------------------------------------
-
-let levelNow;
 let nowY;
 let nowX;
+let NowMap;
 
+// -------------------------
 
-levelNow = new Level(Generation(3));         
-nowY = levelNow.startY
-nowX = levelNow.startX
-levelNow.adaptedLevel[nowY][nowX].showRoom()
-
+if (JSON.parse(localStorage.getItem('levelNow'))) {
+    let levelNow = JSON.parse(localStorage.getItem('levelNow'));
+    nowY = Number(localStorage.getItem('nowY'));
+    nowX = Number(localStorage.getItem('nowX'));
+    NowMap = new Map(levelNow)
+    showRoom(levelNow.adaptedLevel[nowY][nowX])
+    NowMap.nowMap(nowX, nowY);
+}
+else{
+    NowMap = NewLevel(3)
+}
 
 // ------------------------------------------------------------------
+
+import {goUp, goRight, goDown, goLeft} from './functions/goTo.js';
 
 body.addEventListener("keydown", function (event) {
     if (event.code != "ArrowRight" && event.code != "ArrowLeft" &&
         event.code != "ArrowUp" && event.code != "ArrowDown") return;
 
     if (event.code == "ArrowUp") {
-        if(levelNow.level[nowY][nowX] != 3 || nowY != 0){
-            if (nowY !=0 && levelNow.level[nowY-1][nowX] && mapClosed) {
-                nowY-=1;
-             }
-        }
-        else {
-            NewLevel(3)
-        }
-
-        
+        goUp(NowMap)
     }
     if (event.code == "ArrowRight") {
-        if(levelNow.level[nowY][nowX] != 3 || nowX != 9){
-            if (nowX != 9 && levelNow.level[nowY][nowX+1] && mapClosed) {
-                nowX+=1;
-                levelNow.nowMap();
-            }
-        }
-        else if(nowX==9) {
-            NewLevel(2)
-        }
-
+        goRight(NowMap)
     }
     if (event.code == "ArrowDown") {
-        if(levelNow.level[nowY][nowX] != 3 || nowY != 9){
-            if (nowY !=9 && levelNow.level[nowY+1][nowX] && mapClosed) {
-                nowY+=1;
-                levelNow.nowMap();
-            }
-        }
-        else if(nowY==9) {
-            NewLevel(4)
-        }
-
+        goDown(NowMap)
     }
     if (event.code == "ArrowLeft") {
-        if(levelNow.level[nowY][nowX] != 3 || nowX != 0){
-            if (nowX != 0 && levelNow.level[nowY][nowX-1] && mapClosed) {
-                nowX-=1;
-                levelNow.nowMap();
-            }
-        }
-        else if(nowX==0) {
-            NewLevel(1)
-        }
-
+        goLeft(NowMap)
     }
-
-    levelNow.adaptedLevel[nowY][nowX].showRoom()
 });
 
-upButton.addEventListener("click", function() {
-    if(levelNow.level[nowY][nowX] != 3){
-    if (nowY !=0 && levelNow.level[nowY-1][nowX] && mapClosed) {
-        nowY-=1;
-        levelNow.nowMap();
-    }}
-    else {
-        NewLevel(3)
-    }
-
-    levelNow.adaptedLevel[nowY][nowX].showRoom()
-})
-rightButton.addEventListener("click", function() {
-    if(levelNow.level[nowY][nowX] != 3){
-    if (nowX != 9 && levelNow.level[nowY][nowX+1] && mapClosed) {
-        nowX+=1;
-        levelNow.nowMap();
-    }}
-    else {
-        NewLevel(2)
-    }
-
-    levelNow.adaptedLevel[nowY][nowX].showRoom()
-})
-bottomButton.addEventListener("click", function() {
-    if(levelNow.level[nowY][nowX] != 3){
-    if (nowY !=9 && levelNow.level[nowY+1][nowX] && mapClosed) {
-        nowY+=1;
-        levelNow.nowMap();
-    }}
-    else {
-        NewLevel(4)
-    }
-
-    levelNow.adaptedLevel[nowY][nowX].showRoom()
-})
-leftButton.addEventListener("click", function() {
-    if(levelNow.level[nowY][nowX] != 3){
-        if (nowX != 0 && levelNow.level[nowY][nowX-1] && mapClosed) {
-            nowX-=1;
-            levelNow.nowMap();
-        }}
-    else {
-        NewLevel(1)
-    }
-    
-    levelNow.adaptedLevel[nowY][nowX].showRoom()
-})
+upButton.addEventListener("click", ()=> {           // TODO: сделать адекватно блин
+    goUp(NowMap)
+});
+rightButton.addEventListener("click", ()=> {
+    goRight(NowMap)
+});
+bottomButton.addEventListener("click", ()=> {
+    goDown(NowMap)
+});
+leftButton.addEventListener("click", ()=> {
+    goLeft(NowMap)
+});
 
 
+// ------------ part 2 -------------- \\
 
-// btn_click.addEventListener('click',() => {
-//     let x = Math.floor(Math.random()*(256));
-//     let y = Math.floor(Math.random()*(256));
-//     let z = Math.floor(Math.random()*(256));
-//     title.style.color = `rgba(${x},${y},${z}, .7)`;
-// })
-
-weaponBtn.addEventListener("click", function(){
-    if (health > 0) {
-        health -= 100
-    }
-    healthScale.style.width = (100 - (health / max_health * 100)) + "%"
-})
 
 artifactsBtn.addEventListener("click", function(){
     if (health < max_health) {
@@ -390,25 +96,26 @@ artifactsBtn.addEventListener("click", function(){
     }
     healthScale.style.width = (100 - (health / max_health * 100)) + "%"
 })
-exitMapBtn.addEventListener("click", function(){
-    mapArea.style.display = "none";
-    mapClosed = true;
-
-})
-
 mapBtn.addEventListener("click", function(){
     mapArea.style.display = "block"
-    mapClosed = false;
+    localStorage.mapClosed = false;
 })
+exitMapBtn.addEventListener("click", function(){
+    mapArea.style.display = "none";
+    localStorage.mapClosed = true;
 
-exitWeaponBtn.addEventListener("click", function(){
-    weaponArea.style.display = "none";
-    weaponClosed = true;
 })
-
 weaponBtn.addEventListener("click", function(){
     weaponArea.style.display = "block"
     weaponClosed = false;
+    if (health > 0) {
+        health -= 100
+    }
+    healthScale.style.width = (100 - (health / max_health * 100)) + "%"
+})
+exitWeaponBtn.addEventListener("click", function(){
+    weaponArea.style.display = "none";
+    weaponClosed = true;
 })
 
 class weaponItem {
@@ -486,11 +193,9 @@ ringBtn.addEventListener("click", function(){
 
 
 
+// part 3
 
-
-import analyze from './node_modules/rgbaster/dist/rgbaster.mjs'
-
-const result = await analyze('https://i.ibb.co/0jH5ZRb/image.jpg') // also supports base64 encoded image strings
-
-nickname.style.color = result[0].color
+// import analyze from 'rgbaster'
+// const result = await analyze('https://i.ibb.co/0jH5ZRb/image.jpg') // also supports base64 encoded image strings
+// nickname.style.color = result[0].color
 

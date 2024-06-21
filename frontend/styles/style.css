@@ -215,7 +215,7 @@ body {
     border: 1vw solid rgb(51, 51, 51);
     border-width: 1vw 1vw 0 1vw;
     /* border-radius: 4vh 4vh 0% 0; */
-    /* display: none; */
+    display: none;
 }
 
 .exit-additional-btn, .additional-btn {

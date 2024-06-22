@@ -2,7 +2,7 @@ import showRoom from "./showRoom.js";
 import NewLevel from "./newLevel.js";
 
 function goUp(NowMap){
-if (localStorage.mapClosed == "true"){
+if (localStorage.mapClosed == "true" && localStorage.weaponClosed == "true"){
     let levelNow = JSON.parse(localStorage.getItem('levelNow'));
     let nowX = JSON.parse(localStorage.getItem('nowX'));
     let nowY = JSON.parse(localStorage.getItem('nowY'));
@@ -21,7 +21,7 @@ if (localStorage.mapClosed == "true"){
 }
 
 function goRight(NowMap){
-if (localStorage.mapClosed == "true"){
+if (localStorage.mapClosed == "true" && localStorage.weaponClosed == "true"){
     let levelNow = JSON.parse(localStorage.getItem('levelNow'));
     let nowX = JSON.parse(localStorage.getItem('nowX'));
     let nowY = JSON.parse(localStorage.getItem('nowY'));
@@ -40,7 +40,7 @@ if (localStorage.mapClosed == "true"){
 }
 
 function goDown(NowMap){
-if (localStorage.mapClosed == "true"){
+if (localStorage.mapClosed == "true" && localStorage.weaponClosed == "true"){
     let levelNow = JSON.parse(localStorage.getItem('levelNow'));
     let nowX = JSON.parse(localStorage.getItem('nowX'));
     let nowY = JSON.parse(localStorage.getItem('nowY'));
@@ -59,7 +59,7 @@ if (localStorage.mapClosed == "true"){
 }
 
 function goLeft(NowMap){
-if (localStorage.mapClosed == "true"){
+if (localStorage.mapClosed == "true" && localStorage.weaponClosed == "true"){
     let levelNow = JSON.parse(localStorage.getItem('levelNow'));
     let nowX = JSON.parse(localStorage.getItem('nowX'));
     let nowY = JSON.parse(localStorage.getItem('nowY'));

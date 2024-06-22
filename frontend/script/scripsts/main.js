@@ -1,20 +1,13 @@
-import Map from "./classes/Map.js";
-import showRoom from './functions/showRoom.js';
-import NewLevel from "./functions/newLevel.js";
+import Map from "../classes/Map.js";
+import showRoom from '../functions/showRoom.js';
+import NewLevel from "../functions/newLevel.js";
 
-const healthScale = document.querySelector('.health-scale'),
-    mapBtn = document.querySelector('#map-btn'),
-    artifactsBtn = document.querySelector('#artifacts-btn'),
-    weaponBtn = document.querySelector('#weapon-btn'),
-    upButton = document.querySelector('#up-button'),
+
+const upButton = document.querySelector('#up-button'),
     rightButton = document.querySelector('#right-button'),
     bottomButton = document.querySelector('#bottom-button'),
     leftButton = document.querySelector('#left-button'),
     body = document.querySelector('#body'),
-    mapArea = document.querySelector('.map-area'),
-    exitMapBtn = document.querySelector('.exit-map-btn'),
-    exitWeaponBtn = document.querySelector('.exit-weapon-btn'),
-    weaponArea = document.querySelector('.weapon-area'),
     swordBtn = document.querySelector('#sword'),
     magicBtn = document.querySelector('#magic'),
     shieldBtn = document.querySelector('#shield'),
@@ -30,6 +23,7 @@ const healthScale = document.querySelector('.health-scale'),
 let max_health = 1000,
     health = 1000;
 localStorage.mapClosed = true;
+localStorage.weaponClosed = true;
 
 //------------------------------------
 
@@ -53,7 +47,7 @@ else{
 
 // ------------------------------------------------------------------
 
-import {goUp, goRight, goDown, goLeft} from './functions/goTo.js';
+import {goUp, goRight, goDown, goLeft} from '../functions/goTo.js';
 
 body.addEventListener("keydown", function (event) {
     if (event.code != "ArrowRight" && event.code != "ArrowLeft" &&
@@ -90,33 +84,7 @@ leftButton.addEventListener("click", ()=> {
 // ------------ part 2 -------------- \\
 
 
-artifactsBtn.addEventListener("click", function(){
-    if (health < max_health) {
-        health += 100
-    }
-    healthScale.style.width = (100 - (health / max_health * 100)) + "%"
-})
-mapBtn.addEventListener("click", function(){
-    mapArea.style.display = "block"
-    localStorage.mapClosed = false;
-})
-exitMapBtn.addEventListener("click", function(){
-    mapArea.style.display = "none";
-    localStorage.mapClosed = true;
 
-})
-weaponBtn.addEventListener("click", function(){
-    weaponArea.style.display = "block"
-    weaponClosed = false;
-    if (health > 0) {
-        health -= 100
-    }
-    healthScale.style.width = (100 - (health / max_health * 100)) + "%"
-})
-exitWeaponBtn.addEventListener("click", function(){
-    weaponArea.style.display = "none";
-    weaponClosed = true;
-})
 
 class weaponItem {
     constructor(name, shortDesc, description, power) {
@@ -127,7 +95,7 @@ class weaponItem {
     }
 }
 
-let sword = new weaponItem("Purple Sword", 
+ let sword = new weaponItem("Purple Sword", 
                         "It's your first sword", 
                         "An ordinary, cool sword that you get at the beginning of the game and use for a very short time, so I don’t see the point in writing a long and beautiful description for this sword, since you probably won’t read it.",
                         30);

@@ -3,6 +3,8 @@ import showRoom from '../functions/showRoom.js';
 import NewLevel from "../functions/newLevel.js";
 
 
+
+
 const upButton = document.querySelector('#up-button'),
     rightButton = document.querySelector('#right-button'),
     bottomButton = document.querySelector('#bottom-button'),
@@ -30,6 +32,7 @@ localStorage.weaponClosed = true;
 let nowY;
 let nowX;
 let NowMap;
+
 
 // -------------------------
 

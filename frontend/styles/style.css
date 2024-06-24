@@ -215,7 +215,7 @@ body {
     border: 1vw solid rgb(51, 51, 51);
     border-width: 1vw 1vw 0 1vw;
     /* border-radius: 4vh 4vh 0% 0; */
-    display: none;
+    display: none;   
 }
 
 .exit-additional-btn, .additional-btn {
@@ -240,6 +240,32 @@ body {
 
 .map-area {
     display: none;
+}
+
+.up-bar {
+    display: flex;
+    justify-content: space-between;
+    /* width: 80%; */
+    /* background-color: red; */
+}
+
+.room-counter-div{
+    margin: 2.5vw;
+    margin-top: -1.3vw;
+    height: 8vh;
+}
+.room-counter-div-small {
+    display: flex;
+    margin-top: -2.5vh;
+}
+.room-counter-text {
+    color: var(--main-purple);
+    font-size: 4.5vh;
+}
+.room-counter{
+    color: var(--main-purple);
+    font-size: 5vh;
+
 }
 
 .map {

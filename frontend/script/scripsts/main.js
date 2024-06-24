@@ -3,22 +3,11 @@ import showRoom from '../functions/showRoom.js';
 import NewLevel from "../functions/newLevel.js";
 
 
-
-
 const upButton = document.querySelector('#up-button'),
     rightButton = document.querySelector('#right-button'),
     bottomButton = document.querySelector('#bottom-button'),
     leftButton = document.querySelector('#left-button'),
-    body = document.querySelector('#body'),
-    swordBtn = document.querySelector('#sword'),
-    magicBtn = document.querySelector('#magic'),
-    shieldBtn = document.querySelector('#shield'),
-    ringBtn = document.querySelector('#ring'),
-    weaponName = document.querySelector('.weapon-text h2'),
-    weaponShortDesc = document.querySelector('.weapon-text h4'),
-    weaponDesc = document.querySelector('.weapon-description p'),
-    scoreSpan = document.querySelector('.score'),
-    nickname = document.querySelector('.name');
+    body = document.querySelector('#body');
 
 // ---------------------------------------------------------
 
@@ -32,7 +21,10 @@ localStorage.weaponClosed = true;
 let nowY;
 let nowX;
 let NowMap;
-
+localStorage.sword = "Purple Sword";
+localStorage.magic = "Purple Magic";
+localStorage.shield = "Purple Shield";
+localStorage.ring = "Purple Ring";
 
 // -------------------------
 
@@ -43,8 +35,12 @@ if (JSON.parse(localStorage.getItem('levelNow'))) {
     NowMap = new Map(levelNow)
     showRoom(levelNow.adaptedLevel[nowY][nowX])
     NowMap.nowMap(nowX, nowY);
+    document.querySelector('.score').textContent = localStorage.score;
+    document.querySelector('#opened-rooms').textContent = localStorage.openedRooms;
+    document.querySelector('#total-rooms').textContent = levelNow.rooms;
 }
 else{
+    localStorage.score = 0;
     NowMap = NewLevel(3)
 }
 
@@ -117,50 +113,6 @@ let ring = new weaponItem("Purple Ring",
                         "No, not a wedding", 
                         "Yes, it got stuck on my finger. The ring is thin, without a stone, and only adds mood and a little style. It’s better not to hit it with your hands, it will simply crumble or crack (what it consists of is not clear). This kind of jewelry is not for me, I need to find something new.", 
                         3);
-
-
-let weaponSelected = swordBtn;
-weaponName.textContent = sword.name;
-weaponShortDesc.textContent = sword.shortDesc;
-weaponDesc.textContent = sword.description;
-swordBtn.classList.add('weapon-btn-active');
-
-swordBtn.addEventListener("click", function(){
-    weaponName.textContent = sword.name;
-    weaponShortDesc.textContent = sword.shortDesc;
-    weaponDesc.textContent = sword.description;
-    weaponSelected.classList.remove('weapon-btn-active'); 
-    swordBtn.classList.add('weapon-btn-active');
-    weaponSelected = swordBtn;
-
-})
-
-magicBtn.addEventListener("click", function(){
-    weaponName.textContent = magic.name;
-    weaponShortDesc.textContent = magic.shortDesc;
-    weaponDesc.textContent = magic.description;
-    weaponSelected.classList.remove('weapon-btn-active'); 
-    magicBtn.classList.add('weapon-btn-active');
-    weaponSelected = magicBtn;
-})
-
-shieldBtn.addEventListener("click", function(){
-    weaponName.textContent = shield.name;
-    weaponShortDesc.textContent = shield.shortDesc;
-    weaponDesc.textContent = shield.description;
-    weaponSelected.classList.remove('weapon-btn-active'); 
-    shieldBtn.classList.add('weapon-btn-active');
-    weaponSelected = shieldBtn;
-})
-
-ringBtn.addEventListener("click", function(){
-    weaponName.textContent = ring.name;
-    weaponShortDesc.textContent = ring.shortDesc;
-    weaponDesc.textContent = ring.description;
-    weaponSelected.classList.remove('weapon-btn-active'); 
-    ringBtn.classList.add('weapon-btn-active');
-    weaponSelected = ringBtn;
-})
 
 
 

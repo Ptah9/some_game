@@ -20,10 +20,6 @@ exitMapBtn.addEventListener("click", function(){
     mapArea.style.display = "none";
     localStorage.mapClosed = true;
 });
-weaponBtn.addEventListener("click", function(){
-    weaponArea.style.display = "block"
-    localStorage.weaponClosed = false;
-});
 exitWeaponBtn.addEventListener("click", function(){
     weaponArea.style.display = "none";
     localStorage.weaponClosed = true;

@@ -17,10 +17,12 @@ class Level {
         this.level = level;
         this.startX;
         this.startY;
+        this.rooms = 0;
         
         for (let y = 0; y < 10; y++){
             for (let x = 0; x < 10; x++){
                 if (this.level[y][x] != 0){
+                    this.rooms +=1
                     let contains = "nothing";   //chest/enemy (later)
                     let type;
 

@@ -1,0 +1,51 @@
+
+.additional-area{
+    background-color: rgb(36, 36, 36);
+    width: 100vw;
+    height: 91.8vh;
+    position: absolute;
+    bottom: 1px;
+    border: 1vw solid rgb(51, 51, 51);
+    border-width: 1vw 1vw 0 1vw;
+    /* border-radius: 4vh 4vh 0% 0; */
+    display: none;   
+}
+
+.exit-additional-btn, .additional-btn {
+    margin: 2.5vw;
+    width: 20vw;
+    height: 8vh;
+    border: 2px solid grey;
+    /* border-radius: 2vh; */
+    color: var(--main-purple);
+    text-align: center;
+    font-family: Minecraft Regular;
+    font-size:2rem;
+    background-color: black;
+
+}
+.exit-additional-btn:active, .additional-btn:active {
+    background-color: grey;
+    border-color:black;
+}
+
+.message-area{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    display: none;
+}
+
+.message{
+    background-color: black;
+    color: var(--main-purple);
+    height: 20vh;
+    width: 70vw;
+    position: absolute;
+    left: 15vw;
+    top: 20vh;
+    text-align: center;
+    border: 1vw solid var(--main-purple);
+}

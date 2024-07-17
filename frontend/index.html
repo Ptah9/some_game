@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Labyrinths and more</title>
-    <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/additional-general.css">
+    <link rel="stylesheet" href="styles/inventory.css">
+    <link rel="stylesheet" href="styles/map.css">
+    <link rel="stylesheet" href="styles/leaderboard.css">
+    <link rel="stylesheet" href="styles/user-area.css">
 </head>
 <body id="body">
     <div class="page">
         <div class="main"> 
 
 <!-- -------------------------------------------------------------------- -->
-
-            <h2 class="title">&#91;Labyrinths &#38; more&#93;</h2>
-            <h2 class="title">&#91; score: <span class="score title">0</span> &#93;</h2>
-
+            <div class="title-and-score">
+                <h2 class="title">&#91;Labyrinths &#38; more&#93;</h2>
+                <h2 class="title score-title">&#91; score: <span class="score title score-title">...</span> &#93;</h2>
+            </div>
 <!-- -------------------------------------------------------------------- -->
 
             <div class="menu-up-btns">
@@ -29,44 +35,46 @@
             </div>
 
 <!-- -------------------------------------------------------------------- -->
+            <div class="health-and-room">
+                <div class="health-scale-border">
+                    <div class="scale-box">
+                        <div></div>
+                        <div class="health-scale"></div>
+                    </div>
+                </div>
 
-            <div class="health-scale-border">
-                <div class="scale-box">
-                    <div></div>
-                    <div class="health-scale"></div>
+    <!-- -------------------------------------------------------------------- -->
+
+                <div class="main-area">
+                    <div class="room">
+                        
+                        <div id="up-gate" class="gate"></div>
+                        <div id="up-button" class="control-buttons"></div>
+
+                        <div id="right-gate" class="gate"></div>
+                        <div id="right-button" class="control-buttons"></div>
+
+                        <div id="bottom-gate" class="gate"></div>
+                        <div id="bottom-button" class="control-buttons"></div>
+
+                        <div id="left-gate" class="gate"></div>
+                        <div id="left-button" class="control-buttons"></div>
+
+                    </div>
                 </div>
             </div>
 
 <!-- -------------------------------------------------------------------- -->
-
-            <div class="main-area">
-                <div class="room">
-                    
-                    <div id="up-gate" class="gate"></div>
-                    <div id="up-button" class="control-buttons"></div>
-
-                    <div id="right-gate" class="gate"></div>
-                    <div id="right-button" class="control-buttons"></div>
-
-                    <div id="bottom-gate" class="gate"></div>
-                    <div id="bottom-button" class="control-buttons"></div>
-
-                    <div id="left-gate" class="gate"></div>
-                    <div id="left-button" class="control-buttons"></div>
-
-                </div>
-            </div>
-
-<!-- -------------------------------------------------------------------- -->
-
+            <div class="menu-down-btns-wrap" id="menu-down-btns-wrap">
             <div class="menu-down-btns">
-                <div class="artifacts-btn">
-                    <button id="artifacts-btn" class="main-button"></button>
+                <div class="user-btn">
+                    <button id="user-btn" class="main-button"></button>
                 </div>
 
-                <div class="weapon-btn">
-                    <button id="weapon-btn" class="main-button"></button>
+                <div class="backpack-btn">
+                    <button id="backpack-btn" class="main-button"></button>
                 </div>
+            </div>
             </div>
         
 <!-- -------------------------------------------------------------------- -->
@@ -98,8 +106,20 @@
 
 <!-- -------------------------------------------------------------------- -->
 
-        <div class="weapon-area additional-area">
-            <button class="exit-weapon-btn exit-additional-btn">exit</button>
+        <div class="backpack-area additional-area">
+
+            <div class="inventory-up-bar">
+                <button class="exit-weapon-btn exit-additional-btn">exit</button>
+                <div class="select-div">
+                    <div class="weapon-btn">
+                        <button id="weapon-btn" class="select-button"></button>
+                    </div>
+                    <div class="artifacts-btn">
+                        <button id="artifacts-btn" class="select-button"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="weapon-area">
                 <div class="weapon-buttons">
                     <div class="sword">
                         <button id="sword" class="main-button weapon-button"></button>
@@ -116,49 +136,156 @@
                     <div class="ring">
                         <button id="ring" class="main-button weapon-button"></button>
                     </div>
-            </div>
+                </div>
 
-            <div class="weapon-text">
-                <h2>lal</h2>
-                <h4>lul</h4>
-            </div>
+                <div class="weapon-text">
+                    <h2>lal</h2>
+                    <h4>lul</h4>
+                </div>
 
-            <div class="weapon-description">
-                <p>lol</p>
-            </div>
+                <div class="weapon-description">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus facilis ex magnam accusantium quasi ipsam eaque. Maiores hic repellendus nobis accusantium porro, dolore ducimus voluptatem necessitatibus minus consequatur harum nam architecto dolores ad? Fuga est doloremque quia a iure, assumenda perferendis animi quis tempore fugit quae praesentium omnis? Cupiditate dolor expedita, magnam odit atque iusto! Ipsam doloribus praesentium, voluptatem provident nulla sit beatae perspiciatis, facere ipsum sed qui, tempora nam? Atque quidem nihil harum, natus placeat rem doloribus ullam adipisci rerum eius eaque sed nulla vero exercitationem, eveniet ducimus deserunt a pariatur eos soluta ipsam? Quibusdam eligendi quidem reiciendis dolorum?</p>
+                </div>
 
-            <div class="control-btns">
-                <button class="additional-btn">enabled</button>
+                <div class="control-btns">
+                    <button class="additional-btn">enabled</button>
+                </div>
+            </div>
+            <div class="artifacts-area">
+                
             </div>
         </div>
     </div>
 
 <!-- ----------------------------------------------------------------- -->
 
-<div class="leaders-area additional-area">
-    <button class="exit-leaders-btn exit-additional-btn">exit</button>
-    <div class="card">
-        <div class="img-and-pic">
-            <p class="place">001</p>
-            <img src="https://avatars.githubusercontent.com/u/136931469?v=4" class="avatarka">
-        </div>
+<div class="leaderboard-area additional-area">
+    <button class="exit-leaderboard-btn exit-additional-btn">exit</button>
+    <div class="cards-box">
+        <div class="card">
+            <div class="img-and-pic">
+                <p class="place">001</p>
+                <img src="https://i.ibb.co/0jH5ZRb/image.jpg" class="avatarka">
+            </div>
 
-        <p class="name">Ptah_9</p>
-        <p class="score">100</p>
-    </div>
-    <div class="card">
-        <div class="img-and-pic">
-            <p class="place">001</p>
-            <img src="https://i.ibb.co/0jH5ZRb/image.jpgц2" class="avatarka">
+            <p class="name">Ptah_9</p>
+            <p class="score">100</p>
         </div>
+        <div class="card">
+            <div class="img-and-pic">
+                <p class="place">001</p>
+                <img src="https://i.ibb.co/0jH5ZRb/image.jpg" class="avatarka">
+            </div>
 
-        <p class="name">Ptah_9</p>
-        <p class="score">100</p>
+            <p class="name">Ptah_9</p>
+            <p class="score">100</p>
+        </div>
     </div>
 </div>
+
+<div class="additional-area user-area">
+    <div class="user-up-bar">
+        <button class="exit-user-btn exit-additional-btn">exit</button>
+        <button class="referral-btn additional-btn">referral <br> link</button>
+        <button class="tonconnect">connect <br> wallet</button>
+    </div>
+    <div class="ava-and-name">
+        <div class="ava-and-name-wrap">
+            <img src="styles/imgs/ava.png" class="user-ava">
+            <h3 class="name">Ptah</h3>
+        </div>
+    </div>
+    <div class="pers-and-inf">
+        <div class="pers-arts-weapon">
+            <img src="styles/imgs/user.png" class="pers">
+            <div class="text-card artifacts-card">
+                <p class="">artifacts</p>
+            </div>
+            <div class="arts">
+                <div class="up-arts">
+                    <img src="styles/imgs/pedestal.png" class="user-art" id="art1">
+                    <img src="styles/imgs/sword.png" class="user-art" id="art2">
+                </div>
+                <div class="bottom-arts">
+                    <img src="styles/imgs/map.png" class="user-art" id="art3">
+                    <img src="styles/imgs/bag.png" class="user-art" id="art4">
+                </div>
+            </div>
+            <div class="text-card equipment-card">
+                <p class="">equipment</p>
+            </div>
+            <div class="weapon">
+                <div class="up-weapon">
+                    <img src="styles/imgs/border-sword-big.png" class="user-art" id="art1">
+                    <img src="styles/imgs/border-magic-big.png" class="user-art" id="art2">
+                </div>
+                <div class="bottom-weapon">
+                    <img src="styles/imgs/border-shield-big.png" class="user-art" id="art3">
+                    <img src="styles/imgs/border-ring-big.png" class="user-art" id="art4">
+                </div>
+            </div>
+        </div>
+
+        <div class="information">
+
+            <div class="inf-card">
+                <p class="">referrals invited:</p>
+                <p>> <span class="referrals-invited">0</span></p>
+            </div>
+
+            <div class="inf-card">
+                <p class="">current score:</p>
+                <p>> <span class="score-now">0</span></p>
+            </div>
+
+            <div class="inf-card">
+                <p class="">place in top:</p>
+                <p>> <span class="place-in-top">0</span></p>
+            </div>
+
+            <div class="inf-card">
+                <p class="">score of all games: </p>
+                <p>> <span class="all-points">0</span></p>
+            </div>
+
+            <div class="inf-card">
+                <p class="">killed enemies:</p>
+                <p>> <span class="eliminated-enemies">0</span></p>
+            </div>
+
+            <div class="inf-card">
+                <p class="">games lost:</p>
+                <p>> <span class="games-lost">0</span></p>
+            </div>
+
+            <div class="inf-card">
+                <p class="">found artifacts:</p>
+                <p>> <span class="found-artifacts">0</span></p>
+            </div>
+
+            <div class="inf-card">
+                <p class="">found Igreks:</p>
+                <p>> <span class="found-igreks">0</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="messages">
+    <div class="copied-message-area message-area">
+        <div class="copied-message message">
+            <h1>referral link <br> successfully copied!</h1>
+        </div>
+    </div>
+</div>
+<!-- счет в текущей игре, место в рейтинге, всего очков за все игры, игр проиграно, открыто сундуков, устранено противников, найдено артефактов -->
+
     <script type="module" src="script/scripsts/main.js"></script>
     <script type="module" src="script/scripsts/AddEventListeners.js"></script>
     <script type="module" src="script/scripsts/weapon.js"></script>
+    <script type="module" src="script/scripsts/leaderboard.js"></script>
+    <script type="module" src="script/scripsts/sizing.js"></script>
+    <script type="module" src="script/scripsts/user.js"></script>
 </body>
 </html>
 

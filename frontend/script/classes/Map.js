@@ -11,7 +11,7 @@ class Map{
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        ]; 
+        ];
         let roomNum = 1;
         let openedLevel = JSON.parse(localStorage.getItem('openedLevel'));
         for (let y = 0; y < 10; y++){
@@ -20,6 +20,8 @@ class Map{
                 roomNum++
 
                 this.matrix[y][x].style.border = "1px solid black";
+                try{this.matrix[y][x].removeChild(this.matrix[y][x].childNodes[0])}
+                catch{}
                 switch (openedLevel[y][x]){
                     case 0:
                         this.matrix[y][x].style.backgroundColor = "rgb(238, 223, 166)";
@@ -44,8 +46,9 @@ class Map{
     }
     
     nowMap(nowX, nowY){
-        this.matrix[nowY][nowX].style.borderColor = "red";
-        this.matrix[nowY][nowX].style.border = "5px solid red";
+        // this.matrix[nowY][nowX].style.borderColor = "red";
+        this.matrix[nowY][nowX].insertAdjacentHTML("afterbegin", `<img src="styles/imgs/chel.png">`)
+        // this.matrix[nowY][nowX].style.border = "3px solid white"
         let levelNow = JSON.parse(localStorage.getItem('levelNow'));
         let openedLevel = JSON.parse(localStorage.getItem('openedLevel'));
         if (levelNow.level[nowY][nowX] == 1 && openedLevel[nowY][nowX] == 0){
@@ -71,13 +74,14 @@ class Map{
             localStorage.score = Number(localStorage.score) + 1
             document.querySelector('.score').textContent = localStorage.score;
         }
-        try {this.matrix[nowY-1][nowX].style.border = "1px solid black";}
+        
+        try {this.matrix[nowY-1][nowX].removeChild(this.matrix[nowY-1][nowX].childNodes[0])}
         catch{}
-        try {this.matrix[nowY+1][nowX].style.border = "1px solid black";}
+        try {this.matrix[nowY+1][nowX].removeChild(this.matrix[nowY+1][nowX].childNodes[0])}
         catch{}
-        try {this.matrix[nowY][nowX-1].style.border = "1px solid black";}
+        try {this.matrix[nowY][nowX-1].removeChild(this.matrix[nowY][nowX-1].childNodes[0])}
         catch{}
-        try {this.matrix[nowY][nowX+1].style.border = "1px solid black";}
+        try {this.matrix[nowY][nowX+1].removeChild(this.matrix[nowY][nowX+1].childNodes[0])}
         catch{}
     }
 }

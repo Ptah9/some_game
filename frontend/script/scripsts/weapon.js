@@ -1,5 +1,6 @@
-const weaponBtn = document.querySelector('#weapon-btn'),
-    weaponArea = document.querySelector('.weapon-area'),
+const backpackBtn = document.querySelector('#backpack-btn'),
+    weaponBtn = document.querySelector('#weapon-btn'),
+    weaponArea = document.querySelector('.backpack-area'),
     swordBtn = document.querySelector('#sword'),
     magicBtn = document.querySelector('#magic'),
     shieldBtn = document.querySelector('#shield'),
@@ -45,10 +46,6 @@ weaponBtn.addEventListener("click", function(){
         ring = jsonData[localStorage.ring]
     });
 
-
-
-    weaponArea.style.display = "block"
-    localStorage.weaponClosed = false;
 });
 
 

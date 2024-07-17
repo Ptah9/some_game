@@ -1,0 +1,188 @@
+:root {
+    --user-area-color: var(--main-purple);
+}
+
+.user-area{
+    text-align: center;
+}
+
+.user-up-bar{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+
+.exit-user-btn{
+    color: var(--user-area-color);
+    border-color: var(--user-area-color);
+    margin: 1vh 0px 0px 1vh;
+    /* margin-top: 1vh;
+    margin-bottom: 0px; */
+    width: 100%;
+}
+
+.exit-user-btn:active, .referral-btn:active, .tonconnect:active{
+    background-color: var(--user-area-color);
+    color: black;
+    border-color: black;
+}
+
+.referral-btn{
+    font-size: 2vw;
+    color: var(--user-area-color);
+    border-color: var(--user-area-color);
+    width: 100%;
+    margin: 1vh;
+    margin-bottom: 0px;
+    font-size: 1.3rem;
+    line-height: 1.2;
+}
+
+.copied-message-area{
+
+}
+
+.copied-message{
+    color: var(--user-area-color);
+    border-color: var(--user-area-color);;
+}
+
+.copied-message h1 {
+    font-size: 1.4rem;
+    position: relative;
+    top: 25%;
+    font-family: Minecraft Regular;
+}
+
+.tonconnect{
+    line-height: 1.2;
+    margin: 1vh 1vh 0px 0px;
+    width: 100%;
+    height: 8vh;
+    /* border: 2px solid white; */
+    border: 2px solid var(--user-area-color);
+    /* border-radius: 30px; */
+    /* color: white; */
+    color: var(--user-area-color);
+    text-align: center;
+    font-family: Minecraft Regular;
+    font-size: 1.3rem;
+    /* background-color:rgb(0, 123, 255); */
+    background-color: black;
+
+}
+
+.ava-and-name{
+    /* width: max-content; */
+    height: 10vh;
+    margin: 1vh;
+    padding: 1.5vw;
+    background-color: black;
+    border: 2px solid var(--user-area-color);
+
+}
+.ava-and-name-wrap{
+    display: flex;
+    width: max-content;
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.user-ava{
+    height: 100%;
+    width: auto;
+    border-radius: 100%;
+}
+.name{
+    /* color: var(--main-purple); */
+    color: var(--user-area-color);
+    font-family: Minecraft Regular;
+    font-size: 5vh;
+    position: relative;
+    margin-left: 3vw;
+    top: 0.5vh;
+}
+
+
+.pers-and-inf{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1vh;
+    margin-right: 1vh;
+}
+
+.pers-arts-weapon{
+    width: 16.6vh;
+    min-width: 16.6vh;
+}
+
+.pers{
+    width: 100%;
+    height: 16.6vh; 
+}
+
+.arts, .weapon{
+    margin-top: 1vh;
+    height: 16.5vh;
+    width: 100%;
+}
+.up-arts, .bottom-arts, .up-weapon, .bottom-weapon{
+    display: flex;
+}
+
+.up-arts, .up-weapon{
+    margin-bottom: 1vh;
+}
+
+.user-art{
+    height: 7.8vh;
+    width: 7.8vh;
+}
+
+#art1, #art3{
+    margin-right: 1vh;
+}
+
+.information{
+    /* background-color: red; */
+    margin-left: 1vh;   
+    width: 100vw;
+    text-align: left;
+    color: var(--user-area-color);
+    font-family: Minecraft Regular; 
+}
+
+.text-card{
+    width: 16.6vh;
+    height: 7.8vh;
+    background-color: black;
+    margin-top: 1vh;
+    color: white;
+    border: 2px solid white;
+}
+
+.text-card p{
+    text-align: center;
+    position: relative;
+    top: 1.45vh;
+    font-family: Minecraft Regular; 
+    font-size: 3vh;
+}
+
+.inf-card{
+    height: 7.8vh;
+    font-size: 2.5vh;
+    /* width: 58vw; */
+    /* min-width: 34vh; */
+    /* width: max-content; */
+    padding-left: 2vw;
+    background-color: black;
+    margin-bottom: 1vh;
+    border: 2px solid var(--user-area-color);
+}
+.inf-card p, .inf-card span{
+    font-family: Minecraft Regular; 
+
+}

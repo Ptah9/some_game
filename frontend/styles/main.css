@@ -1,0 +1,172 @@
+.main {
+    min-height: 100vh;
+    background: linear-gradient(black 25vh, rgb(123, 123, 123) 50vh, black 80vh);
+    margin: 0 auto;
+    padding: 2.5vw;
+    position: relative;
+} 
+
+.title {
+    color: var(--main-purple);
+    text-align: center;
+    font-family: Minecraft Regular;
+}
+
+
+.main-button {
+    margin: 5px;
+    height: 11vh;
+    width: 11vh;
+    background-color: rgba(240, 248, 255, 0);
+    border: none;
+    font-weight: 700;
+    background-size: cover;
+    transition: 0.1s;   
+
+}
+
+.main-button:active {
+    background-color:rgba(88, 88, 88, 0.5);
+    border: 2px solid rgb(255, 255, 255);
+    transition: 0.1s;   
+}
+
+.menu-down-btns-wrap{
+    position: absolute;
+    bottom: 2.5vw;
+    width: 95vw;
+
+}
+.menu-up-btns, .menu-down-btns {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+#leaderboard-btn {
+    background-image: url('imgs/pedestal.png');
+}
+
+#map-btn {
+    background-image: url('imgs/map.png');
+}
+#user-btn {
+    background-image: url('imgs/user.png');
+}
+#backpack-btn {
+    background-image: url('imgs/backpack.png');
+}
+
+.scale-box {
+    height: 30px;
+    background:rgb(255, 0, 0);
+    
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.health-scale {
+    height: 30px;
+    background-color: black;
+}   
+.health-scale-border {
+    border: 2px solid rgb(195, 195, 195);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.health-and-room{
+    position: relative;
+    bottom: -2vh;
+
+    
+}
+
+.main-area {
+    background-color: #5c5c5c;
+    height: 46vh;
+    max-height: 95vw;
+    width: 46vh;
+    max-width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.room {
+    height: 95%;
+    width: 95%;
+    background: no-repeat;
+    background-size:contain;
+    border: 1vh solid black;
+
+    position:relative;
+    top:2.5%;
+    left:2.5%;
+}
+
+.control-buttons{
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+}
+.control-buttons:active {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color:  rgba(0, 0, 0, 0);
+}
+.gate {
+    background-color: black;
+    position: absolute;
+    display: inline;
+}
+
+#up-gate{
+    height: 1vh;
+    width: 50%;
+    top: -1vh;
+    right: 25%;
+}
+#up-button {
+    height: 27%;
+    width: 50%;
+    top: -2vh;
+    right: 25%;
+}
+
+#right-gate{
+    height: 50%;
+    width: 1vh;
+    right: -1vh;
+    bottom: 25%;
+}
+#right-button {
+    height: 50%;
+    width: 27%;
+    right: -2vh;
+    bottom: 25%;
+}
+
+#bottom-gate{
+    height: 1vh;
+    width: 50%;
+    bottom: -1vh;
+    left: 25%;
+}
+#bottom-button {
+    height: 27%;
+    width: 50%;
+    bottom: -2vh;
+    left: 25%;
+}
+#left-gate{
+    height: 50%;
+    width: 1vh;
+    left: -1vh;
+    top: 25%;
+}
+#left-button {
+    height: 50%;
+    width: 27%;
+    left: -2vh;
+    top: 25%;
+}

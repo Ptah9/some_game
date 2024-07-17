@@ -1,9 +1,11 @@
 let upGate =    document.querySelector('#up-gate'),
 rightGate = document.querySelector('#right-gate'),
 bottomGate = document.querySelector('#bottom-gate'),
-leftGate = document.querySelector('#left-gate');
+leftGate = document.querySelector('#left-gate'),
+roomFloor = document.querySelector(".room");
 
 function showRoom(room) {
+    roomFloor.style["background-image"] = `url(styles/imgs/${room.floor}.png)`
     if (room.upGate){
         if(room.upGate=="next"){
             upGate.style.backgroundColor = "rgb(140, 0, 255)";

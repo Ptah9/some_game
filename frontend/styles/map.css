@@ -1,0 +1,58 @@
+
+.map-area {
+    display: none;
+}
+
+.up-bar {
+    display: flex;
+    justify-content: space-between;
+    /* width: 80%; */
+}
+
+.room-counter-div{
+    margin: 2.5vw;
+    margin-top: -1.3vw;
+    height: 8vh;
+}
+.room-counter-div-small {
+    display: flex;
+    margin-top: -2.5vh;
+}
+.room-counter-text {
+    color: var(--main-purple);
+    font-size: 3.9vh;
+    font-family: Minecraft Regular;
+}
+.room-counter{
+    color: var(--main-purple);
+    font-size: 5vh;
+    font-family: Minecraft Regular;
+
+}
+.map {
+    background-color: rgb(238, 223, 166);
+    height: 80vh;
+    max-height: 80vw;
+    width: 80vh;
+    max-width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.map-place {
+    height: 90%;
+    width: 90%;
+    border: 1px solid black;
+    position: relative;
+    top: 5%;
+    left: 5%;
+    line-height: 0px;
+}
+.map-room {
+    height: 10%;
+    width: 10%;
+    border: 1px solid black;
+    display:inline-block;
+    margin: 0;
+}

@@ -1,0 +1,82 @@
+.control-btns button{
+    font-size: 4vw;
+}
+
+.select-button {
+    margin: 5px;
+    height: 8vh;
+    width: 8vh;
+    background-color: rgba(240, 248, 255, 0);
+    border: none;
+    font-weight: 700;
+    background-size: cover;
+    transition: 0.1s;   
+
+}
+
+.select-button:active {
+    background-color:rgba(88, 88, 88, 0.5);
+    border: 2px solid rgb(255, 255, 255);
+    transition: 0.1s;   
+}
+
+.inventory-up-bar{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.select-div{
+    display: flex;
+}
+
+/* ------------------------------------- */
+
+#weapon-btn {
+    background-image: url('imgs/sword.png');
+}
+
+.weapon-btn-active {
+    background-color: grey;
+    border-color:black;
+    border: 3px solid white;
+}
+
+.weapon-buttons {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 93vw;
+    margin: 2.5vw;
+}
+#sword {background-image: url('imgs/purple-sword.png');}
+#magic {background-image: url('imgs/purple-magic.png');}
+#shield {background-image: url('imgs/purple-shield.png');}
+#ring {background-image: url('imgs/purple-ring.png');}
+
+.weapon-buttons div button{
+    height: 18vw;
+    width: 18vw;
+    margin: 0;
+}
+
+.weapon-text {
+    color: var(--text-purple);
+    font-family: Minecraft Regular;
+    margin: 2.5vw;
+}
+.weapon-description {
+    color: var(--text-purple);
+    font-family: Minecraft Regular;
+    height:38vh;
+    overflow: auto;
+    margin: 2.5vw;
+}
+
+
+
+/* ---------------------------------------- */
+
+#artifacts-btn {
+    background-image: url('imgs/bag.png');
+}

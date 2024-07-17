@@ -1,0 +1,54 @@
+.leaderboard-area{
+    
+}
+
+.exit-leaderboard-btn {
+    height: 9%;
+    margin: 1.8vh;
+
+}
+.avatarka{
+    border-radius: 100%;
+    width: auto;
+}
+
+
+.img-and-pic{
+    display: flex;
+    width: 22vw;
+}
+
+.place{
+    
+    margin-right: 1vw;
+}
+
+.card{
+    height: 60px;
+    width: 90vw;
+    background-color: rgb(51, 51, 51);
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid var(--main-purple);     
+    padding: 4px 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.card p{
+    font-size: 30px;
+    font-family: Minecraft Regular;
+    color: var(--main-purple);
+    margin-top: 1px;
+    margin-bottom: 1px;
+} 
+
+.cards-box{
+    overflow:auto;
+    height: 87%;
+    
+
+}

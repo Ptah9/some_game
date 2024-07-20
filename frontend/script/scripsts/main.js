@@ -21,6 +21,7 @@ localStorage.weaponClosed = true;
 let nowY;
 let nowX;
 let NowMap;
+
 localStorage.sword = "Purple Sword";
 localStorage.magic = "Purple Magic";
 localStorage.shield = "Purple Shield";
@@ -98,3 +99,4 @@ class weaponItem {
 // import analyze from 'rgbaster'
 // const result = await analyze('https://i.ibb.co/0jH5ZRb/image.jpg') // also supports base64 encoded image strings
 // nickname.style.color = result[0].color
+

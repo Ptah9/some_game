@@ -10,6 +10,7 @@ userBtn.addEventListener("click", function(){
     titles[0].style.color = "var(--user-area-color)";
     titles[1].style.color = "rgba(0, 0, 0, 0)";
     titles[2].style.color = "rgba(0, 0, 0, 0)";
+
 });
 exitUserBtn.addEventListener("click", function(){
     userArea.style.display = "none";

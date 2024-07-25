@@ -50,6 +50,15 @@ backpackBtn.addEventListener("click", function(){
     
 })
 
+
+
+
+
+
+
+
+
+
 exitWeaponBtn.addEventListener("click", function(){
     inventoryArea.style.display = "none";
     localStorage.backpackClosed = true;

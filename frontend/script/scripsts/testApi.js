@@ -77,6 +77,41 @@
 
 import Get from "../functions/interactionWithAPI/testGet.js";
 import Put from "../functions/interactionWithAPI/testPut.js";
+import IsUserNew from "../functions/interactionWithAPI/isUserNew.js";
 
-Put("lol", "lul");
-alert(Get("lol"));
+
+// IsUserNew().then(console.log)
+
+// let gog = "geg"
+
+// IsUserNew().then((a)=>{
+//     gog = a
+//     console.log(gog)
+// })
+
+// Put("score", 5)
+
+// Get("score").then((score)=>{
+//     let newScore = Number(score) + 1
+//     Put("score", newScore)
+// })
+
+
+// // Put("lol", "lul");
+// console.log(Get("lol"));
+
+// async function Put() {
+//     const response = await fetch("api/users", {
+//         method: "POST",
+//         headers: { "Accept": "application/json", "Content-Type": "application/json" },
+//         body: JSON.stringify({
+//             password: "pipe",
+//             user: "Ptah_9",
+//             value: "lol"
+//         })
+//     });
+//     if (response.ok === true) {
+//         const user = await response.json();
+//         console.log(user)
+//     }
+// }

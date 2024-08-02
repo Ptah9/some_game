@@ -2,9 +2,9 @@ import Map from "../classes/Map.js";
 import showRoom from '../functions/showRoom.js';
 import NewLevel from "../functions/newLevel.js";
 
-import Get from "../functions/interactionWithAPI/testGet.js";
-import Put from "../functions/interactionWithAPI/testPut.js";
-import IsUserNew from "../functions/interactionWithAPI/isUserNew.js";
+// import Get from "../functions/interactionWithAPI/testGet.js";
+// import Put from "../functions/interactionWithAPI/testPut.js";
+// import IsUserNew from "../functions/interactionWithAPI/isUserNew.js";
 
 
 
@@ -28,99 +28,99 @@ let nowY;
 let nowX;
 let NowMap;
 
-Put("sword", "Purple Sword");
-Put("magic", "Purple Magic");
-Put("shield", "Purple Shield");
-Put("ring", "Purple Ring");
-// localStorage.sword = "Purple Sword";
-// localStorage.magic = "Purple Magic";
-// localStorage.shield = "Purple Shield";
-// localStorage.ring = "Purple Ring";
+// Put("sword", "Purple Sword");
+// Put("magic", "Purple Magic");
+// Put("shield", "Purple Shield");
+// Put("ring", "Purple Ring");
+localStorage.sword = "Purple Sword";
+localStorage.magic = "Purple Magic";
+localStorage.shield = "Purple Shield";
+localStorage.ring = "Purple Ring";
 
 // -------------------------
 
-// if (JSON.parse(localStorage.getItem('levelNow'))) {
-//     let levelNow = JSON.parse(localStorage.getItem('levelNow'));
-//     nowY = Number(localStorage.getItem('nowY'));
-//     nowX = Number(localStorage.getItem('nowX'));
-//     NowMap = new Map(levelNow)
-//     showRoom(levelNow.adaptedLevel[nowY][nowX])
-//     NowMap.nowMap(nowX, nowY);
-//     document.querySelector('.score').textContent = localStorage.score;
-//     document.querySelector('#opened-rooms').textContent = localStorage.openedRooms;
-//     document.querySelector('#total-rooms').textContent = levelNow.rooms;
-// }
-// else{
-//     localStorage.score = 0;
-//     NowMap = NewLevel(3)
-// }
-let levelNow
+if (JSON.parse(localStorage.getItem('levelNow'))) {
+    let levelNow = JSON.parse(localStorage.getItem('levelNow'));
+    nowY = Number(localStorage.getItem('nowY'));
+    nowX = Number(localStorage.getItem('nowX'));
+    NowMap = new Map(levelNow)
+    showRoom(levelNow.adaptedLevel[nowY][nowX])
+    NowMap.nowMap(nowX, nowY);
+    document.querySelector('.score').textContent = localStorage.score;
+    document.querySelector('#opened-rooms').textContent = localStorage.openedRooms;
+    document.querySelector('#total-rooms').textContent = levelNow.rooms;
+}
+else{
+    localStorage.score = 1;
+    NowMap = NewLevel(3)
+}
 
 
-IsUserNew().then((a)=>{
-    if (a) {
-        Get("levelNow").then((resp)=>{
-            levelNow = resp
-            NowMap = new Map(levelNow)
-            Get("nowY").then((resp1)=>{
-                nowY = resp1
-                Get("nowX").then((resp2)=>{
-                    nowX = resp2
 
-                    showRoom(levelNow.adaptedLevel[nowY][nowX])
-                    NowMap.nowMap(nowX, nowY);
+// IsUserNew().then((a)=>{
+//     if (a) {
+//         Get("levelNow").then((resp)=>{
+//             levelNow = resp
+//             NowMap = new Map(levelNow)
+//             Get("nowY").then((resp1)=>{
+//                 nowY = resp1
+//                 Get("nowX").then((resp2)=>{
+//                     nowX = resp2
 
-                })
-            })
+//                     showRoom(levelNow.adaptedLevel[nowY][nowX])
+//                     NowMap.nowMap(nowX, nowY);
 
-        })
+//                 })
+//             })
 
-        Get("score").then((resp)=>document.querySelector('.score').textContent = resp)
+//         })
+
+//         Get("score").then((resp)=>document.querySelector('.score').textContent = resp)
         
-        Get("openedRooms").then((resp)=>document.querySelector('#opened-rooms').textContent = resp)
+//         Get("openedRooms").then((resp)=>document.querySelector('#opened-rooms').textContent = resp)
 
-        Get("rooms").then((resp)=>document.querySelector('#total-rooms').textContent = resp)
+//         Get("rooms").then((resp)=>document.querySelector('#total-rooms').textContent = resp)
 
-    }
-    else{
-        Put("score", "0");  
-        NowMap = NewLevel(3)
-    }
-})
+//     }
+//     else{
+//         Put("score", "0");  
+//         NowMap = NewLevel(3)
+//     }
+// })
 
 // ------------------------------------------------------------------
 
-import {goUp, goRight, goDown, goLeft} from '../functions/goTo.js';
+import goTo from '../functions/goTo.js';
 
 body.addEventListener("keydown", function (event) {
     if (event.code != "ArrowRight" && event.code != "ArrowLeft" &&
         event.code != "ArrowUp" && event.code != "ArrowDown") return;
 
     if (event.code == "ArrowUp") {
-        goUp(NowMap)
+        goTo("up", NowMap)
     }
     if (event.code == "ArrowRight") {
-        goRight(NowMap)
+        goTo("right", NowMap)
     }
     if (event.code == "ArrowDown") {
-        goDown(NowMap)
+        goTo("down", NowMap)
     }
     if (event.code == "ArrowLeft") {
-        goLeft(NowMap)
+        goTo("left", NowMap)
     }
 });
 
 upButton.addEventListener("click", ()=> {           // TODO: сделать адекватно блин
-    goUp(NowMap)
+    goTo("up", NowMap)
 });
 rightButton.addEventListener("click", ()=> {
-    goRight(NowMap)
+    goTo("right", NowMap)
 });
 bottomButton.addEventListener("click", ()=> {
-    goDown(NowMap)
+    goTo("down", NowMap)
 });
 leftButton.addEventListener("click", ()=> {
-    goLeft(NowMap)
+    goTo("left", NowMap)
 });
 
 

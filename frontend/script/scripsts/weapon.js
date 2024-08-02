@@ -12,8 +12,7 @@ const backpackBtn = document.querySelector('#backpack-btn'),
     nickname = document.querySelector('.name');
 
 
-import Get from "../functions/interactionWithAPI/testGet.js";
-import Put from "../functions/interactionWithAPI/testPut.js";
+// import Get from "../functions/interactionWithAPI/testGet.js";
 
 
 let sword, magic, shield, ring;
@@ -21,43 +20,60 @@ let weaponSelected = swordBtn
 fetch('https://raw.githubusercontent.com/Ptah9/some_game/main/frontend/script/weapons_en/swords.json')
 .then(response => response.json())
 .then(jsonData => {
-    Get("sword").then((resp)=>{
+    let resp = localStorage.getItem("sword")
         sword = jsonData[resp]
         weaponName.textContent = sword.name;
         weaponShortDesc.textContent = sword.shortDesc;
         weaponDesc.textContent = sword.description;
         swordBtn.classList.add('weapon-btn-active');
-    })
+    // Get("sword").then((resp)=>{
+    //     sword = jsonData[resp]
+    //     weaponName.textContent = sword.name;
+    //     weaponShortDesc.textContent = sword.shortDesc;
+    //     weaponDesc.textContent = sword.description;
+    //     swordBtn.classList.add('weapon-btn-active');
+    // })
 });
 
 weaponBtn.addEventListener("click", function(){
     fetch('https://raw.githubusercontent.com/Ptah9/some_game/main/frontend/script/weapons_en/swords.json')
     .then(response => response.json())
     .then(jsonData => {
-        Get("sword").then((resp)=>{
-            sword = jsonData[resp]
-        })
+        let resp = localStorage.getItem("sword")
+        sword = jsonData[resp]
+        // Get("sword").then((resp)=>{
+        //     sword = jsonData[resp]
+        // })
     });
     fetch('https://raw.githubusercontent.com/Ptah9/some_game/main/frontend/script/weapons_en/magics.json')
     .then(response => response.json())
     .then(jsonData => {
-        Get("magic").then((resp)=>{
-            magic = jsonData[resp]
-        })
+        let resp = localStorage.getItem("magic")
+        magic = jsonData[resp]
+
+        // Get("magic").then((resp)=>{
+        //     magic = jsonData[resp]
+        // })
     });
     fetch('https://raw.githubusercontent.com/Ptah9/some_game/main/frontend/script/weapons_en/shields.json')
     .then(response => response.json())
     .then(jsonData => {
-        Get("shield").then((resp)=>{
-            shield = jsonData[resp]
-        })
+        let resp = localStorage.getItem("shield")
+        shield = jsonData[resp]
+        
+        // Get("shield").then((resp)=>{
+        //     shield = jsonData[resp]
+        // })
     });
     fetch('https://raw.githubusercontent.com/Ptah9/some_game/main/frontend/script/weapons_en/rings.json')
     .then(response => response.json())
     .then(jsonData => {
-        Get("ring").then((resp)=>{
-            ring = jsonData[resp]
-        })
+        let resp = localStorage.getItem("ring")
+        ring = jsonData[resp]
+        
+        // Get("ring").then((resp)=>{
+        //     ring = jsonData[resp]
+        // })
     });
 
 });
@@ -66,30 +82,41 @@ backpackBtn.addEventListener("click", function(){
     fetch('https://raw.githubusercontent.com/Ptah9/some_game/main/frontend/script/weapons_en/swords.json')
     .then(response => response.json())
     .then(jsonData => {
-        Get("sword").then((resp)=>{
-            sword = jsonData[resp]
-        })
+        let resp = localStorage.getItem("sword")
+        sword = jsonData[resp]
+        // Get("sword").then((resp)=>{
+        //     sword = jsonData[resp]
+        // })
     });
     fetch('https://raw.githubusercontent.com/Ptah9/some_game/main/frontend/script/weapons_en/magics.json')
     .then(response => response.json())
     .then(jsonData => {
-        Get("magic").then((resp)=>{
-            magic = jsonData[resp]
-        })
+        let resp = localStorage.getItem("magic")
+        magic = jsonData[resp]
+        
+        // Get("magic").then((resp)=>{
+        //     magic = jsonData[resp]
+        // })
     });
     fetch('https://raw.githubusercontent.com/Ptah9/some_game/main/frontend/script/weapons_en/shields.json')
     .then(response => response.json())
     .then(jsonData => {
-        Get("shield").then((resp)=>{
-            shield = jsonData[resp]
-        })
+        let resp = localStorage.getItem("shield")
+        shield = jsonData[resp]
+        
+        // Get("shield").then((resp)=>{
+        //     shield = jsonData[resp]
+        // })
     });
     fetch('https://raw.githubusercontent.com/Ptah9/some_game/main/frontend/script/weapons_en/rings.json')
     .then(response => response.json())
     .then(jsonData => {
-        Get("ring").then((resp)=>{
-            ring = jsonData[resp]
-        })
+        let resp = localStorage.getItem("ring")
+        ring = jsonData[resp]
+        
+        // Get("ring").then((resp)=>{
+        //     ring = jsonData[resp]
+        // })
     });
 
 });

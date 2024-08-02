@@ -89,7 +89,13 @@ import IsUserNew from "../functions/interactionWithAPI/isUserNew.js";
 //     console.log(gog)
 // })
 
-// Put("score", 5)
+// console.log(Put("score", 5))
+
+// .then(()=>{
+//         Get("score").then((score)=>{
+//         console.log(score)
+//     })
+// })
 
 // Get("score").then((score)=>{
 //     let newScore = Number(score) + 1

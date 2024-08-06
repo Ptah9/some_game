@@ -7,6 +7,7 @@ copiedMessageArea = document.querySelector(".copied-message-area");
 
 userBtn.addEventListener("click", function(){
     userArea.style.display = "block";
+    localStorage.userClosed = false;
     titles[0].style.color = "var(--user-area-color)";
     titles[1].style.color = "rgba(0, 0, 0, 0)";
     titles[2].style.color = "rgba(0, 0, 0, 0)";
@@ -14,6 +15,7 @@ userBtn.addEventListener("click", function(){
 });
 exitUserBtn.addEventListener("click", function(){
     userArea.style.display = "none";
+    localStorage.userClosed = true;
     titles[0].style.color = "var(--main-purple)";
     titles[1].style.color = "var(--main-purple)";
     titles[2].style.color = "var(--main-purple)";

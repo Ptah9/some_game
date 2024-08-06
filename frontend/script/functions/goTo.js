@@ -1,137 +1,77 @@
 import showRoom from "./showRoom.js";
 import NewLevel from "./newLevel.js";
 
-function goTo(direction, NowMap){
-    let levelNow = JSON.parse(localStorage.getItem("levelNow"))
-    let nowX = Number(localStorage.getItem("nowX"))
-    let nowY = Number(localStorage.getItem("nowY"))
-    switch (direction){
-        case "up":
-            if(levelNow.level[nowY][nowX] != 3 || nowY != 0){
-                if (nowY !=0 && levelNow.level[nowY-1][nowX]){
-                    nowY-=1;
-                    localStorage.setItem('nowY', nowY);
-                    NowMap.nowMap(nowX, nowY);
+import Get from "../functions/interactionWithAPI/testGet.js";
+import Put from "../functions/interactionWithAPI/testPut.js";
+
+async function goTo(direction, NowMap){
+if (localStorage.backpackClosed == "true" && 
+    localStorage.mapClosed == "true" && 
+    localStorage.userClosed == "true" && 
+    localStorage.leaderboardClosed == "true"){
+            
+        let levelNow = await Get("levelNow");
+        let nowX = Number(await Get("nowX"));
+        let nowY = Number(await Get("nowY"));
+        switch (direction){
+            case "up":
+                if(levelNow.level[nowY][nowX] != 3 || nowY != 0){
+                    if (nowY !=0 && levelNow.level[nowY-1][nowX]){
+                        nowY-=1;
+                        Put('nowY', nowY);
+                        NowMap.nowMap(nowX, nowY);
+                        }
+                        showRoom(levelNow.adaptedLevel[nowY][nowX]);
+                }
+                else if(nowY==0){
+                    NewLevel(3);
+                }
+            break;
+
+            case "right":
+                if(levelNow.level[nowY][nowX] != 3 || nowX != 9){
+                    if (nowX != 9 && levelNow.level[nowY][nowX+1]) {
+                        nowX+=1;
+                        Put('nowX', nowX);
+                        NowMap.nowMap(nowX, nowY);
                     }
-                    showRoom(levelNow.adaptedLevel[nowY][nowX])
-            }
-            else if(nowY==0){
-                NewLevel(3)
-            }
-        break;
+                    showRoom(levelNow.adaptedLevel[nowY][nowX]);
+                }
+                else if(nowX==9) {
+                    NewLevel(2);
+                }
+            break;
+            
+            case "down":
+                if(levelNow.level[nowY][nowX] != 3 || nowY != 9){
+                    if (nowY !=9 && levelNow.level[nowY+1][nowX]) {
+                        nowY+=1;
+                        Put('nowY', nowY);
+                        NowMap.nowMap(nowX, nowY);
+                    }
+                    showRoom(levelNow.adaptedLevel[nowY][nowX]);
+                }
+                else if(nowY==9) {
+                    NewLevel(4);
+                }
+            break;
 
-        case "right":
-            if(levelNow.level[nowY][nowX] != 3 || nowX != 9){
-                if (nowX != 9 && levelNow.level[nowY][nowX+1]) {
-                    nowX+=1;
-                    localStorage.setItem('nowX', nowX);
-                    NowMap.nowMap(nowX, nowY);
+            case "left":
+                if(levelNow.level[nowY][nowX] != 3 || nowX != 0){
+                    if (nowX != 0 && levelNow.level[nowY][nowX-1]) {
+                        nowX-=1;
+                        Put('nowX', nowX);
+                        NowMap.nowMap(nowX, nowY);
+                    }
+                    showRoom(levelNow.adaptedLevel[nowY][nowX]);
                 }
-                showRoom(levelNow.adaptedLevel[nowY][nowX])
-            }
-            else if(nowX==9) {
-                NewLevel(2)
-            }
-        break;
-        
-        case "down":
-            if(levelNow.level[nowY][nowX] != 3 || nowY != 9){
-                if (nowY !=9 && levelNow.level[nowY+1][nowX]) {
-                    nowY+=1;
-                    localStorage.setItem('nowY', nowY);
-                    NowMap.nowMap(nowX, nowY);
+                else if(nowX==0) {
+                    NewLevel(1);
                 }
-                showRoom(levelNow.adaptedLevel[nowY][nowX])
-            }
-            else if(nowY==9) {
-                NewLevel(4)
-            }
-        break;
-
-        case "left":
-            if(levelNow.level[nowY][nowX] != 3 || nowX != 0){
-                if (nowX != 0 && levelNow.level[nowY][nowX-1]) {
-                    nowX-=1;
-                    localStorage.setItem('nowX', nowX);
-                    NowMap.nowMap(nowX, nowY);
-                }
-                showRoom(levelNow.adaptedLevel[nowY][nowX])
-            }
-            else if(nowX==0) {
-                NewLevel(1)
-            }
-        break;
+            break;
+        }
     }
 }
 
-// function goUp(NowMap){
-    
-//     let levelNow = JSON.parse(localStorage.getItem("levelNow"))
-//     let nowX = Number(localStorage.getItem("nowX"))
-//     let nowY = Number(localStorage.getItem("nowY"))
-//     if(levelNow.level[nowY][nowX] != 3 || nowY != 0){
-//         if (nowY !=0 && levelNow.level[nowY-1][nowX]){
-//             nowY-=1;
-//             localStorage.setItem('nowY', nowY);
-//             NowMap.nowMap(nowX, nowY);
-//             }
-//             showRoom(levelNow.adaptedLevel[nowY][nowX])
-//     }
-//     else if(nowY==0){
-//         NewLevel(3)
-//     }
-// }
-
-// function goRight(NowMap){
-
-//     let levelNow = JSON.parse(localStorage.getItem("levelNow"))
-//     let nowX = Number(localStorage.getItem("nowX"))
-//     let nowY = Number(localStorage.getItem("nowY"))
-//     if(levelNow.level[nowY][nowX] != 3 || nowX != 9){
-//         if (nowX != 9 && levelNow.level[nowY][nowX+1]) {
-//             nowX+=1;
-//             localStorage.setItem('nowX', nowX);
-//             NowMap.nowMap(nowX, nowY);
-//         }
-//         showRoom(levelNow.adaptedLevel[nowY][nowX])
-//     }
-//     else if(nowX==9) {
-//         NewLevel(2)
-//     }
-// }
-
-// function goDown(NowMap){
-//     let levelNow = JSON.parse(localStorage.getItem("levelNow"))
-//     let nowX = Number(localStorage.getItem("nowX"))
-//     let nowY = Number(localStorage.getItem("nowY"))
-//     if(levelNow.level[nowY][nowX] != 3 || nowY != 9){
-//         if (nowY !=9 && levelNow.level[nowY+1][nowX]) {
-//             nowY+=1;
-//             localStorage.setItem('nowY', nowY);
-//             NowMap.nowMap(nowX, nowY);
-//         }
-//         showRoom(levelNow.adaptedLevel[nowY][nowX])
-//     }
-//     else if(nowY==9) {
-//         NewLevel(4)
-//     }
-// }
-
-// function goLeft(NowMap){
-//     let levelNow = JSON.parse(localStorage.getItem("levelNow"))
-//     let nowX = Number(localStorage.getItem("nowX"))
-//     let nowY = Number(localStorage.getItem("nowY"))
-//     if(levelNow.level[nowY][nowX] != 3 || nowX != 0){
-//         if (nowX != 0 && levelNow.level[nowY][nowX-1]) {
-//             nowX-=1;
-//             localStorage.setItem('nowX', nowX);
-//             NowMap.nowMap(nowX, nowY);
-//         }
-//         showRoom(levelNow.adaptedLevel[nowY][nowX])
-//     }
-//     else if(nowX==0) {
-//         NewLevel(1)
-//     }
-// }
 
 export default goTo;

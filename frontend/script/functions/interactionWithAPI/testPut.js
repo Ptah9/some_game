@@ -8,6 +8,9 @@ async function Put(key, value) {
             value: value
         })
     });
+    if (response.ok === true) {
+        return "ok"
+    }
 }
 
 

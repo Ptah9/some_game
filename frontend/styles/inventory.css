@@ -3,7 +3,8 @@
 }
 
 .select-button {
-    margin: 5px;
+    margin: 2.5vw;
+    margin-left: 0px;
     height: 8vh;
     width: 8vh;
     background-color: rgba(240, 248, 255, 0);

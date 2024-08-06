@@ -2,9 +2,9 @@ import Map from "../classes/Map.js";
 import showRoom from '../functions/showRoom.js';
 import NewLevel from "../functions/newLevel.js";
 
-// import Get from "../functions/interactionWithAPI/testGet.js";
-// import Put from "../functions/interactionWithAPI/testPut.js";
-// import IsUserNew from "../functions/interactionWithAPI/isUserNew.js";
+import Get from "../functions/interactionWithAPI/testGet.js";
+import Put from "../functions/interactionWithAPI/testPut.js";
+import IsUserNew from "../functions/interactionWithAPI/isUserNew.js";
 
 
 
@@ -19,42 +19,49 @@ const upButton = document.querySelector('#up-button'),
 
 let max_health = 1000,
     health = 1000;
-localStorage.mapClosed = true;
-localStorage.weaponClosed = true;
+
 
 //------------------------------------
 
 let nowY;
 let nowX;
 let NowMap;
+localStorage.userClosed = true;
+localStorage.mapClosed = true;
+localStorage.leaderboardClosed = true;
+localStorage.backpackClosed = true;
 
-// Put("sword", "Purple Sword");
-// Put("magic", "Purple Magic");
-// Put("shield", "Purple Shield");
-// Put("ring", "Purple Ring");
-localStorage.sword = "Purple Sword";
-localStorage.magic = "Purple Magic";
-localStorage.shield = "Purple Shield";
-localStorage.ring = "Purple Ring";
+// localStorage.sword = "Purple Sword";
+// localStorage.magic = "Purple Magic";
+// localStorage.shield = "Purple Shield";
+// localStorage.ring = "Purple Ring";
 
 // -------------------------
-
-if (JSON.parse(localStorage.getItem('levelNow'))) {
-    let levelNow = JSON.parse(localStorage.getItem('levelNow'));
-    nowY = Number(localStorage.getItem('nowY'));
-    nowX = Number(localStorage.getItem('nowX'));
-    NowMap = new Map(levelNow)
-    showRoom(levelNow.adaptedLevel[nowY][nowX])
-    NowMap.nowMap(nowX, nowY);
-    document.querySelector('.score').textContent = localStorage.score;
-    document.querySelector('#opened-rooms').textContent = localStorage.openedRooms;
-    document.querySelector('#total-rooms').textContent = levelNow.rooms;
+async function newStart(){
+    if (await IsUserNew()) {
+    // if (true) {
+        await Put("sword", "Purple Sword");
+        await Put("magic", "Purple Magic");
+        await Put("shield", "Purple Shield");
+        await Put("ring", "Purple Ring");
+        await Put("score", 0)
+        NowMap = await NewLevel(3)
+    }
+    else{
+        let levelNow = await Get('levelNow');
+        nowY = Number(await Get('nowY'));
+        nowX = Number(await Get('nowX'));
+        let openedLevel = await Get("openedLevel");
+        NowMap = new Map(levelNow, openedLevel);
+        showRoom(levelNow.adaptedLevel[nowY][nowX]);
+        NowMap.nowMap(nowX, nowY);
+        document.querySelector('.score').textContent = await Get("score");
+        document.querySelector('#opened-rooms').textContent = await Get("openedRooms");
+        document.querySelector('#total-rooms').textContent = levelNow.rooms;
+    }
 }
-else{
-    localStorage.score = 1;
-    NowMap = NewLevel(3)
-}
 
+newStart();
 
 
 // IsUserNew().then((a)=>{
@@ -97,30 +104,30 @@ body.addEventListener("keydown", function (event) {
         event.code != "ArrowUp" && event.code != "ArrowDown") return;
 
     if (event.code == "ArrowUp") {
-        goTo("up", NowMap)
+        goTo("up", NowMap);
     }
     if (event.code == "ArrowRight") {
-        goTo("right", NowMap)
+        goTo("right", NowMap);
     }
     if (event.code == "ArrowDown") {
-        goTo("down", NowMap)
+        goTo("down", NowMap);
     }
     if (event.code == "ArrowLeft") {
-        goTo("left", NowMap)
+        goTo("left", NowMap);
     }
 });
 
 upButton.addEventListener("click", ()=> {           // TODO: сделать адекватно блин
-    goTo("up", NowMap)
+    goTo("up", NowMap);
 });
 rightButton.addEventListener("click", ()=> {
-    goTo("right", NowMap)
+    goTo("right", NowMap);
 });
 bottomButton.addEventListener("click", ()=> {
-    goTo("down", NowMap)
+    goTo("down", NowMap);
 });
 leftButton.addEventListener("click", ()=> {
-    goTo("left", NowMap)
+    goTo("left", NowMap);
 });
 
 

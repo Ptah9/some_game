@@ -8,7 +8,7 @@ function getRandomArbitrary(min, max) {
 
 let floors = [
     "floor1", "floor2", "floor3", "floor4", "floor5"
-]
+];
 
 class Level {
     constructor(level) {
@@ -32,10 +32,10 @@ class Level {
         for (let y = 0; y < 10; y++){
             for (let x = 0; x < 10; x++){
                 if (this.level[y][x] != 0){
-                    this.rooms +=1
+                    this.rooms +=1;
                     let contains = "nothing";   //chest/enemy (later)
                     let type;
-                    let floor = floors[getRandomArbitrary(0,5)]     //TODO: сделать авто-определение длины
+                    let floor = floors[getRandomArbitrary(0, floors.length)];     //TODO: сделать авто-определение длины
 
                     let up = (y != 0 && this.level[y-1][x] != 0) ? true : false;
                     let right = (x != 9 && this.level[y][x+1] != 0) ? true : false;

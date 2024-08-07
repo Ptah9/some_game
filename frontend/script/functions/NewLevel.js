@@ -9,19 +9,22 @@ import Put from "../functions/interactionWithAPI/testPut.js";
 async function NewLevel(entranceSide){
 
     let newLevel = Generation(entranceSide);
-    let levelNew = new Level(newLevel);         // in local storage
+    let levelNew = new Level(newLevel);
+    await Put('levelNow', levelNew);
     document.querySelector('#opened-rooms').textContent = 1;
     await Put("openedRooms", 1);
     document.querySelector('#total-rooms').textContent = levelNew.rooms;
+
     let score = await Get("score");
     let newScore = Number(score) + 1;
-    Put("score", newScore);
+    await Put("score", newScore);
     document.querySelector('.score').textContent = newScore;
-    await Put('levelNow', levelNew);
+
     let nowY = levelNew.startY;
     let nowX = levelNew.startX;
-    Put('nowX', nowX);
-    Put('nowY', nowY);
+    await Put('nowX', nowX);
+    await Put('nowY', nowY);
+
     let openedLevel = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -36,11 +39,10 @@ async function NewLevel(entranceSide){
     openedLevel[nowY][nowX] = 2;
     await Put('openedLevel', openedLevel);
     let NowMap = new Map(levelNew, openedLevel);
+
     NowMap.nowMap(nowX, nowY);
     showRoom(levelNew.adaptedLevel[nowY][nowX]);
     return NowMap;
-    
-
 }
 
 export default NewLevel;

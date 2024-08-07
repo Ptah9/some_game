@@ -1,9 +1,8 @@
 import Room from "./Room.js";
 
-function getRandomArbitrary(min, max) {
-    min = Math.ceil(min);
+function getRandom(max) {
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); 
+    return Math.floor(Math.random() * max); 
 }
 
 let floors = [
@@ -35,7 +34,7 @@ class Level {
                     this.rooms +=1;
                     let contains = "nothing";   //chest/enemy (later)
                     let type;
-                    let floor = floors[getRandomArbitrary(0, floors.length)];     //TODO: сделать авто-определение длины
+                    let floor = floors[getRandom(floors.length)];
 
                     let up = (y != 0 && this.level[y-1][x] != 0) ? true : false;
                     let right = (x != 9 && this.level[y][x+1] != 0) ? true : false;

@@ -29,49 +29,6 @@ fetch('https://raw.githubusercontent.com/Ptah9/some_game/main/frontend/script/we
 
 });
 
-// weaponBtn.addEventListener("click", function(){
-//     fetch('https://raw.githubusercontent.com/Ptah9/some_game/main/frontend/script/weapons_en/swords.json')
-//     .then(response => response.json())
-//     .then(async jsonData => {
-//         let resp = await Get("sword")
-//         sword = jsonData[resp]
-//         // Get("sword").then((resp)=>{
-//         //     sword = jsonData[resp]
-//         // })
-//     });
-//     fetch('https://raw.githubusercontent.com/Ptah9/some_game/main/frontend/script/weapons_en/magics.json')
-//     .then(response => response.json())
-//     .then(async jsonData => {
-//         let resp = await Get("magic")
-//         magic = jsonData[resp]
-
-//         // Get("magic").then((resp)=>{
-//         //     magic = jsonData[resp]
-//         // })
-//     });
-//     fetch('https://raw.githubusercontent.com/Ptah9/some_game/main/frontend/script/weapons_en/shields.json')
-//     .then(response => response.json())
-//     .then(async jsonData => {
-//         let resp = await Get("shield")
-//         shield = jsonData[resp]
-        
-//         // Get("shield").then((resp)=>{
-//         //     shield = jsonData[resp]
-//         // })
-//     });
-//     fetch('https://raw.githubusercontent.com/Ptah9/some_game/main/frontend/script/weapons_en/rings.json')
-//     .then(response => response.json())
-//     .then(async jsonData => {
-//         let resp = await Get("ring")
-//         ring = jsonData[resp]
-        
-//         // Get("ring").then((resp)=>{
-//         //     ring = jsonData[resp]
-//         // })
-//     });
-
-// });
-
 backpackBtn.addEventListener("click", function(){
     fetch('https://raw.githubusercontent.com/Ptah9/some_game/main/frontend/script/weapons_en/swords.json')
     .then(response => response.json())

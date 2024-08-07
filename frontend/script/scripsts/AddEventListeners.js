@@ -18,7 +18,6 @@ artifactsBtn.addEventListener("click", function(){
         weaponArea.style.display = "none";
         artifactsArea.style.display = "block";
 })
-
 weaponBtn.addEventListener("click", function(){
         weaponArea.style.display = "block";
         artifactsArea.style.display = "none";

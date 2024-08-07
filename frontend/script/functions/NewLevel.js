@@ -1,6 +1,6 @@
 import Level from "../classes/Level.js";
 import Map from "../classes/Map.js";
-import Generation from "./generation.js";
+import getGeneration from "./interactionWithAPI/getGeneration.js";
 import showRoom from "./showRoom.js";
 
 import Get from "../functions/interactionWithAPI/testGet.js";
@@ -8,7 +8,7 @@ import Put from "../functions/interactionWithAPI/testPut.js";
 
 async function NewLevel(entranceSide){
 
-    let newLevel = Generation(entranceSide);
+    let newLevel =  await getGeneration(entranceSide);
     let levelNew = new Level(newLevel);
     await Put('levelNow', levelNew);
     document.querySelector('#opened-rooms').textContent = 1;

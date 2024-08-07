@@ -1,5 +1,5 @@
-async function Get(key) {
-    const response = await fetch(`get/${key}`, {
+async function getGeneration(entranceSide) {
+    const response = await fetch(`generateNewLevelPlease/${entranceSide}`, {
         method: "POST",
         headers: { "Accept": "application/json", "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -9,11 +9,12 @@ async function Get(key) {
     });
     if (response.ok === true) {
         const value = await response.json();
-        return value.value
+        return value
     }
 }
 
 
 
 
-    export default Get;
+    export default getGeneration;
+    // http://localhost:3000/generateNewLevelPlease/1

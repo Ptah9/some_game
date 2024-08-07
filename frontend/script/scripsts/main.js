@@ -31,11 +31,6 @@ localStorage.mapClosed = true;
 localStorage.leaderboardClosed = true;
 localStorage.backpackClosed = true;
 
-// localStorage.sword = "Purple Sword";
-// localStorage.magic = "Purple Magic";
-// localStorage.shield = "Purple Shield";
-// localStorage.ring = "Purple Ring";
-
 // -------------------------
 async function newStart(){
     if (await IsUserNew()) {
@@ -63,39 +58,7 @@ async function newStart(){
 
 newStart();
 
-
-// IsUserNew().then((a)=>{
-//     if (a) {
-//         Get("levelNow").then((resp)=>{
-//             levelNow = resp
-//             NowMap = new Map(levelNow)
-//             Get("nowY").then((resp1)=>{
-//                 nowY = resp1
-//                 Get("nowX").then((resp2)=>{
-//                     nowX = resp2
-
-//                     showRoom(levelNow.adaptedLevel[nowY][nowX])
-//                     NowMap.nowMap(nowX, nowY);
-
-//                 })
-//             })
-
-//         })
-
-//         Get("score").then((resp)=>document.querySelector('.score').textContent = resp)
-        
-//         Get("openedRooms").then((resp)=>document.querySelector('#opened-rooms').textContent = resp)
-
-//         Get("rooms").then((resp)=>document.querySelector('#total-rooms').textContent = resp)
-
-//     }
-//     else{
-//         Put("score", "0");  
-//         NowMap = NewLevel(3)
-//     }
-// })
-
-// ------------------------------------------------------------------
+//---------------------------------------
 
 import goTo from '../functions/goTo.js';
 

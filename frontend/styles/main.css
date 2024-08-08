@@ -108,6 +108,7 @@
 .control-buttons{
     background-color: rgba(0, 0, 0, 0);
     position: absolute;
+
 }
 .control-buttons:active {
     background-color: rgba(0, 0, 0, 0);
@@ -169,4 +170,16 @@
     width: 27%;
     left: -2vh;
     top: 25%;
+}
+
+
+.igrek-div{
+    width: 30%;
+    height: 30%;
+    /* margin-left: 35%;
+    margin-top: 35%; */
+    display: none;
+    position: absolute;
+    background-image: url(./imgs/ava.png);
+    background-size: 100%;
 }

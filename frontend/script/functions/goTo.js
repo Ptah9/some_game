@@ -20,8 +20,8 @@ if (localStorage.backpackClosed == "true" &&
                         nowY-=1;
                         Put('nowY', nowY);
                         NowMap.nowMap(nowX, nowY);
-                        }
                         showRoom(levelNow.adaptedLevel[nowY][nowX]);
+                        }
                 }
                 else if(nowY==0){
                     NewLevel(3);
@@ -34,8 +34,8 @@ if (localStorage.backpackClosed == "true" &&
                         nowX+=1;
                         Put('nowX', nowX);
                         NowMap.nowMap(nowX, nowY);
+                        showRoom(levelNow.adaptedLevel[nowY][nowX]);
                     }
-                    showRoom(levelNow.adaptedLevel[nowY][nowX]);
                 }
                 else if(nowX==9) {
                     NewLevel(2);
@@ -48,8 +48,9 @@ if (localStorage.backpackClosed == "true" &&
                         nowY+=1;
                         Put('nowY', nowY);
                         NowMap.nowMap(nowX, nowY);
+                        showRoom(levelNow.adaptedLevel[nowY][nowX]);
+
                     }
-                    showRoom(levelNow.adaptedLevel[nowY][nowX]);
                 }
                 else if(nowY==9) {
                     NewLevel(4);
@@ -62,8 +63,9 @@ if (localStorage.backpackClosed == "true" &&
                         nowX-=1;
                         Put('nowX', nowX);
                         NowMap.nowMap(nowX, nowY);
+                        showRoom(levelNow.adaptedLevel[nowY][nowX]);
                     }
-                    showRoom(levelNow.adaptedLevel[nowY][nowX]);
+
                 }
                 else if(nowX==0) {
                     NewLevel(1);

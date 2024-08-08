@@ -2,7 +2,14 @@ let upGate =    document.querySelector('#up-gate'),
 rightGate = document.querySelector('#right-gate'),
 bottomGate = document.querySelector('#bottom-gate'),
 leftGate = document.querySelector('#left-gate'),
-roomFloor = document.querySelector(".room");
+roomFloor = document.querySelector(".room"),
+igrek = document.querySelector('.igrek-div');
+
+function getRandomArbitrary(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); 
+}
 
 function showRoom(room) {
     roomFloor.style["background-image"] = `url(styles/imgs/${room.floor}.png)`
@@ -67,6 +74,18 @@ function showRoom(room) {
     }
     else {
         leftGate.style.backgroundColor = "rgba(0, 0, 0, 0)"
+    }
+
+
+    if (room.contains == "igrek"){
+        igrek.style.marginLeft = getRandomArbitrary(0,71) + "%"
+        igrek.style.marginTop  = getRandomArbitrary(0,71) + "%"
+        igrek.style.display  = "block"
+    }
+    else{
+        try {igrek.style.display  = "none";}
+        catch{}
+        
     }
 }
 

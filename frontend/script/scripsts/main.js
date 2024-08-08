@@ -39,6 +39,7 @@ async function newStart(){
         await Put("magic", "Purple Magic");
         await Put("shield", "Purple Shield");
         await Put("ring", "Purple Ring");
+        await Put("igreks", 0);
         await Put("score", 0)
         NowMap = await NewLevel(3)
     }
@@ -113,3 +114,16 @@ leftButton.addEventListener("click", ()=> {
 // const result = await analyze('https://i.ibb.co/0jH5ZRb/image.jpg') // also supports base64 encoded image strings
 // nickname.style.color = result[0].color
 
+const igrek = document.querySelector('.igrek-div')
+
+function getRandomArbitrary(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); 
+}
+
+
+
+// igrek.style.marginLeft = getRandomArbitrary(0,71) + "%"
+// igrek.style.marginTop  = getRandomArbitrary(0,71) + "%"
+// igrek.style.display  = "block"

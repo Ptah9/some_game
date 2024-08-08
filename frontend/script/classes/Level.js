@@ -1,8 +1,9 @@
 import Room from "./Room.js";
 
-function getRandom(max) {
+function getRandomArbitrary(min, max) {
+    min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * max); 
+    return Math.floor(Math.random() * (max - min) + min); 
 }
 
 let floors = [
@@ -32,9 +33,11 @@ class Level {
             for (let x = 0; x < 10; x++){
                 if (this.level[y][x] != 0){
                     this.rooms +=1;
-                    let contains = "nothing";   //chest/enemy (later)
+                    let contains;
+                    if (getRandomArbitrary(0,20) == 9) contains = "igrek";
+                    else contains = "nothing";   //chest/enemy (later)
                     let type;
-                    let floor = floors[getRandom(floors.length)];
+                    let floor = floors[getRandomArbitrary(0, floors.length)];
 
                     let up = (y != 0 && this.level[y-1][x] != 0) ? true : false;
                     let right = (x != 9 && this.level[y][x+1] != 0) ? true : false;

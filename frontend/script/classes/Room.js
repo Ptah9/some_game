@@ -4,7 +4,7 @@ class Room {
         this.rightGate = right;
         this.bottomGate = bottom;
         this.leftGate = left;
-        this.contains = contains;     //chest/enemy/nothing
+        this.contains = contains;     //chest/enemy/nothing/igrek
         this.type = type;     //entrance/exit/ordinary
         this.floor = floor;
     }

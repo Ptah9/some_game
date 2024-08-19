@@ -18,7 +18,7 @@ async function NewLevel(entranceSide){
     let score = await Get("score");
     let newScore = Number(score) + 1;
     await Put("score", newScore);
-    document.querySelector('.score').textContent = newScore;
+    document.querySelector('.igreks').textContent = await Get("igreks");
 
     let nowY = levelNew.startY;
     let nowX = levelNew.startX;

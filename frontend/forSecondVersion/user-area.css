@@ -4,7 +4,6 @@
 
 .user-area{
     text-align: center;
-    display: block;
 }
 
 .user-up-bar{
@@ -16,33 +15,31 @@
 .exit-user-btn{
     color: var(--user-area-color);
     border-color: var(--user-area-color);
-    margin: 0px;
+    margin: 1vh 0px 0px 1vh;
     /* margin-top: 1vh;
     margin-bottom: 0px; */
     width: 100%;
-    min-width: 32%;
-
 }
 
 .exit-user-btn:active, .referral-btn:active, .tonconnect:active{
     background-color: var(--user-area-color);
     color: black;
     border-color: black;
-    
 }
 
 .referral-btn{
     font-size: 2vw;
     color: var(--user-area-color);
     border-color: var(--user-area-color);
-    min-width: 32%;
+    width: 100%;
+    margin: 1vh;
+    margin-bottom: 0px;
     font-size: 1.3rem;
     line-height: 1.2;
-    margin: 0px;
 }
 
-.user-up-bar{
-    margin: 1vh 1vh 0px 1vh
+.copied-message-area{
+
 }
 
 .copied-message{
@@ -58,9 +55,9 @@
 }
 
 .tonconnect{
-    min-width: 32%;
     line-height: 1.2;
-    /* width: 100%; */
+    margin: 1vh 1vh 0px 0px;
+    width: 100%;
     height: 8vh;
     /* border: 2px solid white; */
     border: 2px solid var(--user-area-color);
@@ -96,7 +93,7 @@
 .user-ava{
     height: 100%;
     width: auto;
-    border-radius: 0;
+    border-radius: 100%;
 }
 .name{
     /* color: var(--main-purple); */
@@ -116,18 +113,14 @@
     margin-right: 1vh;
 }
 
-.left-area{
+.pers-arts-weapon{
     width: 16.6vh;
     min-width: 16.6vh;
 }
 
-.pers, .user-igrek{
+.pers{
     width: 100%;
     height: 16.6vh; 
-}
-
-.user-igrek {
-    margin-top: 1vh;
 }
 
 .arts, .weapon{
@@ -161,40 +154,22 @@
     font-family: Minecraft Regular; 
 }
 
-.text-card, .btn-card{
+.text-card{
     width: 16.6vh;
     height: 7.8vh;
     background-color: black;
     margin-top: 1vh;
     color: white;
     border: 2px solid white;
-    text-align: center;
-    position: relative;
-    font-family: Minecraft Regular; 
-    font-size: 3vh;
-    transition: 0.2s;
 }
 
-.btn-card:active{
-    background-color: white;
-    color: black;
-    border-color: black;
-    width: 15.6vh;
-    height: 6.8vh;
-    margin-top: 1.5vh;
-    margin-bottom: 0.5vh;
-    font-size: 2.7vh;
-}
-
-
-.text-card p {
+.text-card p{
     text-align: center;
     position: relative;
     top: 1.45vh;
     font-family: Minecraft Regular; 
     font-size: 3vh;
 }
-
 
 .inf-card{
     height: 7.8vh;
@@ -210,9 +185,4 @@
 .inf-card p, .inf-card span{
     font-family: Minecraft Regular; 
 
-}
-
-.byPtah-card p{
-    top: -0.4vh;
-    font-size: 2.8vh;
 }

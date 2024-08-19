@@ -13,12 +13,13 @@ const upButton = document.querySelector('#up-button'),
     rightButton = document.querySelector('#right-button'),
     bottomButton = document.querySelector('#bottom-button'),
     leftButton = document.querySelector('#left-button'),
-    body = document.querySelector('#body');
+    body = document.querySelector('#body'),
+    staminaCounter = document.querySelector(".now-stamina"),
+    staminaMax = document.querySelector(".max-stamina"),
+    healthScale = document.querySelector('.health-scale');
 
 // ---------------------------------------------------------
 
-let max_health = 1000,
-    health = 1000;
 
 
 //------------------------------------
@@ -35,13 +36,21 @@ localStorage.backpackClosed = true;
 async function newStart(){
     if (await IsUserNew()) {
     // if (true) {
-        await Put("sword", "Purple Sword");
-        await Put("magic", "Purple Magic");
-        await Put("shield", "Purple Shield");
-        await Put("ring", "Purple Ring");
-        await Put("igreks", 0);
+        Put("maxStamina", 200);
+        Put("staminaPrice", {1:1, 10:10, 100:100});
+        Put("stamina", 200);
+        Put("luckyPrice", {1:100, 10:1000, 100:10000});
+        Put("lucky", 1);
+        Put("sword", "Purple Sword");
+        Put("magic", "Purple Magic");
+        Put("shield", "Purple Shield");
+        Put("ring", "Purple Ring");
+        Put("igreks", 0);
         await Put("score", 0)
         NowMap = await NewLevel(3)
+
+        staminaCounter.textContent = 200;
+        staminaMax.textContent = 200;
     }
     else{
         let levelNow = await Get('levelNow');
@@ -51,9 +60,18 @@ async function newStart(){
         NowMap = new Map(levelNow, openedLevel);
         showRoom(levelNow.adaptedLevel[nowY][nowX]);
         NowMap.nowMap(nowX, nowY);
-        document.querySelector('.score').textContent = await Get("score");
+        document.querySelector('.igreks').textContent = await Get("igreks");
         document.querySelector('#opened-rooms').textContent = await Get("openedRooms");
         document.querySelector('#total-rooms').textContent = levelNow.rooms;
+        let stamina = await Get("stamina")
+        let maxStamina = await Get("maxStamina")
+        staminaCounter.textContent = stamina;
+        staminaMax.textContent = maxStamina;
+        
+        healthScale.style.width = (100 - (stamina / maxStamina * 100)) + "%";
+        setTimeout(() => {  
+            healthScale.style.transition = "0s"
+        }, 150);
     }
 }
 
@@ -124,6 +142,3 @@ function getRandomArbitrary(min, max) {
 
 
 
-// igrek.style.marginLeft = getRandomArbitrary(0,71) + "%"
-// igrek.style.marginTop  = getRandomArbitrary(0,71) + "%"
-// igrek.style.display  = "block"

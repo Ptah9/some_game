@@ -13,6 +13,20 @@
 }
 
 
+
+.igreks-green{
+    color: rgb(151, 217, 49);
+    font-family: Minecraft Regular;
+}
+.igreks-yellow{
+    color: rgb(227, 223, 33);
+    font-family: Minecraft Regular;
+}
+.igreks-blue{
+    color: rgb(47, 80, 123);
+    font-family: Minecraft Regular;
+}
+
 .main-button {
     margin: 5px;
     height: 11vh;
@@ -59,7 +73,7 @@
 
 .scale-box {
     height: 30px;
-    background:rgb(255, 0, 0);
+    background:rgb(220,0,0);
     
     display: flex;
     justify-content: space-between;
@@ -67,13 +81,35 @@
 }
 .health-scale {
     height: 30px;
+    width: 0px;
     background-color: black;
+    transition: 1.5s;
 }   
 .health-scale-border {
-    border: 2px solid rgb(195, 195, 195);
+    border: 2px solid rgba(255, 255, 255, 0.7);
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.scale-counter-wrap{
+    position: relative;
+    width: 100%;
+}
+
+.scale-counter{
+    /* background-color:wheat; */
+    font-size: 30px;
+    position: absolute;
+    top: -6px;
+    left: 5px;
+}
+
+
+.scale-counter, .now-stamina, .max-stamina{
+    font-family: Minecraft Regular;
+    color: rgba(255, 255, 255, 0.95);
+}
+
 
 .health-and-room{
     position: relative;
@@ -114,6 +150,7 @@
     background-color: rgba(0, 0, 0, 0);
     border: none;
     color:  rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
 }
 .gate {
     background-color: black;
@@ -180,6 +217,7 @@
     margin-top: 35%; */
     display: none;
     position: absolute;
-    background-image: url(./imgs/ava.png);
+    background-image: url(./imgs/Yimg.png);
     background-size: 100%;
 }
+

@@ -1,3 +1,9 @@
+.backpack-area{
+    --backpack-color:rgb(220,0,0);
+    --backpack-color-sec:rgb(220,0,0);
+    /* display: block; */
+}
+
 .control-btns button{
     font-size: 4vw;
 }
@@ -33,51 +39,165 @@
 
 /* ------------------------------------- */
 
-#weapon-btn {
+#stamina-btn {
     background-image: url('imgs/sword.png');
 }
 
-.weapon-btn-active {
-    background-color: grey;
-    border-color:black;
-    border: 3px solid white;
-}
-
-.weapon-buttons {
+.img-and-desc{
     display: flex;
     justify-content: space-between;
-    box-sizing: border-box;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+    height: 22vh;
+}
+
+.left-area{
+    width: 15vh;
+    min-width: 15vh;
+}
+
+.backpack-img{
+    min-width: 16.6vh;
+    height: 16.6vh;
+    transition: 0.3s;
+    position: relative;
+    left: 0vh;
+}
+
+.right-area{
+    /* background-color: red; */
+    margin-left: 1vh;   
+    width: 100vw;
+    text-align: left;
+}
+
+.backpack-title{
+    font-family: Minecraft Regular; 
+    color: var(--backpack-color);
+    font-size: 8vh;
+    position: relative;
+    bottom: 2.75vh;
+    transition: 0.4s;
+}
+
+.backpack-desc{
+    font-family: Minecraft Regular; 
+    color: var(--backpack-color);
+    font-size: 2.5vh;
+    position: relative;
+    bottom: 4.75vh;
+    transition: 0.4s;
+}
+
+.user-backpack {
+    background-color: black;
+    border: 5px solid var(--backpack-color);
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+    margin-top: -2vh;
+    transition: 0.4s;
+    height: 16vh;
+}
+
+.buy-backpack-wrap{
     width: 93vw;
-    margin: 2.5vw;
-}
-#sword {background-image: url('imgs/purple-sword.png');}
-#magic {background-image: url('imgs/purple-magic.png');}
-#shield {background-image: url('imgs/purple-shield.png');}
-#ring {background-image: url('imgs/purple-ring.png');}
+    height: 10vh;
+    margin-top: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
 
-.weapon-buttons div button{
-    height: 18vw;
-    width: 18vw;
-    margin: 0;
 }
 
-.weapon-text {
-    color: var(--text-purple);
-    font-family: Minecraft Regular;
-    margin: 2.5vw;
-}
-.weapon-description {
-    color: var(--text-purple);
-    font-family: Minecraft Regular;
-    height:38vh;
-    overflow: auto;
-    margin: 2.5vw;
+.buy-backpack{
+    background-color: black;
+    border: 5px solid var(--backpack-color);
+    position: absolute;
+    left: 0vh;
+    width: 75vw;
+    text-align: center;
+    transition: 0.4s;
+    height: 10vh;
 }
 
+.buy-backpack:active{
+    background-color: var(--backpack-color-sec);
+
+    --backpack-color: black;
+    border-color: black;
+    color: black;
+    text-align: center;
+    transition: 0.1s;
+}
+
+.buy-backpack-p{
+    font-family: Minecraft Regular; 
+    color: var(--backpack-color);
+    font-size: 3.1vh;
+    transition: 0.4s;
+}
+
+.your-backpack, .your-backpack-p, .your-backpack-count  {
+    font-family: Minecraft Regular; 
+    color: var(--backpack-color);
+    font-size: 4.5vh;
+    margin-left: 3vw;
+    transition: 0.4s;
+}
+.right-backpack{
+    left: 18vw;
+    right: 0vh;
+}
 
 
+
+/* .lucky-btn:active{
+    background-color: green;
+    color: black;
+    border-color: black;
+} */
 /* ---------------------------------------- */
 
-#artifacts-btn {
+#lucky-btn {
     background-image: url('imgs/bag.png');
+}
+
+.lucky-area{
+    display: none;
+}
+
+/* .backpack-igrek-counter-wrap{
+    background-color: red;
+    margin-top: 2.5vw;
+    margin-right: 2.5vw;
+    width: 40vw;
+    min-width: 40vw;
+    max-width: 40vw;
+    height: 8vh;
+    overflow: hidden;
+}
+.backpack-igrek-counter-p{
+    color: var(--main-purple);
+    font-family: Minecraft Regular;
+    font-size: 4vh;
+    position: relative;
+    bottom: 1.4vh;
+}
+.backpack-igrek-counter{
+    position: relative;
+    bottom: 2.2vh;
+    font-size: 4vh;
+
+} */
+
+.not-enough-message {
+    height: 200px;
+    width: 85vw;
+    left: 7.5vw;
+}
+
+.not-enough-message h1, .not-enough-message span {
+    font-family: Minecraft Regular; 
+    color: var(--main-purple);
+    font-size: 25px;
 }

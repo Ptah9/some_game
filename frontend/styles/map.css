@@ -43,7 +43,8 @@
 .map-place {
     height: 90%;
     width: 90%;
-    border: 1px solid black;
+    border-left: 1.5px solid black;
+    border-top: 1.5px solid black;
     position: relative;
     top: 5%;
     left: 5%;
@@ -52,7 +53,8 @@
 .map-room {
     height: 10%;
     width: 10%;
-    border: 1px solid black;
+    border-right: 1.5px solid black;
+    border-bottom: 1.5px solid black;
     display:inline-block;
     margin: 0;
 }

@@ -12,7 +12,7 @@ const backpackBtn = document.querySelector('#backpack-btn'),
     nickname = document.querySelector('.name');
 
 
-import Get from "../functions/interactionWithAPI/testGet.js";
+import Get from "../script/functions/interactionWithAPI/testGet.js";
 
 
 let sword, magic, shield, ring;

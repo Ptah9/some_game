@@ -23,7 +23,6 @@ class Map{
                 this.matrix[y][x] = document.querySelector(".map-room:nth-child("+roomNum+")");
                 roomNum++;
 
-                this.matrix[y][x].style.border = "1px solid black";
                 try{this.matrix[y][x].removeChild(this.matrix[y][x].childNodes[0])}
                 catch{}
                 switch (openedLevel[y][x]){
@@ -74,7 +73,6 @@ class Map{
             let score = await Get("score");
             let newScore = Number(score) + 1;
             await Put("score", newScore);
-            document.querySelector('.score').textContent = newScore;
         }
 
         try {this.matrix[nowY-1][nowX].removeChild(this.matrix[nowY-1][nowX].childNodes[0])}

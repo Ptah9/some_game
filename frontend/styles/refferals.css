@@ -3,10 +3,11 @@
 }
 
 .ref-reward-wrap{
-    width: 100%;
-    height: 20vh;
-    background-color: green;
-    margin-bottom: 2vh;
+    height: 13vh;
+    margin-bottom: 4vh;
+    margin-left: 2.5vw;
+
+    
 }
 
 .ref-reward-div, .claim-ref-reward{
@@ -15,10 +16,7 @@
     max-width: 95%;
     height: 6.5vh;
     background-color: black;
-    margin-right: auto;
-    margin-left: auto;
     color: var(--main-purple);
-    text-align: center;
     border: 2px solid var(--main-purple);
     
 }
@@ -30,6 +28,9 @@
     min-width: 35%;
     width: fit-content;
     max-width: 95%;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    margin-left: -0.9vw;
 }
 
 .claim-ref-reward:active{
@@ -64,15 +65,14 @@
 .img-and-name{
     display: flex;
     width: 22vw;
+    margin-left: -1vw;
 }
 
 .place{
-    
     margin-right: 1vw;
 }
 
 .ref-card{
-    height: 60px;
     width: 95vw;
     background-color: rgb(51, 51, 51);
     margin-left: auto;
@@ -83,19 +83,20 @@
     padding: 4px 8px;
     margin-top: 10px;
     margin-bottom: 10px;
+    height: 62px;   
+
     
 }
 
 .ref-card p{
-    font-size: 30px;
+    font-size: 25px;
     font-family: Minecraft Regular;
     color: var(--main-purple);
-    margin-top: 1px;
+    margin-top: 8px;
     margin-bottom: 1px;
 } 
 
 .refs-box{
     overflow:auto;
-    height: 65%;
-    background-color: red;
+    height: 70%;
 }

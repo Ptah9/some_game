@@ -77,7 +77,7 @@
     font-size: 8vh;
     position: relative;
     bottom: 2.75vh;
-    transition: 0.4s;
+    transition: 0.6s;
 }
 
 .backpack-desc{
@@ -86,7 +86,7 @@
     font-size: 2.5vh;
     position: relative;
     bottom: 4.75vh;
-    transition: 0.4s;
+    transition: 0.6s;
 }
 
 .user-backpack {
@@ -95,13 +95,13 @@
     margin-left: 2.5vw;
     margin-right: 2.5vw;
     margin-top: -2vh;
-    transition: 0.4s;
+    transition: 0.6s;
     height: 16vh;
 }
 
 .buy-backpack-wrap{
     width: 93vw;
-    height: 10vh;
+    height: 11vh;
     margin-top: 2vh;
     margin-left: auto;
     margin-right: auto;
@@ -116,8 +116,8 @@
     left: 0vh;
     width: 75vw;
     text-align: center;
-    transition: 0.4s;
-    height: 10vh;
+    transition: 0.6s;
+    height: 11vh;
 }
 
 .buy-backpack:active{

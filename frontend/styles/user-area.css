@@ -4,7 +4,7 @@
 
 .user-area{
     text-align: center;
-    /* display: block; */
+    display: block;
 }
 
 .user-up-bar{
@@ -32,11 +32,13 @@
 }
 
 .referral-btn{
-    font-size: 2vw;
+    padding-top: 0.2vh;
+    padding-bottom: -0.2vh;
+
     color: var(--user-area-color);
     border-color: var(--user-area-color);
     min-width: 32%;
-    font-size: 1.3rem;
+    font-size: 3vh;
     line-height: 1.2;
     margin: 0px;
 }
@@ -69,7 +71,7 @@
     color: var(--user-area-color);
     text-align: center;
     font-family: Minecraft Regular;
-    font-size: 1.3rem;
+    font-size: 3vh;
     /* background-color:rgb(0, 123, 255); */
     background-color: black;
 
@@ -175,6 +177,27 @@
     transition: 0.2s;
 }
 
+
+.referrals-button {
+    font-size: 2.3vh;
+}
+
+.tasks-button{
+    font-size: 4vh;
+}
+
+.channels-button {
+    font-size: 2.7vh;
+}
+
+.text-card p {
+    text-align: center;
+    position: relative;
+    top: 0.5vh;
+    font-family: Minecraft Regular; 
+    font-size: 2.2vh;
+}
+
 .btn-card:active{
     background-color: white;
     color: black;
@@ -186,14 +209,6 @@
     font-size: 2.7vh;
 }
 
-
-.text-card p {
-    text-align: center;
-    position: relative;
-    top: 1.45vh;
-    font-family: Minecraft Regular; 
-    font-size: 3vh;
-}
 
 
 .inf-card{
@@ -212,7 +227,8 @@
 
 }
 
-.byPtah-card p{
-    top: -0.4vh;
-    font-size: 2.8vh;
+
+.copied-message h1 {
+    position: relative;
+    top: 0vh
 }

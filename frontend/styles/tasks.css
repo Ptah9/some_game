@@ -2,3 +2,191 @@
     display: block;
 }
 
+.tasks-inf{
+    height: 10vh;
+    background-color: black;
+    border: 2px solid var(--main-purple);
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.tasks-completed, .tasks-completed-count{
+    color: var(--main-purple);
+    font-family: Minecraft Regular;
+    font-size: 3.2vh;
+
+}
+
+.tasks-completed{
+    position: relative;
+    top: 2.5vh;
+}
+
+.tasks{
+    margin-top: 2vh;
+    overflow:auto;
+    height: 75%;
+}
+
+
+
+
+
+
+
+.task-img{
+    width: 80px;
+    height: 80px;
+    margin-right: 3vw;
+}
+
+
+.task-img-and-name{
+    display: flex;
+    width:100%;
+    margin-top: 5px;
+}
+
+/* .place{
+    
+    margin-right: 1vw;
+} */
+
+.task-card{
+    /* height: 170px; */
+    height: auto;
+    width: 95vw;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    /* display: flex;
+    justify-content: space-between; */
+    border: 2px solid var(--main-purple);     
+    padding: 4px 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.task-name{
+    position: relative;
+    top: 5px;
+    font-size: 25px;
+    font-family: Minecraft Regular;
+    color: var(--main-purple);
+    margin-top: 1px;
+    margin-bottom: 1px;
+
+} 
+
+.task-desc-and-btn{
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+}
+
+.task-desc{
+    position: relative;
+    top: 5px;
+    height:fit-content;
+    font-size: 15px;
+    font-family: Minecraft Regular;
+    color: var(--main-purple);
+    margin-bottom: 10px;
+}
+
+.task-btn-wrap{
+    position: relative;
+    min-width: 30vw;
+    max-width: 30vw;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+.task-btn{
+    min-width: 28vw;
+    max-width: 28vw;
+    height: 65px;
+    border: 2px solid var(--main-purple);;
+    color: var(--main-purple);
+    text-align: center;
+    font-family: Minecraft Regular;
+    font-size:22px;
+    background-color: white;
+
+    position: absolute;
+    top: -15px;
+    right: -0.5vw;
+
+    transition: 0.2s;
+
+}
+
+.task-btn:active{
+    background-color: var(--main-purple);
+    color: white;
+    border-color: white;
+
+
+    min-width: 25vw;
+    max-width: 25vw;
+    height: 55px;
+    top: -5px;
+    right: 5px;
+    font-size:20px;
+
+
+
+}
+
+
+
+
+.task-completed{
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    /* display: flex;
+    justify-content: space-between; */
+    border: 2px solid var(--dark-main-purple);     
+    padding: 4px 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.task-completed p, .task-completed h1{
+    color: var(--dark-main-purple);  
+}
+.task-completed button{
+    color: rgb(155, 155, 155);  
+    background-color: var(--dark-main-purple);
+    border-color: rgb(155, 155, 155);
+    min-width: 28vw;
+    max-width: 28vw;
+    height: 65px;
+    top: -15px;
+    right: -0.5vw;
+    font-size:19px;
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+.task-completed img {
+    opacity: 0.6;
+}
+
+.task-completed button:active{
+    color: rgb(155, 155, 155);  
+    background-color: var(--dark-main-purple);
+    border-color: rgb(155, 155, 155);
+    min-width: 29.5vw;
+    max-width: 38vw;
+    font-size: 1.6rem;
+    min-width: 28vw;
+    max-width: 28vw;
+    height: 65px;
+    top: -15px;
+    right: -0.5vw;
+    font-size:19px;
+}

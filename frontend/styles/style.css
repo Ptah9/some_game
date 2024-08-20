@@ -9,17 +9,14 @@
 }
 @font-face {
     font-family:"Minecraft Regular";
-    src:url("minecraft_font/1_Minecraft-Regular.eot?") format("eot"),
-    url("minecraft_font/1_Minecraft-Regular.woff") format("woff"),
-    url("minecraft_font/1_Minecraft-Regular.ttf") format("truetype"),
-    url("minecraft_font/1_Minecraft-Regular.svg#Minecraft-Regular") 
-    format("svg");
+    src: url("minecraft_font/1_Minecraft-Regular.ttf");
     font-weight:normal;
     font-style:normal;
 }
 :root {
     --main-purple: rgb(140, 0, 255);
     --text-purple: rgb(184, 96, 255);
+    --dark-main-purple: rgb(76, 0, 139);
 }
 body {
     overflow: hidden;

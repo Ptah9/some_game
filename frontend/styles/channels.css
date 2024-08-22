@@ -1,0 +1,96 @@
+.channels-area{
+    /* display: block; */
+}
+
+.channels-top-div{
+    display: flex;
+    justify-content: space-between;
+}
+.channels-title{
+    font-family: Minecraft Regular;
+    color: var(--main-purple);
+    font-size: 8vw;
+    position: relative;
+    top: 2vh;
+    margin-right: 2.5vw
+}
+
+.channel-card {
+    width: 95%;
+    height: 27vh;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px double var(--main-purple);
+    margin-bottom: 2vh;
+}
+.img-and-channel-text{
+    display: flex;
+    justify-content: space-between;
+    gap: 2vw;
+}
+.channel-ava{
+    width: 16vh;
+    height: 16vh;
+    margin-left: 2vw;
+    margin-top: 2vw;
+}
+.channel-text {
+    position: relative;
+    top: 2vh
+} 
+.channel-name {
+    font-family: Minecraft Regular;
+    color: var(--main-purple);
+    font-size: 2.5vh;
+}
+.channel-desc {
+    font-family: Minecraft Regular;
+    color: var(--main-purple);
+    font-size: 15px;
+    height: 10.7vh;
+    overflow: auto;
+}
+
+.btns-div {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.channels-btn{
+    position: relative;
+    width: 43vw;
+    height: 6vh;
+    font-size: 18px;
+    border-radius: 0%;
+    border: 2px solid var(--main-purple);
+    background-color: white;
+    color: var(--main-purple);
+    font-family: Minecraft Regular;
+
+}
+.channels-btn:active{
+    right: 0.5vw;
+    width: 42vw;
+    height: 5.5vh;
+    top: 0.25vh;
+    border-radius: 0%;
+    border: 2px solid var(--main-purple);
+    background-color: rgb(46, 46, 46);
+    color: var(--main-purple);
+    font-family: Minecraft Regular;
+
+}
+
+.channel-complete:active{
+    background-color: rgb(255, 255, 255);
+}
+
+.channel-complete{
+    background-color: rgb(46, 46, 46);
+    
+}

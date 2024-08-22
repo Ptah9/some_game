@@ -91,9 +91,12 @@
     top: 5px;
     height:fit-content;
     font-size: 15px;
+    height: 45px;
     font-family: Minecraft Regular;
     color: var(--main-purple);
     margin-bottom: 10px;
+    background-color: red;
+    overflow: auto;
 }
 
 .task-btn-wrap{

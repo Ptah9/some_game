@@ -2,8 +2,21 @@
     
 }
 
+.leaderboard-top-div{
+    display: flex;
+    justify-content: space-between;
+}
+.leaderboard-title{
+    font-family: Minecraft Regular;
+    color: var(--main-purple);
+    font-size: 5vh;
+    position: relative;
+    top: 3vh;
+    right: 1.5vw
+}
+
+
 .exit-leaderboard-btn {
-    height: 9%;
     margin: 1.8vh;
 
 }

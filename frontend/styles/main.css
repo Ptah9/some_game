@@ -1,9 +1,14 @@
 .main {
     min-height: 100vh;
-    background: linear-gradient(black 25vh, rgb(123, 123, 123) 50vh, black 80vh);
+    /* background: linear-gradient(black 25vh, rgb(123, 123, 123) 50vh, black 80vh); */
     margin: 0 auto;
     padding: 2.5vw;
     position: relative;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+    url(imgs/background-21.png);
+    background-position: top;
+    
 } 
 
 .title {

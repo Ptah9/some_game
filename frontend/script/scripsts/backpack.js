@@ -53,18 +53,32 @@ exitBackpackBtn.addEventListener("click", async ()=>{
 
 staminaBtn.addEventListener("click", async function(){
     if (!staminaSelected){
-        backpackArea.style.setProperty('--backpack-color', "rgb(220,0,0)")
-        backpackArea.style.setProperty('--backpack-color-sec', "rgb(220,0,0)")
 
-        backpackTitle.textContent = "Stamina";
-        backpackDesc.textContent = "if you have a lot of stamina, you can walk for a long time";
+        document.querySelector(".well").style.setProperty('--backpack-color', "rgb(220,0,0)")
+        document.querySelectorAll(".well")[1].style.setProperty('--backpack-color', "rgb(220,0,0)")
+        document.querySelectorAll(".well")[1].style.setProperty('--backpack-color-sec', "rgb(220,0,0)")
+        if (localStorage.getItem("language") == "russian"){
+            backpackTitle.textContent = "Стамина";
+            backpackDesc.textContent = "Если у тебя есть много стамины, ты можешь долго ходить";
+    
+            yourBackpackP.textContent = "макс. стамина:";
+            buy1P.textContent = "1 стамина за";
+            buy10P.textContent = "10 стамин за";
+            buy100P.textContent = "100 стамин за";
+        }
+        else {
+            backpackTitle.textContent = "Stamina";
+            backpackDesc.textContent = "if you have a lot of stamina, you can walk for a long time";
+    
+            yourBackpackP.textContent = "your max stamina:";
+            buy1P.textContent = "buy 1 stamina for";
+            buy10P.textContent = "buy 10 stamina for";
+            buy100P.textContent = "buy 100 stamina for";
+        }
 
-        yourBackpackP.textContent = "your max stamina:";
         yourBackpackCount.textContent = await Get("maxStamina");
 
-        buy1P.textContent = "buy 1 stamina for";
-        buy10P.textContent = "buy 10 stamina for";
-        buy100P.textContent = "buy 100 stamina for";
+
         let staminaPrice = await Get("staminaPrice")
         buy1Price.textContent = staminaPrice[1];
         buy10Price.textContent = staminaPrice[10];
@@ -85,18 +99,33 @@ staminaBtn.addEventListener("click", async function(){
 
 luckyBtn.addEventListener("click", async function(){
     if (staminaSelected){
-        backpackArea.style.setProperty('--backpack-color', "rgb(34, 176, 34)");
-        backpackArea.style.setProperty('--backpack-color-sec', "rgb(34, 176, 34)");
+        
+        document.querySelector(".well").style.setProperty('--backpack-color', "rgb(34, 176, 34)")
+        document.querySelectorAll(".well")[1].style.setProperty('--backpack-color', "rgb(34, 176, 34)")
+        document.querySelectorAll(".well")[1].style.setProperty('--backpack-color-sec', "rgb(34, 176, 34)")
 
-        backpackTitle.textContent = "Lucky";
-        backpackDesc.textContent = "if you have a lot of lucky, you will catch a lot of Igreks";
+        if (localStorage.getItem("language") == "russian"){
+            backpackTitle.textContent = "Удача";
+            backpackDesc.textContent = "Если у тебя много удачи, ты поймаешь больше игреков";
+    
+            yourBackpackP.textContent = "твоя удача:";
 
-        yourBackpackP.textContent = "your lucky:";
+            buy1P.textContent = "1 удача за";
+            buy10P.textContent = "10 удач за";
+            buy100P.textContent = "100 удач за";
+        }
+        else {
+            backpackTitle.textContent = "Lucky";
+            backpackDesc.textContent = "if you have a lot of lucky, you will catch a lot of Igreks";
+    
+            yourBackpackP.textContent = "your lucky:";
+            
+            buy1P.textContent = "buy 1 lucky for";
+            buy10P.textContent = "buy 10 lucky for";
+            buy100P.textContent = "buy 100 lucky for";
+        }
+
         yourBackpackCount.textContent = await Get("lucky");
-
-        buy1P.textContent = "buy 1 lucky for";
-        buy10P.textContent = "buy 10 lucky for";
-        buy100P.textContent = "buy 100 lucky for";
         
         let luckyPrice = await Get("luckyPrice")
         buy1Price.textContent = luckyPrice[1];

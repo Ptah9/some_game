@@ -29,6 +29,8 @@ mapBtn.addEventListener("click", function(){
     document.querySelector(".igreks-yellow").style.color = "rgba(0, 0, 0, 0)";
     document.querySelector(".igreks").style.color = "rgba(0, 0, 0, 0)";
     document.querySelector(".igreks-blue").style.color = "rgba(0, 0, 0, 0)";
+
+    document.querySelector(".title").style.color = "rgb(238, 223, 166)";
 });
 exitMapBtn.addEventListener("click", function(){
     mapArea.style.display = "none";
@@ -37,6 +39,9 @@ exitMapBtn.addEventListener("click", function(){
     document.querySelector(".igreks-yellow").style.color = "rgb(227, 223, 33)";
     document.querySelector(".igreks").style.color = "rgb(227, 223, 33)";
     document.querySelector(".igreks-blue").style.color = "rgb(47, 80, 123)";
+
+    document.querySelector(".title").style.color = "var(--main-purple)";
+
 });
 
 backpackBtn.addEventListener("click", function(){
@@ -46,6 +51,9 @@ backpackBtn.addEventListener("click", function(){
     document.querySelector(".igreks-yellow").style.color = "rgba(0, 0, 0, 0)";
     document.querySelector(".igreks").style.color = "rgba(0, 0, 0, 0)";
     document.querySelector(".igreks-blue").style.color = "rgba(0, 0, 0, 0)";
+
+    document.querySelector(".title").style.color = "var(--backpack-color)";
+
     
 });
 exitBackpackBtn.addEventListener("click", function(){
@@ -56,6 +64,9 @@ exitBackpackBtn.addEventListener("click", function(){
     document.querySelector(".igreks-yellow").style.color = "rgb(227, 223, 33)";
     document.querySelector(".igreks").style.color = "rgb(227, 223, 33)";
     document.querySelector(".igreks-blue").style.color = "rgb(47, 80, 123)";
+
+    document.querySelector(".title").style.color = "var(--main-purple)";
+
 
 });
 

@@ -9,6 +9,14 @@
     /* width: 80%; */
 }
 
+.map-title{
+    font-family: Minecraft Regular;
+    color: rgb(238, 223, 166);
+    font-size:7vh;
+    position: relative;
+}
+
+
 .room-counter-div{
     margin: 2.5vw;
     margin-top: -1.3vw;
@@ -19,12 +27,12 @@
     margin-top: -2vh;
 }
 .room-counter-text {
-    color: var(--main-purple);
+    color: rgb(238, 223, 166);
     font-size: 3.9vh;
     font-family: Minecraft Regular;
 }
 .room-counter{
-    color: var(--main-purple);
+    color: rgb(238, 223, 166);
     font-size: 5vh;
     font-family: Minecraft Regular;
 

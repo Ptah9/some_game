@@ -2,6 +2,19 @@
     /* display: block; */
 }
 
+.tasks-top-div{
+    display: flex;
+    justify-content: space-between;
+}
+.tasks-title{
+    font-family: Minecraft Regular;
+    color: var(--main-purple);
+    font-size:7vh;
+    position: relative;
+    /* top: 1vh; */
+    right: 1.5vw
+}
+
 .tasks-inf{
     height: 10vh;
     background-color: black;
@@ -11,7 +24,7 @@
     margin-right: auto;
     text-align: center;
 }
-.tasks-completed, .tasks-completed-count{
+.tasks-completed, .tasks-completed-count, .tasks-completed-p{
     color: var(--main-purple);
     font-family: Minecraft Regular;
     font-size: 3.2vh;
@@ -95,7 +108,7 @@
     font-family: Minecraft Regular;
     color: var(--main-purple);
     margin-bottom: 10px;
-    background-color: red;
+    /* background-color: red; */
     overflow: auto;
 }
 

@@ -9,10 +9,10 @@
 .channels-title{
     font-family: Minecraft Regular;
     color: var(--main-purple);
-    font-size: 8vw;
+    font-size: 9vw;
     position: relative;
-    top: 2vh;
-    margin-right: 2.5vw
+    top: 2.7vh;
+    right: 2.5vw
 }
 
 .channel-card {

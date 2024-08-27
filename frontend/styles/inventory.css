@@ -1,7 +1,8 @@
-.backpack-area{
+.well{
     --backpack-color:rgb(220,0,0);
     --backpack-color-sec:rgb(220,0,0);
     /* display: block; */
+    transition: 0.6s;
 }
 
 .control-btns button{
@@ -32,6 +33,16 @@
     justify-content: space-between;
     box-sizing: border-box;
 }
+
+.backpack-title-up{
+    font-family: Minecraft Regular;
+    color: var(--backpack-color);
+    font-size:7vh;
+    position: relative;
+    transition: 0.6s;
+
+}
+
 
 .select-div{
     display: flex;

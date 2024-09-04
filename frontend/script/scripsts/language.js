@@ -6,7 +6,7 @@ if (localStorage.getItem("language") == "russian"){
     document.querySelector(".backpack-title-up").textContent = "Магазин";
     document.querySelector(".backpack-title-up").style.fontSize = "5vh";
     document.querySelector(".backpack-title-up").style.right = "0.7vw";
-    document.querySelector(".backpack-title-up").style.top = "2.6vh";
+    document.querySelector(".backpack-title-up").style.top = "0.7vh";
     document.querySelector(".backpack-title").textContent = "Стамина";
     document.querySelector(".backpack-title").style.fontSize = "6.5vh";
     document.querySelector(".backpack-desc").textContent = "Если у тебя есть много стамины, ты можешь долго ходить";
@@ -43,7 +43,7 @@ if (localStorage.getItem("language") == "russian"){
 
     document.querySelector(".map-title").textContent = "Карта";
     document.querySelector(".map-title").style.fontSize = "5vh";
-    document.querySelector(".map-title").style.top = "2.7vh";
+    document.querySelector(".map-title").style.top = "0.7vh";
     document.querySelector(".room-counter-text").textContent = "комнаты:";
     document.querySelector(".room-counter-text").style.fontSize = "3vh";
     document.querySelector(".room-counter-div-small").style.marginTop = "-1vh";

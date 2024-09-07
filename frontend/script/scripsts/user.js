@@ -12,19 +12,23 @@ userIgreks = document.querySelector(".user-Igreks"),
 userIgrekTop = document.querySelector(".user-Igrek-top"),
 userScore = document.querySelector(".user-score"),
 userScoreTop = document.querySelector(".user-score-top"),
-referralsArea = document.querySelector(".referrals-area"),
-exitReferralsBtn = document.querySelector(".exit-referrals-btn"),
-referralsButton = document.querySelector(".referrals-button");
+referralsArea = document.querySelector(".referrals-area")
 
 
 import Get from "../functions/interactionWithAPI/testGet.js";
+import getRefs from "../functions/interactionWithAPI/testGetRefs.js";
 
 
 async function bootInfo() {
     userMaxStamina.textContent = await Get("maxStamina");
     userLucky.textContent = await Get("lucky");
-    userReferralsInvited.textContent = 0
-    userReferralReward.textContent = 0
+    let refs = await getRefs();
+    userReferralsInvited.textContent = refs.refsCount;
+    let refReward = 0;
+    for (let refName in refs.refs){
+        refReward += Number(refs.refs[refName].reward)
+    }
+    userReferralReward.textContent = refReward.toFixed(1)
     userIgreks.textContent = await Get("igreks");
     userIgrekTop.textContent = 0
     userScore.textContent = await Get("score");
@@ -57,12 +61,3 @@ referralBtn.addEventListener("click", function(){
     copiedMessageArea.style.display = "block";
     setTimeout(() => {  copiedMessageArea.style.display = "none"; }, 1000);
 })
-
-
-exitReferralsBtn.addEventListener("click", ()=>{
-    referralsArea.style.display = "none";
-});
-
-referralsButton.addEventListener("click", ()=>{
-    referralsArea.style.display = "block";
-});

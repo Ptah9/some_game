@@ -5,6 +5,8 @@ import NewLevel from "../functions/newLevel.js";
 import Get from "../functions/interactionWithAPI/testGet.js";
 import Put from "../functions/interactionWithAPI/testPut.js";
 import IsUserNew from "../functions/interactionWithAPI/isUserNew.js";
+import getRefs from "../functions/interactionWithAPI/testGetRefs.js";
+import initUser from "../functions/interactionWithAPI/testInitUser.js";
 
 
 
@@ -36,20 +38,11 @@ localStorage.backpackClosed = true;
 async function newStart(){
     if (await IsUserNew()) {
     // if (true) {
-        Put("maxStamina", 200);
-        Put("staminaPrice", {1:1, 10:10, 100:100});
-        Put("stamina", 200);
-        Put("luckyPrice", {1:100, 10:1000, 100:10000});
-        Put("lucky", 1);
-        Put("sword", "Purple Sword");
-        Put("magic", "Purple Magic");
-        Put("shield", "Purple Shield");
-        Put("ring", "Purple Ring");
-        Put("igreks", 0);
-        await Put("score", 0)
+        let refCode = await prompt("enter ref-code")
+        await initUser(refCode);
         NowMap = await NewLevel(3)
 
-        staminaCounter.textContent = 200;
+        staminaCounter.textContent = 200; 
         staminaMax.textContent = 200;
     }
     else{

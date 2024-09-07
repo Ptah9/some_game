@@ -17,10 +17,12 @@ igrek.addEventListener("click", async function() {
         level.adaptedLevel[nowY][nowX].contains = "nothing";
         await Put("levelNow", level);
         await Put("igreks", await Get("igreks") + count);
+        let reward = count/10
+        await Put("forInviter", await Get("forInviter") + parseFloat(reward.toFixed(1)));
         igrek.style.display = "none";
         document.querySelector('.igreks').textContent = await Get("igreks");
     }
     else{
-        console.log("oops, i don't now this Igrek, it's fake")
+        console.log("oops, i don't now these Igreks, they're fake")
     }
 })

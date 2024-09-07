@@ -1,17 +1,17 @@
-async function Put(key, value) {
+async function initUser(code) {
     let username = localStorage.getItem("username")
     if (! username) {
         username = await prompt("введите ник");
         localStorage.setItem("username", username)
     }
 
-    const response = await fetch(`/set/${key}`, {
+    const response = await fetch("initUserPlease", {
         method: "POST",
         headers: { "Accept": "application/json", "Content-Type": "application/json" },
         body: JSON.stringify({
             password: "pipe",
             user: username,
-            value: value
+            code: code
         })
     });
     if (response.ok === true) {
@@ -21,4 +21,5 @@ async function Put(key, value) {
 
 
 
-export default Put;
+
+    export default initUser;

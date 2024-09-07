@@ -1,5 +1,6 @@
 .referrals-area{
     /* display: block;  */
+
 }
 
 .referrals-top-div{
@@ -42,11 +43,11 @@
     font-size: 4vh;
     margin-top: 2vh;
     font-family: Minecraft Regular;
-    width: fit-content;
-    max-width: 150%;
-    padding-left: 2vw;
-    padding-right: 2vw;
-    margin-left: -0.9vw;
+    min-width: fit-content;
+    width: 80vw;
+    padding-left: 8px;
+    padding-right: 8px;
+
 }
 
 .claim-ref-reward:active{
@@ -69,26 +70,16 @@
     font-family: Minecraft Regular;
 }
 
-.ref-ava{
-    width: 50px;
-    height: 50px;
-    margin-right: 3vw;
-}
 
-
-.img-and-name{
-    display: flex;
-    width: 22vw;
-    margin-left: -1vw;
-}
 
 .place{
     margin-right: 1vw;
+
 }
 
 .ref-card{
-    width: 95vw;
-    background-color: rgb(51, 51, 51);
+    width: 80vw;
+    background-color: rgb(23, 23, 23);
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -110,7 +101,18 @@
     margin-bottom: 1px;
 } 
 
+.ref-name {
+    margin-left: 2vw;
+}
+.reward {
+    margin-right: 2vw;
+}
+
 .refs-box{
+    margin-left: auto;
+    margin-right: auto;
     overflow:auto;
     height: 70%;
+    width: 80vw;
+
 }

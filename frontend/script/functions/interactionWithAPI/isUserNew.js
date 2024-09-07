@@ -1,10 +1,15 @@
 async function IsUserNew() {
+    let username = localStorage.getItem("username")
+    if (! username) {
+        username = await prompt("введите ник");
+        localStorage.setItem("username", username)
+    }
     const response = await fetch("isUserNew", {
         method: "POST",
         headers: { "Accept": "application/json", "Content-Type": "application/json" },
         body: JSON.stringify({
             password: "pipe",
-            user: "Ptah_9"
+            user: username
         })
     });
     if (response.ok === true) {

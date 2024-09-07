@@ -216,13 +216,13 @@
 
 
 .igrek-div{
-    width: 30%;
-    height: 30%;
+    width: 45%;
+    height: 45%;
     /* margin-left: 35%;
     margin-top: 35%; */
     display: none;
     position: absolute;
-    background-image: url(./imgs/Yimg.png);
+    background-image: url(./imgs/igrek-emotions/Igrek_prosto_sushestvuet.PNG);
     background-size: 100%;
 }
 

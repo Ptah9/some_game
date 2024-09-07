@@ -34,7 +34,7 @@ class Level {
                 if (this.level[y][x] != 0){
                     this.rooms +=1;
                     let contains;
-                    if (getRandomArbitrary(0,20) == 9) contains = "igrek";
+                    if (getRandomArbitrary(0,5) == 3) contains = "igrek";
                     else contains = "nothing";   //chest/enemy (later)
                     let type;
                     let floor = floors[getRandomArbitrary(0, floors.length)];
